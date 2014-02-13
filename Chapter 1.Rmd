@@ -1,0 +1,208 @@
+Chapter 1
+========================================================
+
+# Index
+
+* What is a statistical mode
+* The three problems in Statistics
+* Critique of frequentist inference
+* Likelihood based Infernce
+* Bayesian Model
+
+--- Start Class on 11-2-2014 (session 1)
+
+# What is a statistical model
+
+(Angel?)
+
+# The three problems in Statistics
+
+(Angel?)
+
+--- Start Class on 13-2-2014 (session 2)
+
+# Critique of frequentist inference
+
+Frequentist statistitian is someone doing statistics using only statistical model. Doing that is extremely difficult. 
+
+(Afegir Dibuix)
+
+Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
+
+* point estimation
+* testing
+* prediction
+
+### a) Point estimation:
+
+Picking up a function of the data $\hat\theta(y)$ such that is close to the (formula) that generates the data with a large probability.
+
+How do you chose $\hat\theta(y)$?
+
+* $\hat\theta_{ML}(y)$ Maximum likelihood
+* $\hat\theta_{MM}(y)$ Moments
+* (formula) Least squares. Minimizes a distance between $y, \hat y$
+* (formula)
+
+Good asymptotical properties.
+All are heuristics.
+
+The only way to rank $\hat\theta(y)$'s and choose one based on how do they perform based on repeated sampling from $M = {p(y| \theta, \theta \in \Omega)}$
+
+Distribution of $\hat\theta(y)$ when $y P()$
+
+(dibuix sobre diferents estimadors)
+
+How to choose de best? Based on what?
+
+In order to make this comparison more feasable one often resorts to selecting $\hat\theta(y)$ based on the sqared mean error. 
+
+$MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) = E^{2} + V (formula)$
+
+Problems?
+* Difficult to compute.
+* Is a function of $\theta$ and you don't know the truth.
+* This does not rank your estimator either.
+
+(dibuix sobre mean squared error)
+
+### b) Interval estimation:
+
+What is the subset of $\Omega$ that best represents truth data.
+
+Answer: An interval with confidence p
+
+Difficulties: How do yo build such $C(p) = [] \subset \Omega$
+
+How do you get $formula$.
+
+Its difficult to do it for other thing different than a normal.
+The real problem when you have to explain what does it mean that $formula$ has confidence p?
+
+It means that 
+
+$P_{y|\Omega^{*}}()$ (dibuix)
+
+If you repeat the experiment with the same $\theta^{*}$ many times and compute thes kind of intervals each time, they would include $\theta^{*}$ with a probability larger than p.
+
+Is a function of $\theta^{*}$, the real value.
+
+Intervals has to be very large in the worst case scenareo.
+
+Do we really care only about this?
+
+In practice many people do as if confidence p is the same as 
+
+$P_{\Omega^{*}|y}(d_{L}(y) < ) = P()$ in your actual expermient.
+
+Fixed- random -Fixed This is not confidence intervals.
+
+Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normalality and need large sampling.
+
+Paper on binomial distribution.
+
+### c) Testing:
+
+To reduce your parameter space by splitting it in two pieces and pick up one of them 
+
+$\Omega = \Omega_{0} \cup \Omega_{0}$
+
+$H_{0}: \theta \in \Omega_{0}$
+$H_{a}: \theta \in \Omega_{a}$
+
+How do you choose a test?
+
+* Likelihood ratio test
+* Wald
+* Permutation
+
+Only neyman Pearson the only one not asymptotic. But just simple hipotesis. Anything else is just heuristics.
+
+Difficult to choose. Difficult to implement. What do you get with a test? A p-value.
+
+You end up with a [p-value][]. It is very difficult to understand what a p-value means.
+
+
+You cheat and do as if a p-value = $P(H_{0} is true | data)$
+
+If people want $P(H_{0} is true | data)$ why give a p-value.
+
+
+
+[p-value]: http://en.wikipedia.org/wiki/P-value
+
+### The problem with frequentist inference is that:
+
+* It is purely heuristic
+* It is grounded on assimptotic results even thoug N is always finite.
+* It is extremely difficult to 
+  * justify
+  * compute
+  * Interpret
+
+Statistics is to difficult to handle starting only from the statistical model.
+
+
+# Likelihood based Infernce
+
+Between Bayesian Model and Frequentist model.
+
+* Likelihood function
+* Can one use a likelihood function as a probability function
+* Likelihood principle
+
+### Likelihood function
+
+(dibuix statistical model)
+
+Likelihood function ins a function on $\Omega$ obtained by pluging in your observed data into $P(Y|\theta)$.
+
+$l_{Y = y} (\theta) = P(Y = y | \theta)$
+
+The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed cames from $P(y| \Omega^{*} = \Omega_{i})$
+
+(dibuix)
+
+The initial idea out of the blue is weird.
+
+#### Example
+
+$\theta = P(pin up) = 1 - P(pin down)$
+$M1 = {binomial(n = (10, \theta), \theta \in [0, \theta])}$
+
+$y = 6$ $\theta ML = 6/10$
+
+$likelihood$
+
+(dibuix)
+
+If $l / l = 2$
+
+$\theta_2$ is true more likelly to have generated your data from $\theta$
+
+(dibuix)
+
+How do you compare subset A with subset B in terms of likelihood?
+
+Can we use areas? Can we read the likelihood function as if it was a probability density function?
+
+There are 2 problems for treating $l(\theta)$ as a pdf.
+
+(integral diferent a 1)
+
+It can be fixed by to a standarized likelihood function.
+
+(integral standarized)
+
+Sometimes is infinite and you can't do that.
+
+If you reparametrize the model 
+Probability function have to integrate to 1.
+
+--- Class finishes
+
+### Can one use a likelihood function as a probability function
+
+### Likelihood principle
+
+# Bayesian Model
