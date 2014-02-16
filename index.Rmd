@@ -1,0 +1,23 @@
+Bayesian Analysis
+========================================================
+
+# [1. Bayesian Model][]
+
+### Statistical model
+### The three problems in Statistics
+### Critique of frequentist inference
+### Likelihood based Infernce
+### Bayesian Model
+
+
+[1. Bayesian Model]: http://lluisramon.github.io/Bayesian-Analysis/Chapter%201.html
+
+# 2. Bayesian Inference
+
+# 3. Hierachical models
+
+# 4. Model Checking and Model Selection
+
+# 5. Bayesian Computation
+
+# 6. Aplications
