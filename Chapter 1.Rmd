@@ -1,29 +1,95 @@
-Chapter 1
+Chapter 1: Bayesian Model
 ========================================================
 
-# Index
+# Chapter 1 subindex
 
-* What is a statistical mode
+* What is a statistical model
 * The three problems in Statistics
 * Critique of frequentist inference
 * Likelihood based Infernce
 * Bayesian Model
+* Posterior distribution
+* Prior predictive and posterior predictive distributions
+* Choice of the prior distribution
+* Bayesian model as a probability model and as a _data simulator_
+* Advantages and disadvantages of going Bayesian
 
 --- Start Class on 11-2-2014 (session 1)
 
 # What is a statistical model
 
-(Angel?)
+A statistical model (experiment) is a list (a set) of probability models indexed by a parameter that is known to belong to a parameter space $\Omega$.
+
+$M = {P(y | \theta), \theta \in \Omega}$, $\Omega$ parameter space.
+
+when we do inference we assume that data $Y = y$ is coming from a probability model $P(y| \theta^{*})$ that is known to belong to M. We assume that $\theta^{*} \in \Omega$.
+
+We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
+
+(dibuix)
+
+Example 1
+
+$M_{1} = {binomial(n, \theta), \theta \in [0,1]}$
+
+One could also think about using $\Omega = [.1, .9]$ or $\Omega = {.7, .8, .9}$ (trichotomy).
+
+Tossing "pins"
+
+$\theta = P(pin up)$
+$1 - \theta = P(pin down)$
+
+Once you have observed $n = 10$ and you get $y = 4$.
+
+${binomial(10, \theta), \theta \in [0,1]}$ and $y = 4$
+
+* a) Point estimation
+    * What is the $\hat \theta$ that best represent your data
+* b) Interval estimation
+* c) Testing
+* d) Prediction of future values
+
+You treat all models as they were equally model _algo mal apuntat_. $\theta = 0$, $\theta = 0.5$, $\theta = 1$. Are all $\theta$ equally credible? 
+
+Implicitly in a statistical model is the assumption that all probability models in $M = {P(y | \theta), \theta \in \Omega}$ are "equally credible". Is that a sensible assumption?
+
+* $\theta = Probability(heads)$
+* $\theta = Probability(pin up)$
+* $\theta = Probability(blue eyes in Bcn 2014)$
+
+Make sense to do inference in the same way?
+
+(dibuix probability vs statistics)
 
 # The three problems in Statistics
 
-(Angel?)
+### A) Design of expermients (sampling)
+
+You do not have data. 
+
+Choose the statistical model $M = {P(y | \theta), \theta \in \Omega}$ you are going to obtain your data from out of a list of possible statistical models $M_{1}, M_{2}, \dots M$.
+
+### B) Model Checking (identification)
+
+You have data, $Y = y$, and you have a candidate model $M = {P(y | \theta), \theta \in \Omega}$ and you need to decide whether that model is correct or not. That is, you have to decide whether the probability model $P(y | \theta^{*})$ that generated your data $Y = y$ is in M or not?
+
+### C) Statistical Inference
+
+Given your data $Y = y$ and assuming that the mode $M = {P(y | \theta), \theta \in \Omega}$ is __correct__ (because you know that the model $P(y | \theta^{*})$ generating your data is in M), then you do:
+
+* Point estimation
+* Interval estimation
+* Testing
+* Prediction
+* $\dots$
+
+Guessing what $\theta^{*}$ generated your data.
 
 --- Start Class on 13-2-2014 (session 2)
 
 # Critique of frequentist inference
 
-Frequentist statistitian is someone doing statistics using only statistical model. Doing that is extremely difficult. 
+Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
 
 (Afegir Dibuix)
 
@@ -44,7 +110,7 @@ How do you chose $\hat\theta(y)$?
 * (formula) Least squares. Minimizes a distance between $y, \hat y$
 * (formula)
 
-Good asymptotical properties.
+Good asymptotic properties.
 All are heuristics.
 
 The only way to rank $\hat\theta(y)$'s and choose one based on how do they perform based on repeated sampling from $M = {p(y| \theta, \theta \in \Omega)}$
@@ -53,9 +119,9 @@ Distribution of $\hat\theta(y)$ when $y P()$
 
 (dibuix sobre diferents estimadors)
 
-How to choose de best? Based on what?
+How to choose the best? Based on what?
 
-In order to make this comparison more feasable one often resorts to selecting $\hat\theta(y)$ based on the sqared mean error. 
+In order to make this comparison more feasible one often resorts to selecting $\hat\theta(y)$ based on the squared mean error. 
 
 $MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) = E^{2} + V (formula)$
 
@@ -83,21 +149,21 @@ It means that
 
 $P_{y|\Omega^{*}}()$ (dibuix)
 
-If you repeat the experiment with the same $\theta^{*}$ many times and compute thes kind of intervals each time, they would include $\theta^{*}$ with a probability larger than p.
+If you repeat the experiment with the same $\theta^{*}$ many times and compute these kind of intervals each time, they would include $\theta^{*}$ with a probability larger than p.
 
 Is a function of $\theta^{*}$, the real value.
 
-Intervals has to be very large in the worst case scenareo.
+Intervals has to be very large in the worst case scenario.
 
 Do we really care only about this?
 
 In practice many people do as if confidence p is the same as 
 
-$P_{\Omega^{*}|y}(d_{L}(y) < ) = P()$ in your actual expermient.
+$P_{\Omega^{*}|y}(d_{L}(y) < ) = P()$ in your actual experiment.
 
 Fixed- random -Fixed This is not confidence intervals.
 
-Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normalality and need large sampling.
+Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normality and need large sampling.
 
 Paper on binomial distribution.
 
@@ -116,7 +182,7 @@ How do you choose a test?
 * Wald
 * Permutation
 
-Only neyman Pearson the only one not asymptotic. But just simple hipotesis. Anything else is just heuristics.
+Only neyman Pearson the only one not asymptotic. But just simple hypothesis. Anything else is just heuristics.
 
 Difficult to choose. Difficult to implement. What do you get with a test? A p-value.
 
@@ -134,7 +200,7 @@ If people want $P(H_{0} is true | data)$ why give a p-value.
 ### The problem with frequentist inference is that:
 
 * It is purely heuristic
-* It is grounded on assimptotic results even thoug N is always finite.
+* It is grounded on asymptotic results even though N is always finite.
 * It is extremely difficult to 
   * justify
   * compute
@@ -155,11 +221,11 @@ Between Bayesian Model and Frequentist model.
 
 (dibuix statistical model)
 
-Likelihood function ins a function on $\Omega$ obtained by pluging in your observed data into $P(Y|\theta)$.
+Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
 $l_{Y = y} (\theta) = P(Y = y | \theta)$
 
-The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed cames from $P(y| \Omega^{*} = \Omega_{i})$
+The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
 
 (dibuix)
 
@@ -178,7 +244,7 @@ $likelihood$
 
 If $l / l = 2$
 
-$\theta_2$ is true more likelly to have generated your data from $\theta$
+$\theta_2$ is true more likely to have generated your data from $\theta$
 
 (dibuix)
 
@@ -190,9 +256,9 @@ There are 2 problems for treating $l(\theta)$ as a pdf.
 
 (integral diferent a 1)
 
-It can be fixed by to a standarized likelihood function.
+It can be fixed by to a standardized likelihood function.
 
-(integral standarized)
+(integral standardized)
 
 Sometimes is infinite and you can't do that.
 
@@ -206,3 +272,13 @@ Probability function have to integrate to 1.
 ### Likelihood principle
 
 # Bayesian Model
+
+# Posterior distribution
+
+# Prior predictive and posterior predictive distributions
+
+# Choice of the prior distribution
+
+# Bayesian model as a probability model and as a _data simulator_
+
+# Advantages and disadvantages of going Bayesian

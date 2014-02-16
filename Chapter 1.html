@@ -943,33 +943,108 @@ img.mfp-img {
 </head>
 
 <body>
-<h1>Chapter 1</h1>
+<h1>Chapter 1: Bayesian Model</h1>
 
-<h1>Index</h1>
+<h1>Chapter 1 subindex</h1>
 
 <ul>
-<li>What is a statistical mode</li>
+<li>What is a statistical model</li>
 <li>The three problems in Statistics</li>
 <li>Critique of frequentist inference</li>
 <li>Likelihood based Infernce</li>
 <li>Bayesian Model</li>
+<li>Posterior distribution</li>
+<li>Prior predictive and posterior predictive distributions</li>
+<li>Choice of the prior distribution</li>
+<li>Bayesian model as a probability model and as a <em>data simulator</em></li>
+<li>Advantages and disadvantages of going Bayesian</li>
 </ul>
 
 <p>--- Start Class on 11-2-2014 (session 1)</p>
 
 <h1>What is a statistical model</h1>
 
-<p>(Angel?)</p>
+<p>A statistical model (experiment) is a list (a set) of probability models indexed by a parameter that is known to belong to a parameter space \(\Omega\).</p>
+
+<p>\(M = {P(y | \theta), \theta \in \Omega}\), \(\Omega\) parameter space.</p>
+
+<p>when we do inference we assume that data \(Y = y\) is coming from a probability model \(P(y| \theta^{*})\) that is known to belong to M. We assume that \(\theta^{*} \in \Omega\).</p>
+
+<p>We will <em>claim</em> that the model M is correct if the probability model that generated the data \(P(y | \theta^{*}) \in M\).</p>
+
+<p>(dibuix)</p>
+
+<p>Example 1</p>
+
+<p>\(M_{1} = {binomial(n, \theta), \theta \in [0,1]}\)</p>
+
+<p>One could also think about using \(\Omega = [.1, .9]\) or \(\Omega = {.7, .8, .9}\) (trichotomy).</p>
+
+<p>Tossing &quot;pins&quot;</p>
+
+<p>\(\theta = P(pin up)\)
+\(1 - \theta = P(pin down)\)</p>
+
+<p>Once you have observed \(n = 10\) and you get \(y = 4\).</p>
+
+<p>\({binomial(10, \theta), \theta \in [0,1]}\) and \(y = 4\)</p>
+
+<ul>
+<li>a) Point estimation
+
+<ul>
+<li>What is the \(\hat \theta\) that best represent your data</li>
+</ul></li>
+<li>b) Interval estimation</li>
+<li>c) Testing</li>
+<li>d) Prediction of future values</li>
+</ul>
+
+<p>You treat all models as they were equally model <em>algo mal apuntat</em>. \(\theta = 0\), \(\theta = 0.5\), \(\theta = 1\). Are all \(\theta\) equally credible? </p>
+
+<p>Implicitly in a statistical model is the assumption that all probability models in \(M = {P(y | \theta), \theta \in \Omega}\) are &quot;equally credible&quot;. Is that a sensible assumption?</p>
+
+<ul>
+<li>\(\theta = Probability(heads)\)</li>
+<li>\(\theta = Probability(pin up)\)</li>
+<li>\(\theta = Probability(blue eyes in Bcn 2014)\)</li>
+</ul>
+
+<p>Make sense to do inference in the same way?</p>
+
+<p>(dibuix probability vs statistics)</p>
 
 <h1>The three problems in Statistics</h1>
 
-<p>(Angel?)</p>
+<h3>A) Design of expermients (sampling)</h3>
+
+<p>You do not have data. </p>
+
+<p>Choose the statistical model \(M = {P(y | \theta), \theta \in \Omega}\) you are going to obtain your data from out of a list of possible statistical models \(M_{1}, M_{2}, \dots M\).</p>
+
+<h3>B) Model Checking (identification)</h3>
+
+<p>You have data, \(Y = y\), and you have a candidate model \(M = {P(y | \theta), \theta \in \Omega}\) and you need to decide whether that model is correct or not. That is, you have to decide whether the probability model \(P(y | \theta^{*})\) that generated your data \(Y = y\) is in M or not?</p>
+
+<h3>C) Statistical Inference</h3>
+
+<p>Given your data \(Y = y\) and assuming that the mode \(M = {P(y | \theta), \theta \in \Omega}\) is <strong>correct</strong> (because you know that the model \(P(y | \theta^{*})\) generating your data is in M), then you do:</p>
+
+<ul>
+<li>Point estimation</li>
+<li>Interval estimation</li>
+<li>Testing</li>
+<li>Prediction</li>
+<li>\(\dots\)</li>
+</ul>
+
+<p>Guessing what \(\theta^{*}\) generated your data.</p>
 
 <p>--- Start Class on 13-2-2014 (session 2)</p>
 
 <h1>Critique of frequentist inference</h1>
 
-<p>Frequentist statistitian is someone doing statistics using only statistical model. Doing that is extremely difficult. </p>
+<p>Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. </p>
 
 <p>(Afegir Dibuix)</p>
 
@@ -994,7 +1069,7 @@ img.mfp-img {
 <li>(formula)</li>
 </ul>
 
-<p>Good asymptotical properties.
+<p>Good asymptotic properties.
 All are heuristics.</p>
 
 <p>The only way to rank \(\hat\theta(y)\)&#39;s and choose one based on how do they perform based on repeated sampling from \(M = {p(y| \theta, \theta \in \Omega)}\)</p>
@@ -1003,9 +1078,9 @@ All are heuristics.</p>
 
 <p>(dibuix sobre diferents estimadors)</p>
 
-<p>How to choose de best? Based on what?</p>
+<p>How to choose the best? Based on what?</p>
 
-<p>In order to make this comparison more feasable one often resorts to selecting \(\hat\theta(y)\) based on the sqared mean error. </p>
+<p>In order to make this comparison more feasible one often resorts to selecting \(\hat\theta(y)\) based on the squared mean error. </p>
 
 <p>\(MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) = E^{2} + V (formula)\)</p>
 
@@ -1036,21 +1111,21 @@ The real problem when you have to explain what does it mean that \(formula\) has
 
 <p>\(P_{y|\Omega^{*}}()\) (dibuix)</p>
 
-<p>If you repeat the experiment with the same \(\theta^{*}\) many times and compute thes kind of intervals each time, they would include \(\theta^{*}\) with a probability larger than p.</p>
+<p>If you repeat the experiment with the same \(\theta^{*}\) many times and compute these kind of intervals each time, they would include \(\theta^{*}\) with a probability larger than p.</p>
 
 <p>Is a function of \(\theta^{*}\), the real value.</p>
 
-<p>Intervals has to be very large in the worst case scenareo.</p>
+<p>Intervals has to be very large in the worst case scenario.</p>
 
 <p>Do we really care only about this?</p>
 
 <p>In practice many people do as if confidence p is the same as </p>
 
-<p>\(P_{\Omega^{*}|y}(d_{L}(y) < ) = P()\) in your actual expermient.</p>
+<p>\(P_{\Omega^{*}|y}(d_{L}(y) < ) = P()\) in your actual experiment.</p>
 
 <p>Fixed- random -Fixed This is not confidence intervals.</p>
 
-<p>Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normalality and need large sampling.</p>
+<p>Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normality and need large sampling.</p>
 
 <p>Paper on binomial distribution.</p>
 
@@ -1071,7 +1146,7 @@ The real problem when you have to explain what does it mean that \(formula\) has
 <li>Permutation</li>
 </ul>
 
-<p>Only neyman Pearson the only one not asymptotic. But just simple hipotesis. Anything else is just heuristics.</p>
+<p>Only neyman Pearson the only one not asymptotic. But just simple hypothesis. Anything else is just heuristics.</p>
 
 <p>Difficult to choose. Difficult to implement. What do you get with a test? A p-value.</p>
 
@@ -1085,7 +1160,7 @@ The real problem when you have to explain what does it mean that \(formula\) has
 
 <ul>
 <li>It is purely heuristic</li>
-<li>It is grounded on assimptotic results even thoug N is always finite.</li>
+<li>It is grounded on asymptotic results even though N is always finite.</li>
 <li>It is extremely difficult to 
 
 <ul>
@@ -1111,11 +1186,11 @@ The real problem when you have to explain what does it mean that \(formula\) has
 
 <p>(dibuix statistical model)</p>
 
-<p>Likelihood function ins a function on \(\Omega\) obtained by pluging in your observed data into \(P(Y|\theta)\).</p>
+<p>Likelihood function ins a function on \(\Omega\) obtained by plugging in your observed data into \(P(Y|\theta)\).</p>
 
 <p>\(l_{Y = y} (\theta) = P(Y = y | \theta)\)</p>
 
-<p>The heuristic behind this is that the largest the \(l_{Y = y} (\theta_{i})\), the more likely it is that the data observed cames from \(P(y| \Omega^{*} = \Omega_{i})\)</p>
+<p>The heuristic behind this is that the largest the \(l_{Y = y} (\theta_{i})\), the more likely it is that the data observed comes from \(P(y| \Omega^{*} = \Omega_{i})\)</p>
 
 <p>(dibuix)</p>
 
@@ -1134,7 +1209,7 @@ The real problem when you have to explain what does it mean that \(formula\) has
 
 <p>If \(l / l = 2\)</p>
 
-<p>\(\theta_2\) is true more likelly to have generated your data from \(\theta\)</p>
+<p>\(\theta_2\) is true more likely to have generated your data from \(\theta\)</p>
 
 <p>(dibuix)</p>
 
@@ -1146,9 +1221,9 @@ The real problem when you have to explain what does it mean that \(formula\) has
 
 <p>(integral diferent a 1)</p>
 
-<p>It can be fixed by to a standarized likelihood function.</p>
+<p>It can be fixed by to a standardized likelihood function.</p>
 
-<p>(integral standarized)</p>
+<p>(integral standardized)</p>
 
 <p>Sometimes is infinite and you can&#39;t do that.</p>
 
@@ -1162,6 +1237,16 @@ Probability function have to integrate to 1.</p>
 <h3>Likelihood principle</h3>
 
 <h1>Bayesian Model</h1>
+
+<h1>Posterior distribution</h1>
+
+<h1>Prior predictive and posterior predictive distributions</h1>
+
+<h1>Choice of the prior distribution</h1>
+
+<h1>Bayesian model as a probability model and as a <em>data simulator</em></h1>
+
+<h1>Advantages and disadvantages of going Bayesian</h1>
 
 </body>
 
