@@ -26,7 +26,12 @@ when we do inference we assume that data $Y = y$ is coming from a probability mo
 
 We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
 
-(dibuix)
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
+
 
 Example 1
 
@@ -59,7 +64,10 @@ Implicitly in a statistical model is the assumption that all probability models 
 
 Make sense to do inference in the same way?
 
-(dibuix probability vs statistics)
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n(probability vs statistics)", cex = 1.5)
+```
 
 # The three problems in Statistics
 
@@ -91,7 +99,12 @@ Guessing what $\theta^{*}$ generated your data.
 
 Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
 
-(Afegir Dibuix)
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
+
 
 Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
 
@@ -117,7 +130,11 @@ The only way to rank $\hat\theta(y)$'s and choose one based on how do they perfo
 
 Distribution of $\hat\theta(y)$ when $y P()$
 
-(dibuix sobre diferents estimadors)
+```{r dibuix sobre diferents estimadors, fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n(diferent estimators)", cex = 1.5)
+```
+
 
 How to choose the best? Based on what?
 
@@ -219,7 +236,10 @@ Between Bayesian Model and Frequentist model.
 
 ### Likelihood function
 
-(dibuix statistical model)
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n(statistical model)", cex = 1.5)
+```
 
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
@@ -227,7 +247,10 @@ $l_{Y = y} (\theta) = P(Y = y | \theta)$
 
 The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
 
-(dibuix)
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
 
 The initial idea out of the blue is weird.
 
@@ -240,13 +263,19 @@ $y = 6$ $\theta ML = 6/10$
 
 $likelihood$
 
-(dibuix)
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
 
 If $l / l = 2$
 
 $\theta_2$ is true more likely to have generated your data from $\theta$
 
-(dibuix)
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
 
 How do you compare subset A with subset B in terms of likelihood?
 
