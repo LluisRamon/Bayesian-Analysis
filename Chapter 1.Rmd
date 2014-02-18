@@ -298,13 +298,157 @@ Probability function have to integrate to 1.
 
 --- Class finishes
 
+--- Start Class on 18-2-2014 (session 3)
+
+(dibuix explicatiu frequentist vs likelihood based statistics, Potser el va fer l'altre dia)
+
+What can you say about the likelihood of (a,b)?
+
+Let's use are under $l(\theta)$. Does that allow one to compare intervals? Not for two reasons.
+
+* a) Area under $l(\theta)$ might be larger than one and eve $infinity$. That can be partially fixed by standardizing $l_{st}$.
+* b) Area under the likelihood function is not invariant under reparametrizations.
+
+You care about $\beta = 1/ \theta$.
+
+${p(y| \theta) = formula}$
+
+This is the same model but reparametrized. The same statistical model!
+
+$l_{st} = formula$
+
+The problem will be that in the new parametrization the areas will be different. The likelihood function does not behave/work like a probability density function.
+
+The role in the Jacobian in repramarizations is to mantain areas.
+
+Fisher spend the last years of his live to obtain a likelihood function behave like a probability density function. But it didn't work.
+
+Choosing a prior would have fished the problem.
+
 ### Can one use a likelihood function as a probability function
+
+Talked in the previous section.
 
 ### Likelihood principle
 
+If you observe from two different statistical models
+
+$M_{1} = {P(y | \theta), \theta \in \Omega}$
+
+$M_{2} = {P(y | \theta), \theta \in \Omega}$
+
+And the likelihood function are proportional
+
+$formula$
+
+Then your inference (decisions) has to be identical.
+
+Paper Bimbaun (1964) JASA (Will be posted in atenea)
+Sufficiency principle + [conditionality principle][] then Likelihood principle
+
+[conditionality principle]: http://en.wikipedia.org/wiki/Conditionality_principle
+
+$M_{1}$ Tossing a pin 10 times and counting how many times you get pin up = $binomial(10, \theta)$ $y= 6$
+
+$M_{2}$ Toss that pin until you observe six times pin up and count the number of tosses = $Negative binomial(6, \theta)$ $y' = 10$
+
+$M_{3}$ Toss that pin until the five claim sounds $y'' = 6 pin up and 4 pin down$
+
+$l_{1}^{y = 6} formula$
+
+Your conclusion about $\theta^{*}$ will be the same.
+
+If you _algo_ by the likelihood principle. 
+
+Irrelevance of the stooping rule. Only the things that happen matter.
+
+The problem with many frequentist concepts is that they violate the likelihood principle.
+
+Frequentist have to judge everything based on what will happen with repeated simulation from $P(y|\theta)$ and they worry about what could happen if.
+
+The likelihood principle tells you that only what happened matter.
+
 # Bayesian Model
 
+A Bayesian statistician also starts with a statistical model, 
+
+$M = {P(y | \theta), \theta \in \Omega}$
+
+but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$, $\pi(\theta)$
+
+This prior distribution $\pi(\theta)$ reflects what belive about $\theta$.
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n Bayesian model", cex = 1.5)
+```
+
+It is a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
+
+
+#### Example 
+
+$M = {Binomial(10, \theta), \theta \in [0,1]}$
+
+$\pi(\theta)$ is supposed to capture what you know about $\theta$ without data.
+
+A possible prior could be a uniform. This is not informative, it tells you that being near 0 has the same probability than being near 1.
+
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
+
+Beta distributions ara convinient. $\pi(\theta) = Beta(a, b)$ 
+
+In the past it was useful because you could calculated by hand.
+
+$formula Beta$
+
+$Beta(1,1)$ ia a $U(0,1)$
+
+$E(\theta) = a / (a+b)$
+$V(\theta) = ab / (a+b+1)(a+b)^2$
+$Mode = a-1 / a + b -2$
+
+The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta)$
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n Beta with different \n parameter", cex = 1.5)
+```
+
+* Toss coin, $\pi(\theta) = \Beta(50, 50)$, $E(\theta) = 1/2$ and $V$
+* Push pin, $\pi(\theta) = \Beta(2, 2)$, $E(\theta) = 1/2$ and $V$
+* Blue eyes, $\pi(\theta) = \Beta(1, 4)$, $E(\theta) = 1/5$ and $V$
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n different plots \n on coin, pin, blue eyes", cex = 1.5)
+```
+
+Assuming that $\pi(\theta) formula$ is like assuming that you have tossed yur pin a+b times in your head and you have observed a times pin up and b times pin down.
+
+One problem is that if you don't agree with a prior in your research.
+
+Choosing a prior is answering about $\theta$ and who knows about $\theta$ is the client. The statistitian has to help the client to choose the distribution. 
+
 # Posterior distribution
+
+We start with $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$.
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot", cex = 1.5)
+```
+
+We start with $P(y | \theta)$
+
+Once you have the data $P(y | \theta)$ in the wrong kind of statement.
+
+What you would like to have is a probability statement $\theta | y$ inverse probability. Likelihood function can not be read in this terms ( previous sections). But the posterior distribution will.
+
 
 # Prior predictive and posterior predictive distributions
 
