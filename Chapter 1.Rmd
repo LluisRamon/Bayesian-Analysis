@@ -315,7 +315,7 @@ ${p(y| \theta) = formula}$
 
 This is the same model but reparametrized. The same statistical model!
 
-$l_{st} = formula$
+$\ell^{st} = formula$
 
 The problem will be that in the new parametrization the areas will be different. The likelihood function does not behave/work like a probability density function.
 
