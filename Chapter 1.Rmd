@@ -450,7 +450,120 @@ Once you have the data $P(y | \theta)$ in the wrong kind of statement.
 What you would like to have is a probability statement $\theta | y$ inverse probability. Likelihood function can not be read in this terms ( previous sections). But the posterior distribution will.
 
 
+--- Start class on 20-2-2014
+
+Once you have observed your data, you feel the need to go from $formula$ 
+to a statement $\theta | y$ y known, $\theta$ unknow.
+
+## Bayes Theorem
+
+$\pi(\theta | y) = formula = formula$
+
+$formula \rightarrow$ The __constant__ needed so that $\pi(\theta | y)$ integrate to 1. You have y becouse is your data.
+
+Prior predictive distribution evaluated at your data values.
+
+This is the only thing that you have to compute in order to have your posterior. If you know how to integrate you are done.
+
+If you don't pick specific priors the integral is going to be difficult. In case you cannot integrate you will use simulation and estimate yor posterior.
+
+Sometimes you don't need to integrate. If you compute $formula$ and you recognize the distribution, then $formula$ will be the constant that gets $\pi(\theta | y)$ to integrate to one.
+
+$formula*formula$ The second term is a version of the likelihood function.
+
+By incorporating the prior in the analysis, $l_{y}(\theta)$ becomes a proper probability model.
+
+This is all the math that there is in Bayesian Analysis.
+
+A Bayesian will do:
+
+* Chose a  $\pi(\theta)$
+* Compute (or simulate) from  $\pi(\theta | y)$ and show it to the client.
+
+Since data gets into the posterior only through the likelihood, $l_{y}(\theta)$ Bayesian inference will allways satisfy the likelihood principle.
+
+A flat prior is a prior $formula$ that is constant on $\Omega$. If you use them 
+
+$\pi(\theta | y) formula$ standarized likelihood.
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n Frequentist \n Likelihoof \n Bayesian", cex = 1.5)
+```
+
+* In Frequentist statistics you fit a model.
+* In Bayesian statistics you update a model.
+
+We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
+
+#### Example (coin and pin)
+
+$formula$
+
+$\pi(\theta) = Beta(a, b) = formula$
+
+$Y = 6$
+
+$\pi(\theta | y) = formula = formula$
+
+$\pi(\theta | y) = Beta(a + y, b + n - y) = Beta(a + 6, b + 10 - 6)$
+
+
+```{r fig.width = 4, fig.height = 4, echo = FALSE}
+plot.new()
+text(0.5, 0.5, "Missing plot \n likelihood", cex = 1.5)
+```
+
+The likelihood 
+
+```{r, echo = FALSE}
+x <- seq(0, 1, by = 0.01)
+
+plot(dbeta(x, 50, 50), col = "red", type = "l")
+lines(dbeta(x, 2, 2))
+```
+
+
+Posteriors
+
+```{r, echo = FALSE}
+plot(dbeta(x, 56, 54), col = "red", type = "l")
+lines(dbeta(x, 8, 6))
+```
+
+
+Frequentist chooses $M = {P(y | \theta), \theta \in \Omega}$
+
+Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$.
+
+Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
+
+Imagine that for binomial I choose
+
+$\pi(\theta) = formula$
+
+Support of $formula$ will be
+
+If $formula$ I will never get there. Data will never lead you out of $\Omega = [.6, 1]$
+
+Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosin a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$
+
+
+In Statistical Inference you deal with two kind of questions 
+
+a) Answer questions about $\theta^{*}$ starting from a sample $Y = y$ from $M = {P(y | \theta), \theta \in \Omega}$.
+
+$\pi(\theta) \rightarrow \pi(\theta| y)$
+
+b) Answer   questions about future values of $y$, $y barra$, assuming that $\theta^*$ will be the same that generated $Y = y$.
+
+$formula \rightarrow formula$
+
+
+
+  
 # Prior predictive and posterior predictive distributions
+
 
 # Choice of the prior distribution
 
