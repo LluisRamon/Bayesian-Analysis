@@ -309,7 +309,7 @@ Let's use are under $l(\theta)$. Does that allow one to compare intervals? Not f
 * a) Area under $l(\theta)$ might be larger than one and eve $infinity$. That can be partially fixed by standardizing $l_{st}$.
 * b) Area under the likelihood function is not invariant under reparametrizations.
 
-You care about $\beta = 1/ \theta$.
+You care about $\beta = \frac{1}{\theta}$.
 
 ${p(y| \theta) = formula}$
 
