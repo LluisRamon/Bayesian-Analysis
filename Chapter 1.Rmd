@@ -306,17 +306,17 @@ What can you say about the likelihood of (a,b)?
 
 Let's use area under $\ell(\theta)$. Does that allow one to compare intervals? Not for two reasons.
 
-* a) Area under $\ell(\theta)$ might be larger than one and even $infty$. That can be partially fixed by standardizing 
+* a) Area under $\ell(\theta)$ might be larger than one and even $\infty$. That can be partially fixed by standardizing 
 
 $\ell^{st}(\theta)=\frac{\ell(\theta)}{\int_{\Omega}\ell(\theta)d\theta}$
 
 * b) Area under the likelihood function is not invariant under reparametrizations.
 
-\underlaine{Example}
+\underline{Example}
 
 You care about $\beta = \frac{1}{\theta}$.
 
-$M=\left{p(y|\theta) = \binomial{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty\right}$
+$M=\left\{p(y|\theta) = \binom{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty)\right\}$
 
 This is the same model but reparametrized. The same statistical model! And now the \ell(\theta) with y=6 'll be proportional to,
 
@@ -327,9 +327,9 @@ The problem will be that in the new parametrization the areas will be different.
 
 The role in the Jacobian in repramarizations is to mantain areas.
 
-Fisher spend the last years of his live to obtain a likelihood function behave like a probability density function. But it didn't work.
+Fisher spent the last years of his live to obtain a likelihood function behave like a probability density function. But it didn't work.
 
-Choosing a prior would have fished the problem.
+Choosing a prior would have finished the problem.
 
 ### Can one use a likelihood function as a probability function
 
@@ -339,18 +339,18 @@ Talked in the previous section.
 
 If you observe from two different statistical models
 
-$M_{1} = {P(y | \theta), \theta \in \Omega}$
+$M_{1} = {P_{1}(y | \theta), \theta \in \Omega}$
 
-$M_{2} = {P(y | \theta), \theta \in \Omega}$
+$M_{2} = {P_{2}(y | \theta), \theta \in \Omega}$
 
-And the likelihood function are proportional
+And the likelihood function are proportional 
 
-$formula$
+$P_{1}(Y=y|\theta)=\ell^{1}_{Y=y}(\theta)~\alpha~P_{2}(Y=y|\theta)=\ell^{2}_{Y=y}(\theta)$
 
-Then your inference (decisions) has to be identical.
+then your inferences (decisions) about $\theta^{*}$ have to be identical.
 
 Paper Bimbaun (1964) JASA (Will be posted in atenea)
-Sufficiency principle + [conditionality principle][] then Likelihood principle
+Sufficiency principle + [conditionality principle][] then Likelihood principle are reached
 
 [conditionality principle]: http://en.wikipedia.org/wiki/Conditionality_principle
 
