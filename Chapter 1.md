@@ -1,0 +1,542 @@
+Chapter 1: Bayesian Model
+========================================================
+
+# Chapter 1 subindex
+
+* What is a statistical model
+* The three problems in Statistics
+* Critique of frequentist inference
+* Likelihood based Infernce
+* Bayesian Model
+* Posterior distribution
+* Prior predictive and posterior predictive distributions
+* Choice of the prior distribution
+* Bayesian model as a probability model and as a _data simulator_
+* Advantages and disadvantages of going Bayesian
+
+--- Start Class on 11-2-2014 (session 1)
+
+# What is a statistical model
+
+A statistical model (experiment) is a list (a set) of probability models indexed by a parameter that is known to belong to a parameter space $\Omega$.
+
+$M = {P(y | \theta), \theta \in \Omega}$, $\Omega$ parameter space.
+
+when we do inference we assume that data $Y = y$ is coming from a probability model $P(y| \theta^{*})$ that is known to belong to M. We assume that $\theta^{*} \in \Omega$.
+
+We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
+
+
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
+
+
+
+Example 1
+
+$M_{1} = {binomial(n, \theta), \theta \in [0,1]}$
+
+One could also think about using $\Omega = [.1, .9]$ or $\Omega = {.7, .8, .9}$ (trichotomy).
+
+Tossing "pins"
+
+$\theta = P(\bot)$
+
+$1 - \theta = P(\vdash)$
+
+Once you have observed $n = 10$ and you get $y = 4$.
+
+${binomial(10, \theta), \theta \in [0,1]}$ and $y = 4$
+
+* a) Point estimation
+    * What is the $\hat \theta$ that best represent your data
+* b) Interval estimation
+* c) Testing
+* d) Prediction of future values
+
+You treat all models as they were equally model _algo mal apuntat_. $\theta = 0$, $\theta = 0.5$, $\theta = 1$. Are all $\theta$ equally credible? 
+
+Implicitly in a statistical model is the assumption that all probability models in $M = {P(y | \theta), \theta \in \Omega}$ are "equally credible". Is that a sensible assumption?
+
+* $\theta = Probability(heads)$
+* $\theta = Probability(\bot)$
+* $\theta = Probability(blue eyes in Bcn 2014)$
+
+Make sense to do inference in the same way?
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+
+
+# The three problems in Statistics
+
+### A) Design of expermients (sampling)
+
+You do not have data. 
+
+Choose the statistical model $M = {P(y | \theta), \theta \in \Omega}$ you are going to obtain your data from out of a list of possible statistical models $M_{1}, M_{2}, \dots M$.
+
+### B) Model Checking (identification)
+
+You have data, $Y = y$, and you have a candidate model $M = {P(y | \theta), \theta \in \Omega}$ and you need to decide whether that model is correct or not. That is, you have to decide whether the probability model $P(y | \theta^{*})$ that generated your data $Y = y$ is in M or not?
+
+### C) Statistical Inference
+
+Given your data $Y = y$ and assuming that the mode $M = {P(y | \theta), \theta \in \Omega}$ is __correct__ (because you know that the model $P(y | \theta^{*})$ generating your data is in M), then you do:
+
+* Point estimation
+* Interval estimation
+* Testing
+* Prediction
+* $\dots$
+
+Guessing what $\theta^{*}$ generated your data.
+
+--- Start Class on 13-2-2014 (session 2)
+
+# Critique of frequentist inference
+
+Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
+
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+
+
+
+Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
+
+* point estimation
+* testing
+* prediction
+
+### a) Point estimation:
+
+Picking up a function of the data $\hat\theta(y):S_y\longrightarrow\Omega$ such that is close to the $\hat\theta(y)$ that generates the data with a large probability.
+
+How do you chose $\hat\theta(y)$?
+
+* $\hat\theta_{ML}(y)$ Maximum likelihood
+* $\hat\theta_{MM}(y)$ Moments
+* $\hat\theta_{LS}(y)$ Least squares. Minimizes a distance between $y, \hat y$
+* $\hat\theta_{R}(y)$ Robust estimation
+
+Good asymptotic properties.
+All are heuristics.
+
+The only way to rank $\hat\theta(y)$'s and choose one based on how do they perform based on repeated sampling from $M = {p(y| \theta, \theta \in \Omega)}$
+
+Distribution of $\hat\theta(y)$ when$y\sim P(y|\theta^*)$
+
+![plot of chunk dibuix sobre diferents estimadors](figure/dibuix_sobre_diferents_estimadors.png) 
+
+
+
+How to choose the best? Based on what?
+
+In order to make this comparison more feasible one often resorts to selecting $\hat\theta(y)$ based on the squared mean error. 
+
+$MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) =\left(E(\hat\theta(y)|\theta)-\theta\right)^{2} + V (\hat\theta(y)|\theta)=B(\hat\theta(y)|\theta)^2+V(\hat\theta(y)|\theta)$
+
+Problems?
+* Difficult to compute.
+* Is a function of $\theta$ and you don't know the truth.
+* This does not rank your estimator either.
+
+(dibuix sobre mean squared error)
+
+### b) Interval estimation:
+
+What is the subset of $\Omega$ that best represents truth data.
+
+Answer: An interval with confidence p
+
+Difficulties: How do yo build such $C(p) = [] \subset \Omega$
+
+How do you get $formula$.
+
+Its difficult to do it for other thing different than a normal.
+The real problem when you have to explain what does it mean that $formula$ has confidence p?
+
+It means that 
+
+$P_{y|\Omega^{*}}()$ (dibuix)
+
+If you repeat the experiment with the same $\theta^{*}$ many times and compute these kind of intervals each time, they would include $\theta^{*}$ with a probability larger than p.
+
+Is a function of $\theta^{*}$, the real value.
+
+Intervals has to be very large in the worst case scenario.
+
+Do we really care only about this?
+
+In practice many people do as if confidence p is the same as 
+
+$P_{\Omega^{*}|y}(d_{L}(y) < ) = P()$ in your actual experiment.
+
+Fixed- random -Fixed This is not confidence intervals.
+
+Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normality and need large sampling.
+
+Paper on binomial distribution.
+
+### c) Testing:
+
+To reduce your parameter space by splitting it in two pieces and pick up one of them 
+
+$\Omega = \Omega_{0} \cup \Omega_{0}$
+
+$H_{0}: \theta \in \Omega_{0}$
+$H_{a}: \theta \in \Omega_{a}$
+
+How do you choose a test?
+
+* Likelihood ratio test
+* Wald
+* Permutation
+
+Only neyman Pearson the only one not asymptotic. But just simple hypothesis. Anything else is just heuristics.
+
+Difficult to choose. Difficult to implement. What do you get with a test? A p-value.
+
+You end up with a [p-value][]. It is very difficult to understand what a p-value means.
+
+
+You cheat and do as if a p-value = $P(H_{0} is true | data)$
+
+If people want $P(H_{0} is true | data)$ why give a p-value.
+
+
+
+[p-value]: http://en.wikipedia.org/wiki/P-value
+
+### The problem with frequentist inference is that:
+
+* It is purely heuristic
+* It is grounded on asymptotic results even though N is always finite.
+* It is extremely difficult to 
+  * justify
+  * compute
+  * Interpret
+
+Statistics is to difficult to handle starting only from the statistical model.
+
+
+# Likelihood based Infernce
+
+Between Bayesian Model and Frequentist model.
+
+* Likelihood function
+* Can one use a likelihood function as a probability function
+* Likelihood principle
+
+### Likelihood function
+
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+
+
+Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
+
+$l_{Y = y} (\theta) = P(Y = y | \theta)$
+
+The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
+
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+
+
+The initial idea out of the blue is weird.
+
+#### Example
+
+$\theta = P(\bot) = 1 - P(\vdash)$
+
+$M1 = {binomial(n = (10, \theta), \theta \in [0, \theta])}$ and $y = 6$ 
+
+$\theta_{ML} = 6/10$
+
+$likelihood$
+
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+
+
+If $l / l = 2$
+
+$\theta_2$ is true more likely to have generated your data from $\theta$
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
+
+
+How do you compare subset A with subset B in terms of likelihood?
+
+Can we use areas? Can we read the likelihood function as if it was a probability density function?
+
+There are 2 problems for treating $l(\theta)$ as a pdf.
+
+(integral diferent a 1)
+
+It can be fixed by to a standardized likelihood function.
+
+(integral standardized)
+
+Sometimes is infinite and you can't do that.
+
+If you reparametrize the model 
+Probability function have to integrate to 1.
+
+--- Class finishes
+
+--- Start Class on 18-2-2014 (session 3)
+
+(dibuix explicatiu frequentist vs likelihood based statistics, Potser el va fer l'altre dia)
+
+What can you say about the likelihood of (a,b)?
+
+Let's use area under $\ell(\theta)$. Does that allow one to compare intervals? Not for two reasons.
+
+* a) Area under $\ell(\theta)$ might be larger than one and even $\infty$. That can be partially fixed by standardizing 
+
+$\ell^{st}(\theta)=\frac{\ell(\theta)}{\int_{\Omega}\ell(\theta)d\theta}$
+
+* b) Area under the likelihood function is not invariant under reparametrizations.
+
+\underline{Example}
+
+You care about $\beta = \frac{1}{\theta}$.
+
+$M=\left\{p(y|\theta) = \binom{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty)\right\}$
+
+This is the same model but reparametrized. The same statistical model! And now the \ell(\theta) with y=6 'll be proportional to,
+
+$\ell^{st} = \frac{\left(\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}}{\int_{1}^{\infty}\left(
+\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}d\theta}$
+
+The problem will be that in the new parametrization the areas will be different. The likelihood function does not behave/work like a probability density function.
+
+The role in the Jacobian in repramarizations is to mantain areas.
+
+Fisher spend the last years of his live to obtain a likelihood function behave like a probability density function. But it didn't work.
+
+Choosing a prior would have fished the problem.
+
+### Can one use a likelihood function as a probability function
+
+Talked in the previous section.
+
+### Likelihood principle
+
+If you observe from two different statistical models
+
+$M_{1} = {P(y | \theta), \theta \in \Omega}$
+
+$M_{2} = {P(y | \theta), \theta \in \Omega}$
+
+And the likelihood function are proportional
+
+$formula$
+
+Then your inference (decisions) has to be identical.
+
+Paper Bimbaun (1964) JASA (Will be posted in atenea)
+Sufficiency principle + [conditionality principle][] then Likelihood principle
+
+[conditionality principle]: http://en.wikipedia.org/wiki/Conditionality_principle
+
+$M_{1}$ Tossing a pin 10 times and counting how many times you get pin up = $binomial(10, \theta)$ $y= 6$
+
+$M_{2}$ Toss that pin until you observe six times pin up and count the number of tosses = $Negative binomial(6, \theta)$ $y' = 10$
+
+$M_{3}$ Toss that pin until the five claim sounds $y'' = 6 pin up and 4 pin down$
+
+$l_{1}^{y = 6} formula$
+
+Your conclusion about $\theta^{*}$ will be the same.
+
+If you _algo_ by the likelihood principle. 
+
+Irrelevance of the stooping rule. Only the things that happen matter.
+
+The problem with many frequentist concepts is that they violate the likelihood principle.
+
+Frequentist have to judge everything based on what will happen with repeated simulation from $P(y|\theta)$ and they worry about what could happen if.
+
+The likelihood principle tells you that only what happened matter.
+
+# Bayesian Model
+
+A Bayesian statistician also starts with a statistical model, 
+
+$M = {P(y | \theta), \theta \in \Omega}$
+
+but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$, $\pi(\theta)$
+
+This prior distribution $\pi(\theta)$ reflects what belive about $\theta$.
+
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+
+
+It is a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
+
+
+#### Example 
+
+$M = {Binomial(10, \theta), \theta \in [0,1]}$
+
+$\pi(\theta)$ is supposed to capture what you know about $\theta$ without data.
+
+A possible prior could be a uniform. This is not informative, it tells you that being near 0 has the same probability than being near 1.
+
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+
+
+Beta distributions ara convinient. $\pi(\theta) = Beta(a, b)$ 
+
+In the past it was useful because you could calculated by hand.
+
+$formula Beta$
+
+$Beta(1,1)$ ia a $U(0,1)$
+
+$E(\theta) = a / (a+b)$
+$V(\theta) = ab / (a+b+1)(a+b)^2$
+$Mode = a-1 / a + b -2$
+
+The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta)$
+
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+
+
+* Toss coin, $\pi(\theta) = \Beta(50, 50)$, $E(\theta) = 1/2$ and $V$
+* Push pin, $\pi(\theta) = \Beta(2, 2)$, $E(\theta) = 1/2$ and $V$
+* Blue eyes, $\pi(\theta) = \Beta(1, 4)$, $E(\theta) = 1/5$ and $V$
+
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+
+
+Assuming that $\pi(\theta) formula$ is like assuming that you have tossed yur pin a+b times in your head and you have observed a times pin up and b times pin down.
+
+One problem is that if you don't agree with a prior in your research.
+
+Choosing a prior is answering about $\theta$ and who knows about $\theta$ is the client. The statistitian has to help the client to choose the distribution. 
+
+# Posterior distribution
+
+We start with $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$.
+
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+
+
+We start with $P(y | \theta)$
+
+Once you have the data $P(y | \theta)$ in the wrong kind of statement.
+
+What you would like to have is a probability statement $\theta | y$ inverse probability. Likelihood function can not be read in this terms ( previous sections). But the posterior distribution will.
+
+
+--- Start class on 20-2-2014
+
+Once you have observed your data, you feel the need to go from $formula$ 
+to a statement $\theta | y$ y known, $\theta$ unknow.
+
+## Bayes Theorem
+
+$\pi(\theta | y) = formula = formula$
+
+$formula \rightarrow$ The __constant__ needed so that $\pi(\theta | y)$ integrate to 1. You have y becouse is your data.
+
+Prior predictive distribution evaluated at your data values.
+
+This is the only thing that you have to compute in order to have your posterior. If you know how to integrate you are done.
+
+If you don't pick specific priors the integral is going to be difficult. In case you cannot integrate you will use simulation and estimate yor posterior.
+
+Sometimes you don't need to integrate. If you compute $formula$ and you recognize the distribution, then $formula$ will be the constant that gets $\pi(\theta | y)$ to integrate to one.
+
+$formula*formula$ The second term is a version of the likelihood function.
+
+By incorporating the prior in the analysis, $l_{y}(\theta)$ becomes a proper probability model.
+
+This is all the math that there is in Bayesian Analysis.
+
+A Bayesian will do:
+
+* Chose a  $\pi(\theta)$
+* Compute (or simulate) from  $\pi(\theta | y)$ and show it to the client.
+
+Since data gets into the posterior only through the likelihood, $l_{y}(\theta)$ Bayesian inference will allways satisfy the likelihood principle.
+
+A flat prior is a prior $formula$ that is constant on $\Omega$. If you use them 
+
+$\pi(\theta | y) formula$ standarized likelihood.
+
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+
+
+* In Frequentist statistics you fit a model.
+* In Bayesian statistics you update a model.
+
+We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
+
+#### Example (coin and pin)
+
+$formula$
+
+$\pi(\theta) = Beta(a, b) = formula$
+
+$Y = 6$
+
+$\pi(\theta | y) = formula = formula$
+
+$\pi(\theta | y) = Beta(a + y, b + n - y) = Beta(a + 6, b + 10 - 6)$
+
+
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+
+
+The likelihood 
+
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+
+
+
+Posteriors
+
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+
+
+
+Frequentist chooses $M = {P(y | \theta), \theta \in \Omega}$
+
+Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$.
+
+Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
+
+Imagine that for binomial I choose
+
+$\pi(\theta) = formula$
+
+Support of $formula$ will be
+
+If $formula$ I will never get there. Data will never lead you out of $\Omega = [.6, 1]$
+
+Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosin a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$
+
+
+In Statistical Inference you deal with two kind of questions 
+
+a) Answer questions about $\theta^{*}$ starting from a sample $Y = y$ from $M = {P(y | \theta), \theta \in \Omega}$.
+
+$\pi(\theta) \rightarrow \pi(\theta| y)$
+
+b) Answer   questions about future values of $y$, $y barra$, assuming that $\theta^*$ will be the same that generated $Y = y$.
+
+$formula \rightarrow formula$
+
+
+
+  
+# Prior predictive and posterior predictive distributions
+
+
+# Choice of the prior distribution
+
+# Bayesian model as a probability model and as a _data simulator_
+
+# Advantages and disadvantages of going Bayesian
