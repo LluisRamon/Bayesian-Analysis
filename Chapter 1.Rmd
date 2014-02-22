@@ -304,18 +304,24 @@ Probability function have to integrate to 1.
 
 What can you say about the likelihood of (a,b)?
 
-Let's use are under $l(\theta)$. Does that allow one to compare intervals? Not for two reasons.
+Let's use area under $\ell(\theta)$. Does that allow one to compare intervals? Not for two reasons.
 
-* a) Area under $l(\theta)$ might be larger than one and eve $infinity$. That can be partially fixed by standardizing $l_{st}$.
+* a) Area under $\ell(\theta)$ might be larger than one and even $infty$. That can be partially fixed by standardizing 
+
+$\ell^{st}(\theta)=\frac{\ell(\theta)}{\int_{\Omega}\ell(\theta)d\theta}$
+
 * b) Area under the likelihood function is not invariant under reparametrizations.
+
+\underlaine{Example}
 
 You care about $\beta = \frac{1}{\theta}$.
 
-${p(y| \theta) = formula}$
+$M=\left{p(y|\theta) = \binomial{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty\right}$
 
-This is the same model but reparametrized. The same statistical model!
+This is the same model but reparametrized. The same statistical model! And now the \ell(\theta) with y=6 'll be proportional to,
 
-$\ell_{st} = formula$
+$\ell^{st} = \frac{\left(\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}}{\int_{1}^{\infty}\left(
+\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}d\theta}$
 
 The problem will be that in the new parametrization the areas will be different. The likelihood function does not behave/work like a probability density function.
 
