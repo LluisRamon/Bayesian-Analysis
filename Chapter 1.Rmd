@@ -115,21 +115,21 @@ Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
 
 ### a) Point estimation:
 
-Picking up a function of the data $\hat\theta(y)$ such that is close to the (formula) that generates the data with a large probability.
+Picking up a function of the data $\hat\theta(y):S_y\longrightarrow\Omega$ such that is close to the $\hat\theta(y)$ that generates the data with a large probability.
 
 How do you chose $\hat\theta(y)$?
 
 * $\hat\theta_{ML}(y)$ Maximum likelihood
 * $\hat\theta_{MM}(y)$ Moments
-* (formula) Least squares. Minimizes a distance between $y, \hat y$
-* (formula)
+* $\hat\theta_{LS}(y)$ Least squares. Minimizes a distance between $y, \hat y$
+* $\hat\theta_{R}(y)$ Robust estimation
 
 Good asymptotic properties.
 All are heuristics.
 
 The only way to rank $\hat\theta(y)$'s and choose one based on how do they perform based on repeated sampling from $M = {p(y| \theta, \theta \in \Omega)}$
 
-Distribution of $\hat\theta(y)$ when $y P()$
+Distribution of $\hat\theta(y)$ when$y\sim P(y|\theta^*)$
 
 ```{r dibuix sobre diferents estimadors, fig.width = 4, fig.height = 4, echo = FALSE}
 plot.new()
@@ -141,7 +141,7 @@ How to choose the best? Based on what?
 
 In order to make this comparison more feasible one often resorts to selecting $\hat\theta(y)$ based on the squared mean error. 
 
-$MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) = E^{2} + V (formula)$
+$MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) =\left(E(\hat\theta(y)|\theta)-\theta\right)^{2} + V (\hat\theta(y)|\theta)=B(\hat\theta(y)|\theta)^2+V(\hat\theta(y)|\theta)$
 
 Problems?
 * Difficult to compute.
