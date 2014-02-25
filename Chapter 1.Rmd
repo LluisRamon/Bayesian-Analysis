@@ -554,14 +554,144 @@ b) Answer   questions about future values of $y$, $y barra$, assuming that $\the
 
 $formula \rightarrow formula$
 
-
+--- Start Class on 25-2-2014
 
   
 # Prior predictive and posterior predictive distributions
 
+What do you do if you care about future values of y, $y$? (assumig that $formula$ will stay the same).
+
+What do we know about $formula$ before answering the data?
+
+$formula$
+
+If you assume this, what is your best bet (guess) as a distribution of $formula$?
+
+$formula$
+
+This is what you will use if you want to predict $formula$ without data.
+
+__NOTE__: $p_{\pi} \in formula$
+
+What will we do if we want to make a probability statement about future values of $y$ $\tilde y$, after observing data $Y = y$. 
+
+Our best guess for a distribution of $\tilde y$ will be
+
+$formula$
+
+Posterior predictive distribution.
+
+Having $p_{\pi}(\tilde y)$ and a $p_{\pi}(\tilde y| y)$ is having a __LOT__ more than just having point estimator, $\tilde y$, interval estimator, $\tilde y \pm S_{\tilde y}$.
+
+(dibuix1)
+
+(dibuix2)
+
+#### Example (binomial)
+
+$\left\{\begin{matrix} M = {binomial(n , \theta), \theta \in [0, \theta]} \\ \pi(\theta) = Beta(a, b) \end{matrix}\right.$
+
+$p_{\pi}(\tilde y) = \int_{\Omega}{p(\tilde y | \theta)\pi(\theta) d\theta} = formula = formula$
+
+(dibuix) -> (dibuix) Having this is having a lot more than what you are used to have.
+
+$p_{\pi}(\tilde y| y) = Beta-binomial(a + y, b + n -y,  {n}') = formula$
+
+${n}'$ sample size for $\tilde y$
 
 # Choice of the prior distribution
 
+It is no big deal.
+
+Chosing $\pi(\theta)$ is the same as chosing $p_{\pi}(\tilde y) = \int_{\Omega}{p(y | \theta)\pi(\theta) d\theta}$
+
+$\tilde y$ This is the same thing that you will eventually _observe_.
+
+If you have information about $\theta$ or about $\tilde y$, then you want to make sure that all of it is included in $\pi(\theta)$, $p_{\tilde  y}$ through an informative prior.
+
+What will we do if we know little or nothing about $\theta$ an $\tilde y$?
+
+Ideally you would like you to have a catalogue of priors to be used when nothing is known. These priors are called reference priors.
+
+You will have diferent ways of defining reference priors, and so for a given $M = {P(y | \theta), \theta \in \Omega}$ one gets more than one candidate.
+
+In practice there is nothing wrong in trying different priors and checking how the posterior changes. 
+
+### Informative priors
+
+#### a) Conjugate priors
+
+A family of priors for a statistical model, M, is conjugate if the posterior is in the same family.
+
+Only (all) statistical models that are in the exponential family have conjugate priors.
+
+Conjugate priors were the only ones that could be used in practice 30 years ago. They allow you to update the $\pi(\theta)$ inteo the $\pi(\theta | y)$ by just updating the parameters of the $\pi(\theta)$.
+
+(Catalog of conjugate priors in atenea?)
+
+It is easy to check that finite mixtures of conjugate priors are conjugate
+
+$formula$
+
+Conjugate priors for a $binomial(n, \theta)$ model.
+
+You could get very close to almost any distribution on [0,1].
+
+(dibuix 4 possible betas)
+
+#### b) Non-conjugate priors
+
+The problem with chosing a prior is more challanging the larger the $\Omega$.
+
+$\Omega \in R^*$
+
+__Example__ Normal linear model.
+
+$M_x = {Normal(\beta_0 + \beta_{1}x, \sigma^2)}, (\beta_0, \beta_1, \sigma) \in \mathbb{R}^2 [0, \infty]$
+
+Any distribution on $\mathbb{R}^2 [0, \infty]$ is allowed.
+
+(dibuix)
+
+You might want to chose a prior by stating what tou know about $\beta$, and about $formula$
+
+$formula$
+
+$formula$
+
+Sometimes you want to chose $\pi(\theta)$ by ma probability statements about future values $\tilde y(x)$
+
+(dibuix)
+
+It requires a lot of care but it is doable. Then everything is straightforward.
+
+It is not easy to translate what people know about $\tilde y$ or about $\theta$ in terms of probability. This is the most (only) challanging step in Bayesian Inference.
+
+(dibuix)
+
+Start asking about the maximum, mean, etc. Depending on the problem. 
+
+--- End 
+
+### Reference priors
+
+The selection of prior distributions by formal rules (Kass-Waserman-1995)
+
+* Flat priors
+* Jeffrey's priors
+* Limits of conjugate priors with $formula$
+* Others
+
+Different answers to what prior do I want to use if I do not want to chose prior.
+
+We look for priors that do not  _mess_ the information in $l_y (\theta)$.
+
+$\pi(\theta)$ that are _as if_ they were not there.
+
+If the probability space is finite it is fine. If the probability space is infinite it doesn't integrate to one, they are called improper ones. They are allowed as long as the posterior integrates to one.
+
 # Bayesian model as a probability model and as a _data simulator_
+
+
 
 # Advantages and disadvantages of going Bayesian
