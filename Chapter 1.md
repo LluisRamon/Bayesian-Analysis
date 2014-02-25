@@ -409,9 +409,9 @@ The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta
 </div></div>
 
 
-* Toss coin, $\pi(\theta) = \Beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about \theta.
-* Push pin, $\pi(\theta) = \Beta(2, 2)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.5$
-* Blue eyes, $\pi(\theta) = \Beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$.  As $a<b$ it'll be more density on the left of the pdf.
+* Toss coin, $\pi(\theta) = \beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about \theta.
+* Push pin, $\pi(\theta) = \beta(2, 2)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.5$
+* Blue eyes, $\pi(\theta) = \beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$.  As $a<b$ it'll be more density on the left of the pdf.
 
 <div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" class="plot" /></div>
 </div></div>
@@ -540,13 +540,13 @@ $formula \rightarrow formula$
   
 # Prior predictive and posterior predictive distributions
 
-What do you do if you care about future values of y, $y$? (assumig that $formula$ will stay the same).
+What do you do if you care about future values of $y$, $\tilde y$? (assumig that $\theta^*$ will stay the same).
 
-What do we know about $formula$ before answering the data?
+What do we know about $\tilde y$ before answering the data?
 
-$formula$
+$\left\{\begin{matrix} M = {p(\tilde y , \theta), \theta \in \Omega} \\ \pi(\theta) \end{matrix}\right.$
 
-If you assume this, what is your best bet (guess) as a distribution of $formula$?
+If you assume this, what is your best bet (guess) as a distribution of $\tilde y$?
 
 $formula$
 
@@ -656,7 +656,8 @@ Start asking about the maximum, mean, etc. Depending on the problem.
 
 ### Reference priors
 
-The selection of prior distributions by formal rules (Kass-Waserman-1995)
+[The selection of prior distributions by formal rules](http://www.jstor.org/stable/2291752) (Kass-Waserman-1995)
+
 
 * Flat priors
 * Jeffrey's priors
