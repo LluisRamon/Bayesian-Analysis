@@ -32,7 +32,7 @@ We will _claim_ that the model M is correct if the probability model that genera
 
 
 
-Example 1
+$\underline{Example 1}$
 
 $M_{1} = {binomial(n, \theta), \theta \in [0,1]}$
 
@@ -249,7 +249,7 @@ The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the 
 
 The initial idea out of the blue is weird.
 
-#### Example
+$\underline{Example}$
 
 $\theta = P(\bot) = 1 - P(\vdash)$
 
@@ -304,16 +304,15 @@ $\ell^{st}(\theta)=\frac{\ell(\theta)}{\int_{\Omega}\ell(\theta)d\theta}$
 
 * b) Area under the likelihood function is not invariant under reparametrizations.
 
-\underline{Example}
+$\underline{Example}$
 
 You care about $\beta = \frac{1}{\theta}$.
 
 $M=\left\{p(y|\theta) = \binom{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty)\right\}$
 
-This is the same model but reparametrized. The same statistical model! And now the \ell(\theta) with y=6 'll be proportional to,
+This is the same model but reparametrized. The same statistical model! And now the \ell($\theta$) with y=6 'll be proportional to,
 
-$\ell^{st} = \frac{\left(\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}}{\int_{1}^{\infty}\left(
-\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}d\theta}$
+$\ell^{st} = \frac{\left(\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}}{\int_{1}^{\infty}\left(\frac{1}{\beta}\right)^{6}\left(\frac{\beta-1}{\beta}\right)^{4}d\theta}$
 
 The problem will be that in the new parametrization the areas will be different. The likelihood function does not behave/work like a probability density function.
 
@@ -346,7 +345,7 @@ sufficiency principle + [conditionality principle][] are satisfied, then Likelih
 
 [conditionality principle]: http://en.wikipedia.org/wiki/Conditionality_principle
 
-\underline{Example}
+$\underline{Example}$
 
 $M_{1}$ Tossing a pin 10 times and counting how many times you get pin up. 
 $M_{1}=\left\{Binom(10, \theta), \theta\in\Omega\right\}$ with $y=6$
@@ -380,7 +379,7 @@ but on top of this considers $\theta$ to be a random variable, and he/she is rea
 We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
 
 
-\underline{Example} 
+$\underline{Example}$
 
 $M = \left\{Bin(10, \theta), \theta \in [0,1]\right\}$
 
@@ -477,7 +476,7 @@ $\pi(\theta | y) formula$ standarized likelihood.
 
 We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
 
-#### Example (coin and pin)
+$\underline{Example(coin and pin)}$
 
 $formula$
 
@@ -568,7 +567,7 @@ Having $p_{\pi}(\tilde y)$ and a $p_{\pi}(\tilde y| y)$ is having a __LOT__ more
 
 (dibuix2)
 
-#### Example (binomial)
+$\underline{Example (binomial)}$
 
 $\left\{\begin{matrix} M = {binomial(n , \theta), \theta \in [0, \theta]} \\ \pi(\theta) = Beta(a, b) \end{matrix}\right.$
 
@@ -626,7 +625,7 @@ The problem with chosing a prior is more challanging the larger the $\Omega$.
 
 $\Omega \in R^*$
 
-__Example__ Normal linear model.
+$\underline{Example (Normal linear model)}$
 
 $M_x = {Normal(\beta_0 + \beta_{1}x, \sigma^2)}, (\beta_0, \beta_1, \sigma) \in \mathbb{R}^2 [0, \infty]$
 
@@ -672,8 +671,149 @@ $\pi(\theta)$ that are _as if_ they were not there.
 
 If the probability space is finite it is fine. If the probability space is infinite it doesn't integrate to one, they are called improper ones. They are allowed as long as the posterior integrates to one.
 
+--- Start class 27-2-2014
+
+If $N \leftarrow \infty$, $formula$ and $formula$
+
+Reference priors are an attempt to get the same kind of deal for small N. (objective, non informative, default prior)
+
+* a) Flat priors: All elements of $\theta \in \Omega$ have the same prior probability.
+
+When $\Omega = {\theta_1, \theta_2, \dots, \theta_k}$, $\pi(\theta) = formula$.
+
+This prior is hard to beat as a reference prior. (for finite $\Omega$).
+
+I'm not sure about that. Imagine that your goal is to answer the question 
+
+$formula$
+
+Are you sure that you would want to use the $\pi(\theta) = formula$ by default.
+
+One alternative that make sense here would be 
+
+$formula$
+$formula$
+
+If the goal of the analysis is to estimate $\theta$ then the uniform $\pi(\theta) = formula$ is indeed hard to beat.
+
+In general, when $\Omega$ is uncountable and not compact or countable, the proble with using a flat prior is that the integral is infinity. They are called improper prior.
+
+In practice, improper priors _"can be used"_ as long as the posterior is proper. This has to be checked! Otherwise you could do silly things.
+
+An option could be to truncate $\Omega$ far away from your likelihood and then it would be proper. 
+
+The problem ?here? is that a flat prior is no invariant under re-parametrization. 
+
+$\underline{Example}$
+
+$M = Binomial$
+
+$\pi(\theta) =$
+
+Imagine that you want to make inference about $\eta = \frac{1}{\theta}$
+
+$\theta \~ U(0,1)$ then $\pi(\eta) = \frac{1}{\eta^2} \neq flat$
+
+$\theta \~ U(0,1)$ then $\pi(log(\theta)) = e^{\phi} \neq flat$
+
+Then is a reason for not calling flat priors non-informative priors.
+
+Not a reason for not using them by default.
+
+* b) [Jeffreys priors](http://en.wikipedia.org/wiki/Jeffreys_prior)
+
+$\pi_{j}(\theta) = \sqrt(|I(\theta)|)$
+
+$\pi_{j}(\theta) = formula$
+
+Invariant against re-parametrization.
+
+Very often Jeffreys priors are improper.
+
+* c) Conjugate with $V(\theta) = \infty$
+
+What do we get for $binomial formula$
+
+a) $\pi(\theta) = formula = Beta(1,1)$
+b) $\pi_{j}(\theta) = formula = Beta(0.5, 0.5)$
+c) Conjugate prior is $B(a, b)$ 
+
+$V(\theta) = \frac{ab}{(a + b + 1)(a + b)^2}$
+
+If (a + b) decreases to 0, the Variance increases.
+
+$\theta \~ Beta(0, 0) \Rightarrow V(\theta) = \infty$
+
+(dibuix)
+
+a + b is equivalent to prior sample size. 
+
+b) and c) could be improper.
+
+
+It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three you check are similar you are done, if not you have too think better which one to use.
+
+Empirical Bayes is not bayesian.
+
+To chose the prior that makes the probability distribution similar to the histogram to your data. 
+
+Chosing the prior is the same than chosing a prior predictive.
+
+(dibuix)
+
+This is cheating. It requires to chose the prior a posteriori, after data. It violates the likelihood principle. 
+
+$formula$
+
+This is not bayesian and is tempting because what you get from this tends to have very good frequentist properties.
+
+
 # Bayesian model as a probability model and as a _data simulator_
 
+Care about $\theta$
 
+(dibuix)
+
+Care about $\tilde y$
+
+(dibuix)
+
+Care about both $(\tilde y,\theta)$  $\tilde y$ Observable and $\theta$ not observable. 
+
+(dibuix)
+
+Bayesian model is a probability model and hence Bayesian mathematics are probability mathematics.
+
+Building a Bayesian model is very much like building a data simulation model that you will train with real data. (we will talk more in chapter 4 model checking)
+
+With a statistical model you can not simulate.
+
+(dibuix)
 
 # Advantages and disadvantages of going Bayesian
+
+#### Non-Bayesian frequentist
+
+He can not talk about the probability of $\theta$.
+He assesses everything indirectly by checking what happens under repeated sampling from
+
+$P(Y | \theta), \theta \in \Omega$
+
+How do they deal with non-repetitive phenomenon.
+
+Is tomorrow going to rain? How would you deal with this statistically unless you are Bayesian?
+
+Frequentist statistics only have $M = {P(y | \theta), \theta \in \Omega}$ and proceeding from that only is difficult to:
+
+* justify
+* implement
+* interpret
+
+Once you have observed your data y becomes known and $\theta$ is still unknown. Why do you want to keep thinking in terms of $P(Y| \theta)$, and hence in terms of what could have happened if $\theta$ with $\theta$.
+
+$P(Y| \theta)$ Why don't you swith? A frequentist answer is because you can't. You can not do this unless you have a prior.
+
+
+--- End session
+
+
