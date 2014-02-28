@@ -1,3 +1,4 @@
+\usepackage{relsize}
 Chapter 1: Bayesian Model
 ========================================================
 
@@ -27,8 +28,7 @@ when we do inference we assume that data $Y = y$ is coming from a probability mo
 We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
 
 
-<div class="chunk" id="unnamed-chunk-1"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1.png) 
 
 
 
@@ -64,8 +64,7 @@ Implicitly in a statistical model is the assumption that all probability models 
 
 Make sense to do inference in the same way?
 
-<div class="chunk" id="unnamed-chunk-2"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-2.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
 
 
 # The three problems in Statistics
@@ -99,8 +98,7 @@ Guessing what $\theta^{*}$ generated your data.
 Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
 
 
-<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-3.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
 
@@ -128,8 +126,7 @@ The only way to rank $\hat\theta(y)$'s and choose one based on how do they perfo
 
 Distribution of $\hat\theta(y)$ when$y\sim P(y|\theta^*)$
 
-<div class="chunk" id="dibuix sobre diferents estimadors"><div class="rcode"><div class="rimage default"><img src="figure/dibuix_sobre_diferents_estimadors.png" title="plot of chunk dibuix sobre diferents estimadors" alt="plot of chunk dibuix sobre diferents estimadors" class="plot" /></div>
-</div></div>
+![plot of chunk dibuix sobre diferents estimadors](figure/dibuix_sobre_diferents_estimadors.png) 
 
 
 
@@ -233,8 +230,7 @@ Between Bayesian Model and Frequentist model.
 
 ### Likelihood function
 
-<div class="chunk" id="unnamed-chunk-4"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-4.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
@@ -243,8 +239,7 @@ $l_{Y = y} (\theta) = P(Y = y | \theta)$
 
 The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
 
-<div class="chunk" id="unnamed-chunk-5"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-5.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 
 The initial idea out of the blue is weird.
@@ -259,16 +254,14 @@ $\theta_{ML} = 6/10$
 
 $likelihood$
 
-<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-6.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 If $l / l = 2$
 
 $\theta_2$ is true more likely to have generated your data from $\theta$
 
-<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-7.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 How do you compare subset A with subset B in terms of likelihood?
@@ -372,8 +365,7 @@ $M = {P(y | \theta), \theta \in \Omega}$
 
 but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$ (the so called prior distribution), $\pi(\theta)$. This prior distribution $\pi(\theta)$ reflects what belive about $\theta$.
 
-<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-8.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
 We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
@@ -388,8 +380,7 @@ $\pi(\theta)$ is supposed to capture what you know about $\theta$ without data.
 A possible prior could be a uniform. This is not informative, it tells you that being near 0 has the same probability than being near 1.
 
 
-<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-9.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 Beta distributions ara convinient. $\pi(\theta) = Beta(a, b)$. In the past it was useful because you could calculated by hand.
@@ -404,16 +395,14 @@ $Mode = \frac{a-1}{a + b -2}$
 
 The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta) (\downarrow V[\theta])$
 
-<div class="chunk" id="unnamed-chunk-10"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-10.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
 * Toss coin, $\pi(\theta) = \beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about \theta.
 * Push pin, $\pi(\theta) = \beta(2, 2)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.5$
 * Blue eyes, $\pi(\theta) = \beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$.  As $a<b$ it'll be more density on the left of the pdf.
 
-<div class="chunk" id="unnamed-chunk-11"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-11.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
 
 Assuming that $\pi(\theta)\sim\textrm{Beta}(a,b)$ is like assuming that you have tossed yur pin a+b times in your head and you have observed a times pin up and b times pin down.
@@ -424,8 +413,7 @@ One problem is that if you don't agree with a prior in your research. Choosing a
 
 We start with $M = \left\{P(y | \theta), \theta \in \Omega\right\}$ and $\pi(\theta)$.
 
-<div class="chunk" id="unnamed-chunk-12"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-12.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wrong kind of statement, because y is already known an $\theta$ unknown. What you would really like to have is a probability statement $P(\theta|y)$, knew in the pas as inverse probability. Likelihood function can not be read in this terms, to get $P(\theta|y)$ (posterior distribution), we'd need a prior.
@@ -433,95 +421,79 @@ We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wro
 
 --- Start class on 20-2-2014
 
-Once you have observed your data, you feel the need to go from $formula$ 
-to a statement $\theta | y$ y known, $\theta$ unknow.
+Once you have observed your data, you feel the need to go from ${p(y|\theta), \theta\in\Omega}$ to a statement $\theta | y$ with y known and $\theta$ unknown.
 
 ## Bayes Theorem
 
-$\pi(\theta | y) = formula = formula$
+In Bayesian mode we have a statistical model $M={p(y|\theta),\theta\in\Omega}$ and a prior distribution $\pi(\theta)$. That's equivalent to $\pi(\theta)p(y|\theta)=f_{\Omega}(\theta,y)$ (joint distribution).
+
+The Bayes theorem states that to compute the posterior distribution:
+
+$\pi(\theta|y)=\frac{f(y,\theta)}{P_{\pi}(y)}=\frac{\pi(\theta)P(y|\theta)}{P_{\pi}(y)}$
+
+Where $P_{\pi}(y)$ (prior predictive distribution) is a constant needed to that the posterior $\pi(\theta|y)$ integrates to 1.
+
+$P_{\pi}(y)=\int_{\Omega}P(y|\theta)\pi(\theta)d\theta$
 
 $formula \rightarrow$ The __constant__ needed so that $\pi(\theta | y)$ integrate to 1. You have y becouse is your data.
 
-Prior predictive distribution evaluated at your data values.
+This is the only thing that you have to compute in order to have your posterior. If you know how to integrate you are done. If you don't pick specific priors the integral is going to be difficult. In case you cannot integrate you will use simulation and estimate your posterior.
 
-This is the only thing that you have to compute in order to have your posterior. If you know how to integrate you are done.
+Sometimes you don't need to integrate. If you compute $\pi(\theta)P(y|\theta)$ and you recognize the distribution, then $\frac{1}{P_{\pi}(\y)}$ will be the constant that gets $\pi(\theta | y)$ to integrate to one.
 
-If you don't pick specific priors the integral is going to be difficult. In case you cannot integrate you will use simulation and estimate yor posterior.
+$\pi(\theta|y)=\pi(\theta)\frac{1}{P_{\pi}(y)}P(y|\theta)~\alpha~\pi(\theta)\ell_{y}(\theta)$ where the second term is a version of the likelihood function and $P(y|\theta)$ your statistical model.
 
-Sometimes you don't need to integrate. If you compute $formula$ and you recognize the distribution, then $formula$ will be the constant that gets $\pi(\theta | y)$ to integrate to one.
-
-$formula*formula$ The second term is a version of the likelihood function.
-
-By incorporating the prior in the analysis, $l_{y}(\theta)$ becomes a proper probability model.
-
-This is all the math that there is in Bayesian Analysis.
+By incorporating the prior in the analysis, $\ell_{y}(\theta)$ becomes a proper probability model. This is all the math that there is in Bayesian Analysis.
 
 A Bayesian will do:
 
-* Chose a  $\pi(\theta)$
-* Compute (or simulate) from  $\pi(\theta | y)$ and show it to the client.
+* Chose a prior $\pi(\theta)$
+* Compute (or simulate) from the posterior $\pi(\theta | y)$ and show it to the client.
 
-Since data gets into the posterior only through the likelihood, $l_{y}(\theta)$ Bayesian inference will allways satisfy the likelihood principle.
+Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta)$ Bayesian inference will allways satisfy the likelihood principle.
 
-A flat prior is a prior $formula$ that is constant on $\Omega$. If you use them 
+A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\alpha~\ell_{u}$ like $\ell_{y}^{st}$
 
-$\pi(\theta | y) formula$ standarized likelihood.
-
-<div class="chunk" id="unnamed-chunk-13"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-13.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
 
 
-* In Frequentist statistics you fit a model.
-* In Bayesian statistics you update a model.
+* In Frequentist statistics you fit a model, namely, from all your possible infinites models in M you just pick one.
+* In likelihood based statistics after data you get M and the likelihood function, that ranks your statistical models $P(y|\theta)$ from more to less likely.
+* In Bayesian statistics first you order yours $P(y|\theta)\in M$ from more to less credible through the prior. After getting your data you don't fit a model you just update your model and rank the elements of M in terms of credibility in the light of the data. We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
 
-We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
+$\underline{Example (coin and pin)}$
 
-$\underline{Example(coin and pin)}$
+$\left\{P(y|\theta)=\binom{10}{y}\theta^{y}(1-\theta)^{10-y}, \theta\in[0,1]\right\}$
 
-$formula$
+$\pi(\theta) = Beta(a, b) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1}$
 
-$\pi(\theta) = Beta(a, b) = formula$
+With $Y = 6$, then:
 
-$Y = 6$
-
-$\pi(\theta | y) = formula = formula$
+$\pi(\theta | y) = \frac{\pi(\theta)P(y|\theta)}{\int_{\Omega}\pi(\theta)P(y|\theta)d\theta}=\frac{\binom{10}{y}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a+y-1}(1-\theta)^{10+b-y-1}}{\mathlarger{\int}_{0}^{1}\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a+y-1}(1-\theta)^{10+b-y-1}d\theta}$
 
 $\pi(\theta | y) = Beta(a + y, b + n - y) = Beta(a + 6, b + 10 - 6)$
 
 
-<div class="chunk" id="unnamed-chunk-14"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-14.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
 
 
 The likelihood 
 
-<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-15.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 
 Posteriors
 
-<div class="chunk" id="unnamed-chunk-16"><div class="rcode"><div class="rimage default"><img src="figure/unnamed-chunk-16.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" class="plot" /></div>
-</div></div>
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
 
 
 
-Frequentist chooses $M = {P(y | \theta), \theta \in \Omega}$
+Frequentist chooses just one model from $M = {P(y | \theta), \theta \in \Omega}$, Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$. Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
 
-Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$.
+Imagine that for binomial I pick $\pi(\theta)$ that's a Uniform with $\Omega=[0.6,1]$, then the support of the posterior $\pi(\theta|y)$ will be $[0.6,1]$, and if $\theta^{*}=0.4$ we will never get there, and data will never lead you out of $\Omega = [.6, 1]$. Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosin a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$. 
 
-Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
-
-Imagine that for binomial I choose
-
-$\pi(\theta) = formula$
-
-Support of $formula$ will be
-
-If $formula$ I will never get there. Data will never lead you out of $\Omega = [.6, 1]$
-
-Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosin a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$
+\mbox{Equivocar-se a l'hora d'escollir un model significa agafar-ne un que no conté $\theta^{*}$; en canvi equivocar-se amb la tria de la distro. a priori significa concentrar-te lluny de $\theta^{*}$, cosa que es pot solucionar amb dades}
 
 
 In Statistical Inference you deal with two kind of questions 
@@ -530,9 +502,9 @@ a) Answer questions about $\theta^{*}$ starting from a sample $Y = y$ from $M = 
 
 $\pi(\theta) \rightarrow \pi(\theta| y)$
 
-b) Answer   questions about future values of $y$, $y barra$, assuming that $\theta^*$ will be the same that generated $Y = y$.
+b) Answer   questions about future values of $y$, $\tilde{y}$, assuming that $\theta^*$ will be the same that generated $Y = y$.
 
-$formula \rightarrow formula$
+$P_{pi}(\tilde{y}) \rightarrow P_{\pi}(\tilde{y}|y)$, namely, going from the prior predictive to the posterior predictive.
 
 --- Start Class on 25-2-2014
 
