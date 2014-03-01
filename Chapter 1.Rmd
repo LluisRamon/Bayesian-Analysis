@@ -14,11 +14,9 @@ when we do inference we assume that data $Y = y$ is coming from a probability mo
 
 We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
 
+![alt text][Missing plot]
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+[Missing plot]: figure/missing-plot.png "MissingPlot"
 
 
 $\underline{Example 1}$
@@ -53,10 +51,7 @@ Implicitly in a statistical model is the assumption that all probability models 
 
 Make sense to do inference in the same way?
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n(probability vs statistics)", cex = 1.5)
-```
+![alt text][Missing plot]
 
 # The three problems in Statistics
 
@@ -88,12 +83,7 @@ Guessing what $\theta^{*}$ generated your data.
 
 Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
 
-
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
-
+![alt text][Missing plot]
 
 Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
 
@@ -119,11 +109,7 @@ The only way to rank $\hat\theta(y)$'s and choose one based on how do they perfo
 
 Distribution of $\hat\theta(y)$ when$y\sim P(y|\theta^*)$
 
-```{r dibuix sobre diferents estimadors, fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n(diferent estimators)", cex = 1.5)
-```
-
+![alt text][Missing plot]
 
 How to choose the best? Based on what?
 
@@ -225,10 +211,7 @@ Between Bayesian Model and Frequentist model.
 
 ### Likelihood function
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n(statistical model)", cex = 1.5)
-```
+![alt text][Missing plot]
 
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
@@ -236,10 +219,7 @@ $l_{Y = y} (\theta) = P(Y = y | \theta)$
 
 The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+![alt text][Missing plot]
 
 The initial idea out of the blue is weird.
 
@@ -253,19 +233,13 @@ $\theta_{ML} = 6/10$
 
 $likelihood$
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+![alt text][Missing plot]
 
 If $l / l = 2$
 
 $\theta_2$ is true more likely to have generated your data from $\theta$
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+![alt text][Missing plot]
 
 How do you compare subset A with subset B in terms of likelihood?
 
@@ -368,10 +342,7 @@ $M = {P(y | \theta), \theta \in \Omega}$
 
 but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$ (the so called prior distribution), $\pi(\theta)$. This prior distribution $\pi(\theta)$ reflects what belive about $\theta$.
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n Bayesian model", cex = 1.5)
-```
+![alt text][Missing plot]
 
 We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
 
@@ -384,11 +355,7 @@ $\pi(\theta)$ is supposed to capture what you know about $\theta$ without data.
 
 A possible prior could be a uniform. This is not informative, it tells you that being near 0 has the same probability than being near 1.
 
-
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+![alt text][Missing plot]
 
 Beta distributions ara convinient. $\pi(\theta) = Beta(a, b)$. In the past it was useful because you could calculated by hand.
 
@@ -402,19 +369,13 @@ $Mode = \frac{a-1}{a + b -2}$
 
 The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta) (\downarrow V[\theta])$
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n Beta with different \n parameter", cex = 1.5)
-```
+![alt text][Missing plot]
 
 * Toss coin, $\pi(\theta) = \beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about \theta.
 * Push pin, $\pi(\theta) = \beta(2, 2)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.5$
 * Blue eyes, $\pi(\theta) = \beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$.  As $a<b$ it'll be more density on the left of the pdf.
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n different plots \n on coin, pin, blue eyes", cex = 1.5)
-```
+![alt text][Missing plot]
 
 Assuming that $\pi(\theta)\sim\textrm{Beta}(a,b)$ is like assuming that you have tossed yur pin a+b times in your head and you have observed a times pin up and b times pin down.
 
@@ -424,10 +385,7 @@ One problem is that if you don't agree with a prior in your research. Choosing a
 
 We start with $M = \left\{P(y | \theta), \theta \in \Omega\right\}$ and $\pi(\theta)$.
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot", cex = 1.5)
-```
+![alt text][Missing plot]
 
 We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wrong kind of statement, because y is already known an $\theta$ unknown. What you would really like to have is a probability statement $P(\theta|y)$, knew in the pas as inverse probability. Likelihood function can not be read in this terms, to get $P(\theta|y)$ (posterior distribution), we'd need a prior.
 
@@ -467,10 +425,7 @@ Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta
 
 A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\alpha~\ell_{u}$ like $\ell_{y}^{st}$
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n Frequentist \n Likelihoof \n Bayesian", cex = 1.5)
-```
+![alt text][Missing plot]
 
 * In Frequentist statistics you fit a model, namely, from all your possible infinites models in M you just pick one.
 * In likelihood based statistics after data you get M and the likelihood function, that ranks your statistical models $P(y|\theta)$ from more to less likely.
@@ -489,28 +444,18 @@ $\pi(\theta | y) = \frac{\pi(\theta)P(y|\theta)}{\int_{\Omega}\pi(\theta)P(y|\th
 $\pi(\theta | y) = Beta(a + y, b + n - y) = Beta(a + 6, b + 10 - 6)$
 
 
-```{r fig.width = 4, fig.height = 4, echo = FALSE}
-plot.new()
-text(0.5, 0.5, "Missing plot \n likelihood", cex = 1.5)
-```
+![alt text][Missing plot]
 
 The likelihood 
 
-```{r, echo = FALSE}
-x <- seq(0, 1, by = 0.01)
+![alt text][beta_prior_pos_2_2]
 
-plot(dbeta(x, 50, 50), col = "red", type = "l")
-lines(dbeta(x, 2, 2))
-```
+[beta_prior_pos_2_2]: figure/beta_prior_pos_2_2.png
 
 
-Posteriors
+![alt text][beta_prior_pos_50_50]
 
-```{r, echo = FALSE}
-plot(dbeta(x, 56, 54), col = "red", type = "l")
-lines(dbeta(x, 8, 6))
-```
-
+[beta_prior_pos_50_50]: figure/beta_prior_pos_50_50.png
 
 Frequentist chooses just one model from $M = {P(y | \theta), \theta \in \Omega}$, Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$. Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
 
@@ -559,9 +504,9 @@ __Posterior predictive__ distribution.
 
 Having $p_{\pi}(\tilde y)$ and a $p_{\pi}(\tilde y| y)$ is having a __LOT__ more than just having point estimator, $\tilde y$, interval estimator, $\tilde y \pm S_{\tilde y}$.
 
-(dibuix1)
+![alt text][Missing plot]
 
-(dibuix2)
+![alt text][Missing plot]
 
 $\underline{Example (binomial)}$
 
@@ -627,7 +572,7 @@ $M_x = {Normal(\beta_0 + \beta_{1}x, \sigma^2)}, (\beta_0, \beta_1, \sigma) \in 
 
 Any distribution on $\mathbb{R}^2 [0, \infty]$ is allowed.
 
-(dibuix)
+![alt text][Missing plot]
 
 You might want to chose a prior by stating what tou know about $\beta$, and about $formula$
 
@@ -637,7 +582,7 @@ $formula$
 
 Sometimes you want to chose $\pi(\theta)$ by ma probability statements about future values $\tilde y(x)$
 
-(dibuix)
+![alt text][Missing plot]
 
 It requires a lot of care but it is doable. Then everything is straightforward.
 
@@ -738,7 +683,7 @@ If (a + b) decreases to 0, the Variance increases.
 
 $\theta \~ Beta(0, 0) \Rightarrow V(\theta) = \infty$
 
-(dibuix)
+![alt text][Missing plot]
 
 a + b is equivalent to prior sample size. 
 
@@ -753,7 +698,7 @@ To chose the prior that makes the probability distribution similar to the histog
 
 Chosing the prior is the same than chosing a prior predictive.
 
-(dibuix)
+![alt text][Missing plot]
 
 This is cheating. It requires to chose the prior a posteriori, after data. It violates the likelihood principle. 
 
@@ -766,15 +711,15 @@ This is not bayesian and is tempting because what you get from this tends to hav
 
 Care about $\theta$
 
-(dibuix)
+![alt text][Missing plot]
 
 Care about $\tilde y$
 
-(dibuix)
+![alt text][Missing plot]
 
 Care about both $(\tilde y,\theta)$  $\tilde y$ Observable and $\theta$ not observable. 
 
-(dibuix)
+![alt text][Missing plot]
 
 Bayesian model is a probability model and hence Bayesian mathematics are probability mathematics.
 
@@ -782,7 +727,7 @@ Building a Bayesian model is very much like building a data simulation model tha
 
 With a statistical model you can not simulate.
 
-(dibuix)
+![alt text][Missing plot]
 
 # Advantages and disadvantages of going Bayesian
 
