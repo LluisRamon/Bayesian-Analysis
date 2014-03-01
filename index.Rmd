@@ -10,9 +10,11 @@ Bayesian Analysis
 ### Bayesian Model
 
 
-[1. Bayesian Model]: http://lluisramon.github.io/Bayesian-Analysis/Chapter%201.html
+[1. Bayesian Model]: http://lluisramon.github.io/Bayesian-Analysis/Chapter%201:%20Bayesian%20Model.html
 
-# 2. Bayesian Inference
+# [2. Bayesian Inference][]
+
+[2. Bayesian Inference]: http://lluisramon.github.io/Bayesian-Analysis/Chapter%202:%20Bayesian%20Inference.html
 
 # 3. Hierachical models
 

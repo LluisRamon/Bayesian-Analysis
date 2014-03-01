@@ -1,0 +1,15 @@
+Chapter 2: Bayesian Inference
+========================================================
+
+# 1.Posterior distribution as an estimator. 
+# 2.Point estimation. 
+# 3.Interval estimation. 
+# 4.Two-hypothesis test. 
+# 5.More than two-hypothesis test and model comparison. 
+# 6.Prediction. 
+# 7.Model averaging. 
+# 8.Simulation based inference. 
+# 9.Frequentist asymptotic behavior of the posterior distribution. 
+# 10.Bayesian asymptotic behavior of the posterior distribution. 
+# 11.Decision the- ory and frequentist (Bayesian) assessment of the Bayesian (frequentist) inference. 
+# 12.Summary.
