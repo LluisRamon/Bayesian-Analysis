@@ -544,30 +544,31 @@ $P_{pi}(\tilde{y}) \rightarrow P_{\pi}(\tilde{y}|y)$, namely, going from the pri
 
 --- Start Class on 25-2-2014 (Session 5)
 
-  
 # Prior predictive and posterior predictive distributions
 
-What do you do if you care about future values of $y$, $\tilde y$? (assumig that $\theta^*$ will stay the same).
+What do you do if you care about future values of $y$, $\tilde y$? (assumig that $\theta^*$ will stay the same)?.
 
 What do we know about $\tilde y$ before answering the data?
 
-$\left\{\begin{matrix} M = {p(\tilde y , \theta), \theta \in \Omega} \\ \pi(\theta) \end{matrix}\right.$
+$\left\{\begin{matrix} M = {p(\tilde y | \theta), \theta \in \Omega} \\ \pi(\theta) \end{matrix}\right.$
 
 If you assume this, what is your best bet (guess) as a distribution of $\tilde y$?
 
-$formula$
+$P_{\pi}(\tilde y) = \int_{\Omega}{p(\tilde y | \theta)\pi(\theta) d\theta} = E_{\pi}(p(\tilde y | \theta))$ is the __prior predictive__ distribution.
 
-This is what you will use if you want to predict $formula$ without data.
+$p(\tilde y | \theta)$ weighted average of $p(y | \theta)$
 
-__NOTE__: $p_{\pi} \in formula$
+This is what you will use if you want to predict $\tilde y$ without data.
 
-What will we do if we want to make a probability statement about future values of $y$ $\tilde y$, after observing data $Y = y$. 
+__NOTE__: $P_{\pi}(\tilde y) \notin M = {p(y | \theta), \theta \in \Omega}$ (it don't have too).
 
-Our best guess for a distribution of $\tilde y$ will be
+What will we do if we want to make a probability statement about future values of $y$, $\tilde y$, after observing data $Y = y$. 
 
-$formula$
+Our best guess for a distribution of $\tilde y$ will be:
 
-Posterior predictive distribution.
+$P(\tilde y | y) = \int_{\Omega}{P(\tilde y | \theta)\pi(\theta | y) d\theta}$
+
+__Posterior predictive__ distribution.
 
 Having $p_{\pi}(\tilde y)$ and a $p_{\pi}(\tilde y| y)$ is having a __LOT__ more than just having point estimator, $\tilde y$, interval estimator, $\tilde y \pm S_{\tilde y}$.
 
