@@ -445,7 +445,7 @@ text(0.5, 0.5, "Missing plot", cex = 1.5)
 We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wrong kind of statement, because y is already known an $\theta$ unknown. What you would really like to have is a probability statement $P(\theta|y)$, knew in the pas as inverse probability. Likelihood function can not be read in this terms, to get $P(\theta|y)$ (posterior distribution), we'd need a prior.
 
 
---- Start class on 20-2-2014
+--- Start class on 20-2-2014 (Session 4)
 
 Once you have observed your data, you feel the need to go from ${p(y|\theta), \theta\in\Omega}$ to a statement $\theta | y$ with y known and $\theta$ unknown.
 
@@ -542,7 +542,7 @@ b) Answer   questions about future values of $y$, $\tilde{y}$, assuming that $\t
 
 $P_{pi}(\tilde{y}) \rightarrow P_{\pi}(\tilde{y}|y)$, namely, going from the prior predictive to the posterior predictive.
 
---- Start Class on 25-2-2014
+--- Start Class on 25-2-2014 (Session 5)
 
   
 # Prior predictive and posterior predictive distributions
@@ -659,8 +659,6 @@ It is not easy to translate what people know about $\tilde y$ or about $\theta$ 
 
 Start asking about the maximum, mean, etc. Depending on the problem. 
 
---- End 
-
 ### Reference priors
 
 [The selection of prior distributions by formal rules](http://www.jstor.org/stable/2291752) (Kass-Waserman-1995)
@@ -679,7 +677,7 @@ $\pi(\theta)$ that are _as if_ they were not there.
 
 If the probability space is finite it is fine. If the probability space is infinite it doesn't integrate to one, they are called improper ones. They are allowed as long as the posterior integrates to one.
 
---- Start class 27-2-2014
+--- Start class 27-2-2014 (Session 6)
 
 If $N \leftarrow \infty$, $formula$ and $formula$
 
@@ -822,6 +820,4 @@ Once you have observed your data y becomes known and $\theta$ is still unknown. 
 $P(Y| \theta)$ Why don't you swith? A frequentist answer is because you can't. You can not do this unless you have a prior.
 
 
---- End session
-
-
+--- Start Class on 4-3-2014 (session 7)
