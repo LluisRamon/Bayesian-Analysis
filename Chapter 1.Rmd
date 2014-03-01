@@ -2,19 +2,6 @@
 Chapter 1: Bayesian Model
 ========================================================
 
-# Chapter 1 subindex
-
-* What is a statistical model
-* The three problems in Statistics
-* Critique of frequentist inference
-* Likelihood based Infernce
-* Bayesian Model
-* Posterior distribution
-* Prior predictive and posterior predictive distributions
-* Choice of the prior distribution
-* Bayesian model as a probability model and as a _data simulator_
-* Advantages and disadvantages of going Bayesian
-
 --- Start Class on 11-2-2014 (session 1)
 
 # What is a statistical model
