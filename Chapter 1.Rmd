@@ -343,11 +343,11 @@ A Bayesian statistician also starts with a statistical model,
 
 $M = {P(y | \theta), \theta \in \Omega}$
 
-but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$ (the so called prior distribution), $\pi(\theta)$. This prior distribution $\pi(\theta)$ reflects what belive about $\theta$.
+but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$ (the so called prior distribution), $\pi(\theta)$. This prior distribution $\pi(\theta)$ reflects what believe about $\theta$.
 
 ![alt text][Missing plot]
 
-We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more belivable to less belivable based on the prior $\pi(\theta)$.
+We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more believable to less believable based on the prior $\pi(\theta)$.
 
 
 $\underline{Example}$
@@ -360,7 +360,7 @@ A possible prior could be a uniform. This is not informative, it tells you that 
 
 ![alt text][Missing plot]
 
-Beta distributions ara convinient. $\pi(\theta) = Beta(a, b)$. In the past it was useful because you could calculated by hand.
+Beta distributions are convenient. $\pi(\theta) = Beta(a, b)$. In the past it was useful because you could calculated by hand.
 
 pdf: $f(x;a,b)=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1}$
 
@@ -380,9 +380,9 @@ The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta
 
 ![alt text][Missing plot]
 
-Assuming that $\pi(\theta)\sim\textrm{Beta}(a,b)$ is like assuming that you have tossed yur pin a+b times in your head and you have observed a times pin up and b times pin down.
+Assuming that $\pi(\theta)\sim\textrm{Beta}(a,b)$ is like assuming that you have tossed your pin a+b times in your head and you have observed a times pin up and b times pin down.
 
-One problem is that if you don't agree with a prior in your research. Choosing a prior is answering about $\theta$ and who knows about $\theta$ is the client. The statistitian has to help the client to choose the distribution. 
+One problem is that if you don't agree with a prior in your research. Choosing a prior is answering about $\theta$ and who knows about $\theta$ is the client. The statistician has to help the client to choose the distribution. 
 
 # Posterior distribution
 
@@ -409,7 +409,7 @@ Where $P_{\pi}(y)$ (prior predictive distribution) is a constant needed to that 
 
 $P_{\pi}(y)=\int_{\Omega}P(y|\theta)\pi(\theta)d\theta$
 
-$formula \rightarrow$ The __constant__ needed so that $\pi(\theta | y)$ integrate to 1. You have y becouse is your data.
+$formula \rightarrow$ The __constant__ needed so that $\pi(\theta | y)$ integrate to 1. You have y because is your data.
 
 This is the only thing that you have to compute in order to have your posterior. If you know how to integrate you are done. If you don't pick specific priors the integral is going to be difficult. In case you cannot integrate you will use simulation and estimate your posterior.
 
@@ -424,15 +424,15 @@ A Bayesian will do:
 * Chose a prior $\pi(\theta)$
 * Compute (or simulate) from the posterior $\pi(\theta | y)$ and show it to the client.
 
-Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta)$ Bayesian inference will allways satisfy the likelihood principle.
+Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta)$ Bayesian inference will always satisfy the likelihood principle.
 
 A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\alpha~\ell_{u}$ like $\ell_{y}^{st}$
 
 ![alt text][Missing plot]
 
-* In Frequentist statistics you fit a model, namely, from all your possible infinites models in M you just pick one.
+* In Frequentist statistics you fit a model, namely, from all your possible infinite models in M you just pick one.
 * In likelihood based statistics after data you get M and the likelihood function, that ranks your statistical models $P(y|\theta)$ from more to less likely.
-* In Bayesian statistics first you order yours $P(y|\theta)\in M$ from more to less credible through the prior. After getting your data you don't fit a model you just update your model and rank the elements of M in terms of credibility in the light of the data. We have the same __object__ before and after data. This is very conveniant if you plan to work sequencially (allways do that).
+* In Bayesian statistics first you order yours $P(y|\theta)\in M$ from more to less credible through the prior. After getting your data you don't fit a model you just update your model and rank the elements of M in terms of credibility in the light of the data. We have the same __object__ before and after data. This is very convenient if you plan to work sequentially (always do that).
 
 $\underline{Example (coin and pin)}$
 
@@ -462,7 +462,7 @@ The likelihood
 
 Frequentist chooses just one model from $M = {P(y | \theta), \theta \in \Omega}$, Bayesian chooses $M = {P(y | \theta), \theta \in \Omega}$ and $\pi(\theta)$. Teacher opinion: Choosing M is more dangerous than choosing $\pi(\theta)$ as long as the $\pi(\theta)$ does not truncate parts of $\Omega$ out.
 
-Imagine that for binomial I pick $\pi(\theta)$ that's a Uniform with $\Omega=[0.6,1]$, then the support of the posterior $\pi(\theta|y)$ will be $[0.6,1]$, and if $\theta^{*}=0.4$ we will never get there, and data will never lead you out of $\Omega = [.6, 1]$. Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosin a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$. 
+Imagine that for binomial I pick $\pi(\theta)$ that's a Uniform with $\Omega=[0.6,1]$, then the support of the posterior $\pi(\theta|y)$ will be $[0.6,1]$, and if $\theta^{*}=0.4$ we will never get there, and data will never lead you out of $\Omega = [.6, 1]$. Otherwise ( by not truncating $\Omega$ through your prior) then a _mistake_ in choosing a $\pi(\theta)$ will be _self correcting_ because with enough data, $\pi(\theta | y)$ always ends up close to the truth $\Omega^*$. 
 
 \mbox{Equivocar-se a l'hora d'escollir un model significa agafar-ne un que no conté $\theta^{*}$; en canvi equivocar-se amb la tria de la distro. a priori significa concentrar-te lluny de $\theta^{*}$, cosa que es pot solucionar amb dades}
 
@@ -481,7 +481,7 @@ $P_{pi}(\tilde{y}) \rightarrow P_{\pi}(\tilde{y}|y)$, namely, going from the pri
 
 # Prior predictive and posterior predictive distributions
 
-What do you do if you care about future values of $y$, $\tilde y$? (assumig that $\theta^*$ will stay the same)?.
+What do you do if you care about future values of $y$, $\tilde y$? (assuming that $\theta^*$ will stay the same)?.
 
 What do we know about $\tilde y$ before answering the data?
 
@@ -529,7 +529,7 @@ ${n}'$ sample size for $\tilde y$
 
 It is not a big deal.
 
-Chosing $\pi(\theta)$ is the same as chosing $p_{\pi}(\tilde y) = \int_{\Omega}{p(y | \theta)\pi(\theta) d\theta}$
+Choosing $\pi(\theta)$ is the same as hosing $p_{\pi}(\tilde y) = \int_{\Omega}{p(y | \theta)\pi(\theta) d\theta}$
 
 $\tilde y$ This is the same thing that you will eventually _observe_.
 
@@ -551,7 +551,7 @@ A family of priors for a statistical model, M, is conjugate if the posterior is 
 
 Only (all) statistical models that are in the exponential family have conjugate priors.
 
-Conjugate priors were the only ones that could be used in practice 30 years ago. They allow you to update the $\pi(\theta)$ inteo the $\pi(\theta | y)$ by just updating the parameters of the $\pi(\theta)$.
+Conjugate priors were the only ones that could be used in practice 30 years ago. They allow you to update the $\pi(\theta)$ into the $\pi(\theta | y)$ by just updating the parameters of the $\pi(\theta)$.
 
 (Catalog of conjugate priors in atenea?)
 
@@ -568,7 +568,7 @@ You could get very close to almost any distribution on [0,1] with a [Beta distri
 
 #### b) Non-conjugate priors
 
-The problem with chosing a prior is more challanging the larger is $\Omega$ $(\theta \in \mathbb{R}^p)$.
+The problem with choosing a prior is more challenging the larger is $\Omega$ $(\theta \in \mathbb{R}^p)$.
 
 $\underline{Example (\text{Normal linear model})}$
 
@@ -578,7 +578,7 @@ Any distribution on $\mathbb{R}^2 \times (0, \infty)$ is allowed.
 
 ![alt text][Missing plot]
 
-You might want to chose a prior by stating what tou know about $\beta$, and about $E(y = 0 |x) = \frac{- \beta_0}{\beta_1}$. So one possible informative prior is, according to the client, 
+You might want to chose a prior by stating what you know about $\beta$, and about $E(y = 0 |x) = \frac{- \beta_0}{\beta_1}$. So one possible informative prior is, according to the client, 
 
 $\beta_1 \sim N(5,1)$
 
@@ -590,7 +590,7 @@ Sometimes you want to chose $\pi(\theta)$ by making probability statements about
 
 It requires a lot of care but it is doable. Then everything is straightforward.
 
-It is not easy to translate what people know about $\tilde y$ or about $\theta$ in terms of probability. This is the most (only) challanging step in Bayesian Inference.
+It is not easy to translate what people know about $\tilde y$ or about $\theta$ in terms of probability. This is the most (only) challenging step in Bayesian Inference.
 
 (dibuix)
 
@@ -672,7 +672,7 @@ $\pi_{j}(\theta) = \sqrt{-E_{y(\theta)}[\frac{\partial^2}{\partial \theta^2}log~
 
 Invariant against re-parametrization.
 
-Very often Jeffreys priors are improper.
+Very often Jeffrey's priors are improper.
 
 * __c) Conjugate with__ $V(\theta) = \infty$
 
@@ -699,17 +699,17 @@ b) and c) could be improper.
 
 It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three times you check you get similar results you are done, if not you have too think better which one to use.
 
-Empirical Bayes is not bayesian.
+Empirical Bayes is not Bayesian.
 
 To chose the prior that makes the probability distribution similar to the histogram to your data. 
 
-Chosing the prior is the same than chosing a prior predictive.
+Choosing the prior is the same than hosing a prior predictive.
 
 ![alt text][Missing plot]
 
 This is cheating. It requires to chose the prior a posteriori, after data. It violates the likelihood principle. 
 
-This is not bayesian and is tempting because what you get from this tends to have very good frequentist properties.
+This is not Bayesian and is tempting because what you get from this tends to have very good frequentist properties.
 
 
 # Bayesian model as a probability model and as a _data simulator_
@@ -755,7 +755,7 @@ Frequentist statistics only have $M = {P(y | \theta), \theta \in \Omega}$ and pr
 
 Once you have observed your data y becomes known and $\theta$ is still unknown. Why do you want to keep thinking in terms of $P(Y| \theta)$, and hence in terms of what could have happened if $\theta$ with $\theta$.
 
-$P(Y| \theta)$ Why don't you swith? A frequentist answer is because you can't. You can not do this unless you have a prior.
+$P(Y| \theta)$ Why don't you switch? A frequentist answer is because you can't. You can not do this unless you have a prior.
 
 
 --- Start Class on 4-3-2014 (session 7)
