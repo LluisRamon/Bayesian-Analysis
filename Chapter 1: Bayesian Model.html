@@ -1571,44 +1571,47 @@ sufficiency principle + <a href="http://en.wikipedia.org/wiki/Conditionality_pri
 
 <p>--- Start class 27-2-2014 (Session 6)</p>
 
-<p>If \(N \leftarrow \infty\), \(formula\) and \(formula\)</p>
+<p>If \(N \rightarrow \infty\), \(\pi(\theta|Y) \rightarrow l_y(\theta)\) and therefore \(\pi(\theta)\) becomes irrelevant.</p>
 
-<p>Reference priors are an attempt to get the same kind of deal for small N. (objective, non informative, default prior)</p>
+<p>Reference priors are an attempt to get the same kind of deal for small N. (objective, non informative, default priors).</p>
 
 <ul>
-<li>a) Flat priors: All elements of \(\theta \in \Omega\) have the same prior probability.</li>
+<li><strong>a) Flat priors:</strong> All elements of \(\theta \in \Omega\) have the same prior probability.</li>
 </ul>
 
-<p>When \(\Omega = {\theta_1, \theta_2, \dots, \theta_k}\), \(\pi(\theta) = formula\).</p>
+<p>When \(\Omega = \{\theta_1, \theta_2, \dots, \theta_k\}\), \(\pi(\theta) = \frac{1}{k} ~ \forall \theta_i \in \Omega\).</p>
 
 <p>This prior is hard to beat as a reference prior. (for finite \(\Omega\)).</p>
 
 <p>I&#39;m not sure about that. Imagine that your goal is to answer the question </p>
 
-<p>\(formula\)</p>
+<p>\(H_{0}: \theta = \theta_{1}\)</p>
 
-<p>Are you sure that you would want to use the \(\pi(\theta) = formula\) by default.</p>
+<p>\(H_{a}: \theta \neq \theta_1\)</p>
 
-<p>One alternative that make sense here would be </p>
+<p>Are you sure that you would want to use \(\pi(\theta) = \frac{1}{k}\) by default?</p>
 
-<p>\(formula\)
-\(formula\)</p>
+<p>One alternative that makes sense here would be:</p>
 
-<p>If the goal of the analysis is to estimate \(\theta\) then the uniform \(\pi(\theta) = formula\) is indeed hard to beat.</p>
+<p>\(\pi(\theta_1)=\frac{1}{2}\)</p>
 
-<p>In general, when \(\Omega\) is uncountable and not compact or countable, the proble with using a flat prior is that the integral is infinity. They are called improper prior.</p>
+<p>\(\pi(\theta_j)=\frac{\frac{1}{2}}{k-1}\) for \(j=2,3,..,n\)</p>
+
+<p>If the goal of the analysis is to estimate \(\theta\) then the uniform \(\pi(\theta_i) = \frac{1}{k}\) is indeed hard to beat.</p>
+
+<p>In general, when \(\Omega\) is uncountable and not compact or countable, the problem with using a flat prior is that the integral is infinity. They are called improper priors.</p>
 
 <p>In practice, improper priors <em>&quot;can be used&quot;</em> as long as the posterior is proper. This has to be checked! Otherwise you could do silly things.</p>
 
 <p>An option could be to truncate \(\Omega\) far away from your likelihood and then it would be proper. </p>
 
-<p>The problem ?here? is that a flat prior is no invariant under re-parametrization. </p>
+<p>The problem here is that a flat prior is no invariant under re-parametrization. </p>
 
 <p>\(\underline{Example}\)</p>
 
-<p>\(M = Binomial\)</p>
+<p>\(M = \{Binomial(n,\theta),\theta \in \Omega\}\)</p>
 
-<p>\(\pi(\theta) =\)</p>
+<p>\(\pi(\theta) = U(0,1)\), being 1 if \(\theta \in [0,1]\) and 0 otherwise.</p>
 
 <p>Imagine that you want to make inference about \(\eta = \frac{1}{\theta}\)</p>
 
@@ -1616,31 +1619,31 @@ sufficiency principle + <a href="http://en.wikipedia.org/wiki/Conditionality_pri
 
 <p>\(\theta \sim U(0,1)\) then \(\pi(log(\theta)) = e^{\phi} \neq flat\)</p>
 
-<p>Then is a reason for not calling flat priors non-informative priors.</p>
-
-<p>Not a reason for not using them by default.</p>
+<p>This is a reason for not calling them flat priors non-informative priors, although it is not a reason for not using them by default either.</p>
 
 <ul>
-<li>b) <a href="http://en.wikipedia.org/wiki/Jeffreys_prior">Jeffreys priors</a></li>
+<li><strong>b) <a href="http://en.wikipedia.org/wiki/Jeffreys_prior">Jeffreys priors</a></strong></li>
 </ul>
 
-<p>\(\pi_{j}(\theta) = \sqrt(|I(\theta)|)\)</p>
+<p>\(\pi_{j}(\theta) = \sqrt{|I(\theta)|}\) (Fisher information matrix)</p>
 
-<p>\(\pi_{j}(\theta) = formula\)</p>
+<p>\(\pi_{j}(\theta) = \sqrt{-E_{y(\theta)}[\frac{\partial^2}{\partial \theta^2}log~p(y|\theta)]}\)</p>
 
 <p>Invariant against re-parametrization.</p>
 
 <p>Very often Jeffreys priors are improper.</p>
 
 <ul>
-<li>c) Conjugate with \(V(\theta) = \infty\)</li>
+<li><strong>c) Conjugate with</strong> \(V(\theta) = \infty\)</li>
 </ul>
 
-<p>What do we get for \(binomial formula\)</p>
+<p>What do we get for \(\{Binomial(n,\theta),\theta \in \Omega\}\)?</p>
 
-<p>a) \(\pi(\theta) = formula = Beta(1,1)\)
-b) \(\pi_{j}(\theta) = formula = Beta(0.5, 0.5)\)
-c) Conjugate prior is \(B(a, b)\) </p>
+<p>a) \(\pi_F(\theta) = U(0,1) = Beta(1,1)\)</p>
+
+<p>b) \(\pi_{j}(\theta) = \sqrt{|\frac{1}{\theta (1-\theta)}|} = Beta(0.5, 0.5)\)</p>
+
+<p>c) Conjugate prior is \(Beta(a, b)\) </p>
 
 <p>\(V(\theta) = \frac{ab}{(a + b + 1)(a + b)^2}\)</p>
 
@@ -1654,7 +1657,7 @@ c) Conjugate prior is \(B(a, b)\) </p>
 
 <p>b) and c) could be improper.</p>
 
-<p>It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three you check are similar you are done, if not you have too think better which one to use.</p>
+<p>It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three times you check you get similar results you are done, if not you have too think better which one to use.</p>
 
 <p>Empirical Bayes is not bayesian.</p>
 
@@ -1665,8 +1668,6 @@ c) Conjugate prior is \(B(a, b)\) </p>
 <p><img src="data:image/png;base64,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" alt="alt text" title="MissingPlot"/></p>
 
 <p>This is cheating. It requires to chose the prior a posteriori, after data. It violates the likelihood principle. </p>
-
-<p>\(formula\)</p>
 
 <p>This is not bayesian and is tempting because what you get from this tends to have very good frequentist properties.</p>
 

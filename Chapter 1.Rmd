@@ -616,42 +616,45 @@ If the probability space is finite it is fine. If the probability space is infin
 
 --- Start class 27-2-2014 (Session 6)
 
-If $N \leftarrow \infty$, $formula$ and $formula$
+If $N \rightarrow \infty$, $\pi(\theta|Y) \rightarrow l_y(\theta)$ and therefore $\pi(\theta)$ becomes irrelevant.
 
-Reference priors are an attempt to get the same kind of deal for small N. (objective, non informative, default prior)
+Reference priors are an attempt to get the same kind of deal for small N. (objective, non informative, default priors).
 
-* a) Flat priors: All elements of $\theta \in \Omega$ have the same prior probability.
+* __a) Flat priors:__ All elements of $\theta \in \Omega$ have the same prior probability.
 
-When $\Omega = {\theta_1, \theta_2, \dots, \theta_k}$, $\pi(\theta) = formula$.
+When $\Omega = \{\theta_1, \theta_2, \dots, \theta_k\}$, $\pi(\theta) = \frac{1}{k} ~ \forall \theta_i \in \Omega$.
 
 This prior is hard to beat as a reference prior. (for finite $\Omega$).
 
 I'm not sure about that. Imagine that your goal is to answer the question 
 
-$formula$
+$H_{0}: \theta = \theta_{1}$
 
-Are you sure that you would want to use the $\pi(\theta) = formula$ by default.
+$H_{a}: \theta \neq \theta_1$
 
-One alternative that make sense here would be 
+Are you sure that you would want to use $\pi(\theta) = \frac{1}{k}$ by default?
 
-$formula$
-$formula$
+One alternative that makes sense here would be:
 
-If the goal of the analysis is to estimate $\theta$ then the uniform $\pi(\theta) = formula$ is indeed hard to beat.
+$\pi(\theta_1)=\frac{1}{2}$
 
-In general, when $\Omega$ is uncountable and not compact or countable, the proble with using a flat prior is that the integral is infinity. They are called improper prior.
+$\pi(\theta_j)=\frac{\frac{1}{2}}{k-1}$ for $j=2,3,..,n$
+
+If the goal of the analysis is to estimate $\theta$ then the uniform $\pi(\theta_i) = \frac{1}{k}$ is indeed hard to beat.
+
+In general, when $\Omega$ is uncountable and not compact or countable, the problem with using a flat prior is that the integral is infinity. They are called improper priors.
 
 In practice, improper priors _"can be used"_ as long as the posterior is proper. This has to be checked! Otherwise you could do silly things.
 
 An option could be to truncate $\Omega$ far away from your likelihood and then it would be proper. 
 
-The problem ?here? is that a flat prior is no invariant under re-parametrization. 
+The problem here is that a flat prior is no invariant under re-parametrization. 
 
 $\underline{Example}$
 
-$M = Binomial$
+$M = \{Binomial(n,\theta),\theta \in \Omega\}$
 
-$\pi(\theta) =$
+$\pi(\theta) = U(0,1)$, being 1 if $\theta \in [0,1]$ and 0 otherwise.
 
 Imagine that you want to make inference about $\eta = \frac{1}{\theta}$
 
@@ -659,27 +662,27 @@ $\theta \sim U(0,1)$ then $\pi(\eta) = \frac{1}{\eta^2} \neq flat$
 
 $\theta \sim U(0,1)$ then $\pi(log(\theta)) = e^{\phi} \neq flat$
 
-Then is a reason for not calling flat priors non-informative priors.
+This is a reason for not calling them flat priors non-informative priors, although it is not a reason for not using them by default either.
 
-Not a reason for not using them by default.
+* __b) [Jeffreys priors](http://en.wikipedia.org/wiki/Jeffreys_prior)__
 
-* b) [Jeffreys priors](http://en.wikipedia.org/wiki/Jeffreys_prior)
+$\pi_{j}(\theta) = \sqrt{|I(\theta)|}$ (Fisher information matrix)
 
-$\pi_{j}(\theta) = \sqrt(|I(\theta)|)$
-
-$\pi_{j}(\theta) = formula$
+$\pi_{j}(\theta) = \sqrt{-E_{y(\theta)}[\frac{\partial^2}{\partial \theta^2}log~p(y|\theta)]}$
 
 Invariant against re-parametrization.
 
 Very often Jeffreys priors are improper.
 
-* c) Conjugate with $V(\theta) = \infty$
+* __c) Conjugate with__ $V(\theta) = \infty$
 
-What do we get for $binomial formula$
+What do we get for $\{Binomial(n,\theta),\theta \in \Omega\}$?
 
-a) $\pi(\theta) = formula = Beta(1,1)$
-b) $\pi_{j}(\theta) = formula = Beta(0.5, 0.5)$
-c) Conjugate prior is $B(a, b)$ 
+a) $\pi_F(\theta) = U(0,1) = Beta(1,1)$
+
+b) $\pi_{j}(\theta) = \sqrt{|\frac{1}{\theta (1-\theta)}|} = Beta(0.5, 0.5)$
+
+c) Conjugate prior is $Beta(a, b)$ 
 
 $V(\theta) = \frac{ab}{(a + b + 1)(a + b)^2}$
 
@@ -694,7 +697,7 @@ a + b is equivalent to prior sample size.
 b) and c) could be improper.
 
 
-It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three you check are similar you are done, if not you have too think better which one to use.
+It is useful to try different priors and check how does the posterior change (sensitivity analysis). Robust Bayes. If the three times you check you get similar results you are done, if not you have too think better which one to use.
 
 Empirical Bayes is not bayesian.
 
@@ -705,8 +708,6 @@ Chosing the prior is the same than chosing a prior predictive.
 ![alt text][Missing plot]
 
 This is cheating. It requires to chose the prior a posteriori, after data. It violates the likelihood principle. 
-
-$formula$
 
 This is not bayesian and is tempting because what you get from this tends to have very good frequentist properties.
 
