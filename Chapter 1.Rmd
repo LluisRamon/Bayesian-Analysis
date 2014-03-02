@@ -563,7 +563,7 @@ You could get very close to almost any distribution on [0,1] with a [Beta distri
 
 ![alt text][Beta Distribution]
 
-[Beta Distribution]: figure/Beta_distribution.svg "Beta Distribution"
+[Beta Distribution]: figure/Beta_distribution.png "Beta Distribution"
 
 
 #### b) Non-conjugate priors
