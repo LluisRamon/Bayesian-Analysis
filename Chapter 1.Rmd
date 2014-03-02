@@ -233,13 +233,16 @@ $\theta_{ML} = 6/10$
 
 $likelihood$
 
-![alt text][Missing plot]
+![alt text][likelihood_binomial]
+
+[likelihood_binomial]: figure/likelihood_binomial.png "likelihood_binomial"
+
 
 If $l / l = 2$
 
 $\theta_2$ is true more likely to have generated your data from $\theta$
 
-![alt text][Missing plot]
+![alt text][likelihood_binomial]
 
 How do you compare subset A with subset B in terms of likelihood?
 
