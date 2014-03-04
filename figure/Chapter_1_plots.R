@@ -16,15 +16,23 @@ lbinom <- function(theta, size = 10, succes = 6){
 library(ggplot2)
 x <- seq(0, 1, by = 0.01)
 likelihod_binomial <- data.frame(x = x, y = lbinom(x, 10, 6))
+area_menor_0.3 <- likelihod_binomial[likelihod_binomial$x <= 0.3,]
+area_menor_0.4 <- likelihod_binomial[likelihod_binomial$x <= 0.4,]
 
 png(filename = "figure/likelihood_binomial.png")
 qplot(x, y, data = likelihod_binomial, geom = "line") + 
-  geom_segment(x = 0.6, xend = 0.6, y = 0, yend = lbinom(0.6), colour = I("red")) +
+  geom_segment(x = 0.6, xend = 0.6, y = 0, yend = lbinom(0.6), colour = I("darkgreen")) +
   geom_segment(x = 0.4, xend = 0.4, y = 0, yend = lbinom(0.4)) +
-  geom_segment(x = 0.3, xend = 0.3, y = 0, yend = lbinom(0.3))
+  geom_segment(x = 0.3, xend = 0.3, y = 0, yend = lbinom(0.3)) + 
+  geom_area(data = area_menor_0.3 , fill = I("blue"), alpha = 0.3) + 
+  geom_area(data = area_menor_0.4, fill = I("green"), alpha = 0.3) +
+  annotate("text", x=0.43, y=0.026, parse=TRUE, size=6, label="theta[2]") +
+  annotate("text", x=0.33, y=0.026, parse=TRUE, size=6, label="theta[1]")
 dev.off()
 
-
+png(filename = "figure/likelihood_binomial2.png")
+qplot(x, y, data = likelihod_binomial, geom = "line")
+dev.off()
 
 # Session 4
 library(ggplot2)
