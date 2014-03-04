@@ -109,8 +109,6 @@ The only way to rank $\hat\theta(y)$'s and choose one based on how do they perfo
 
 Distribution of $\hat\theta(y)$ when$y\sim P(y|\theta^*)$
 
-![alt text][Missing plot]
-
 How to choose the best? Based on what?
 
 In order to make this comparison more feasible one often resorts to selecting $\hat\theta(y)$ based on the squared mean error. 
@@ -122,7 +120,9 @@ Problems?
 * Is a function of $\theta$ and you don't know the truth.
 * This does not rank your estimator either.
 
-(dibuix sobre mean squared error)
+![alt text][MSE_estiamtors]
+
+[MSE_estiamtors]: figure/MSE_estiamtors.png "MSE"
 
 ### b) Interval estimation:
 

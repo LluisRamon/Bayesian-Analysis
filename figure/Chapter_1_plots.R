@@ -7,6 +7,33 @@ dev.off()
 
 # Session 2
 
+x <- 1:10
+y1 <- c(8.5, 8, 7, 6, 5.3, 5, 5.2, 6.1, 6.6, 7)
+y2 <- c(3.5, 5, 6, 7, 8, 8.2, 7, 6, 5, 3.5)
+y3 <- exp(seq(0.94, 2.2, by = 0.14))
+
+dades <- data.frame(x = c(1:10, 1:10, 1:10), y = c(y1, y2, y3), 
+                    MSE = c(rep("R", 10), rep("LS", 10), rep("ML", 10)))
+
+theme_xkcd <- theme(
+  panel.background = element_rect(fill="white"),
+  axis.ticks = element_line(colour=NA),
+  panel.grid = element_line(colour="white"),
+  axis.text.y = element_text(colour=NA),
+  axis.text.x = element_text(colour=NA)
+  
+)
+
+# http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r
+# http://drunks-and-lampposts.com/2012/10/02/clegg-vs-pleb-an-xkcd-esque-chart/
+
+png(filename = "figure/MSE_estiamtors.png")
+ggplot(aes(x = x, y = y, colour = MSE), data = dades) +
+  geom_smooth(size=1, position="jitter", fill=NA, method = "loess") +
+  ylim(2, 11) + labs(x = "", y = "") + theme_xkcd
+dev.off()
+
+
 lbinom <- function(theta, size = 10, succes = 6){
   
   choose(size, succes)*(theta^succes)*(1-theta)^(size - succes)
@@ -22,16 +49,17 @@ area_menor_0.4 <- likelihod_binomial[likelihod_binomial$x <= 0.4,]
 png(filename = "figure/likelihood_binomial.png")
 qplot(x, y, data = likelihod_binomial, geom = "line") + 
   geom_segment(x = 0.6, xend = 0.6, y = 0, yend = lbinom(0.6), colour = I("darkgreen")) +
-  geom_segment(x = 0.4, xend = 0.4, y = 0, yend = lbinom(0.4)) +
+  geom_segment(x = 0.4, xend = 0.4, y = 0, yend = lbinom(0.4), colour = I("darkgreen")) +
   geom_segment(x = 0.3, xend = 0.3, y = 0, yend = lbinom(0.3)) + 
   geom_area(data = area_menor_0.3 , fill = I("blue"), alpha = 0.3) + 
   geom_area(data = area_menor_0.4, fill = I("green"), alpha = 0.3) +
-  annotate("text", x=0.43, y=0.026, parse=TRUE, size=6, label="theta[2]") +
-  annotate("text", x=0.33, y=0.026, parse=TRUE, size=6, label="theta[1]")
+  annotate("text", x=0.35, y=0.01, parse=TRUE, size=6, label="2*zeta") +
+  annotate("text", x=0.27, y=0.01, parse=TRUE, size=6, label="zeta")
 dev.off()
 
 png(filename = "figure/likelihood_binomial2.png")
-qplot(x, y, data = likelihod_binomial, geom = "line")
+qplot(x, y, data = likelihod_binomial, geom = "line") + 
+  geom_segment(x = 0.6, xend = 0.6, y = 0, yend = lbinom(0.6), colour = I("darkgreen"))
 dev.off()
 
 # Session 4
