@@ -1,9 +1,122 @@
 Chapter 2: Bayesian Inference
 ========================================================
 
+--- Start Class on 4-3-2014 (session 7)
+
 # 1.Posterior distribution as an estimator. 
+
+Once you have computed (simulated) from $\pi(\theta| y)$, $p(\tilde y | y)$.
+
+You are basically done.
+
+The posterior distribution is a sufficient statistic. If the model is correct, you can throw away your data and stick only with $\pi(\theta | y)$.
+
+One can claim that the Bayesian estimate of $\theta$ is $\pi(\theta | y)$.
+One can claim that the Bayesian estimate of $\tilde y$ is $p_{\pi}(\tilde y | y)$.
+
+Why does any Bayesian need anything else (point estimation, interval estimator, test, predictive intervals)?
+
+* Compare with what frequentist do (cynic answer)
+* Bayesian need to summarize what is in the posterior in order to communicate results.
+
+Imagine that your parameter space $\theta = (\theta_1, \dots \theta_p) \in R^p$ and you only care about $\theta_1$. What do you do if you only have:
+
+$\ell_{Y = y}(\theta_1, \dots \theta_p)$
+
+$\tilde \ell(\theta_1) = max \ell_{Y = y}(\theta_1, \dots \theta_p)$
+
+Why is this a good answer?
+
+Bayesian answer will be the marginal:
+
+$\pi(\theta_1 | y) = \int \dots \int \pi(\theta_1 \dots \theta_p |y) d\theta_1 \dots d\theta_p$
+
+Imagine that you have worked things out for $\theta$ and now you ask questions about $g(\theta)$.
+
+![alt text][Missing plot]
+
+[Missing plot]: figure/missing-plot.png "MissingPlot"
+
+Frequentist have difficulties translating inferences about $\theta$ into inferences about $g(\theta)$.
+
+Bayesian will do $\pi(\theta | y) \rightarrow \pi(g(\theta) | y)$ just a change of variables.
+
+$\theta_1 \dots \theta_p \rightarrow g(\theta_1) \dots g(\theta_p)$ sample from $\pi(g(\theta) | y)$.
+
 # 2.Point estimation. 
-# 3.Interval estimation. 
+
+![alt text][beta_prior_pos_2_2]
+[beta_prior_pos_2_2]: figure/beta_prior_pos_2_2.png
+
+How do we summarize the $formula$ with a number if we must?
+
+* Expectation $formula$
+* Mode $formula$
+* Median $formula$
+* etc
+
+Observation:
+
+* a) If $\pi(\theta)$ is flat then $\hat \theta_{pmode} = \hat \theta_{MLikelihood}$
+* b) to compute the $\hat \theta_{pmode}$ you don't need to know the posterior distribution. $formula$ maximizing this is equivalent to maximizing $\pi(\theta | y)$.
+* c) Under regularity conditions often satisfied $\hat \theta_{pmode}$ has the same asymptotic properties as $\hat \theta_{ML}$
+
+You can only use the Median if you deal with real valued $\theta$. If $\theta \in \Omega R^2$ you can't sort $\Omega$.
+
+What happens if your posterior is ??
+
+![alt text][Missing plot]
+
+What do you give one point estimation?
+Do you want to give a point estimate? Probably not.
+
+If you are in $R^10$ you probably want to do point estimate.
+
+An estimator is neither Bayesian nor Frequentist.
+An estimator is a function of the data $formula$ that hopefully will be close to the truth $\theta^*$ most of the time.
+
+What will be Bayesian or Frequentist is how you judge (assess) the estimator.
+
+1. Frequentsit assessment: $E_{y | \theta^*} ( | \theta) formula$
+2. Bayesian assessment: $_{\theta | y} formula$
+
+# 3.Interval (region) estimation. 
+
+We define a region with posterior credibility p to be a subset of $\Omega$, $formula$, such that $\int_{C_{p}(y)}formula$
+
+http://en.wikipedia.org/wiki/Credible_interval
+
+![alt text][Missing plot]
+
+The same concept applies to $formula$.
+
+They are useful as summaries of the uncertainty in $formula$, $formula$, $formula$, $formula$.
+
+There are 2 families of credibility regions
+
+* a) HPD regions (Highest Posterior Density) They are the smallest regions that have credibility p.
+
+![alt text][Missing plot]
+
+You restrict yourself to picking the values of $\theta$ with the highest density.
+
+  * They are the smallest. (strength)
+  * They generalize well when $\theta \in R^p, p > 1$. (strength)
+  * They are not easy to compute. Even if you have $\pi(\theta|y)$ in closed form it is not easy. (weakness)
+  * They are not parametric invariant. (weakness)
+
+![alt text][Missing plot]
+
+They might no be connected.(fact)
+
+* b) Central p-credible intervals
+
+![alt text][Missing plot]
+
+  * Easy to compute (strength)
+  * If you are in the real line (weakness)
+  * You are not getting the smallest you can get (weakness)
+
 # 4.Two-hypothesis test. 
 # 5.More than two-hypothesis test and model comparison. 
 # 6.Prediction. 
@@ -11,5 +124,5 @@ Chapter 2: Bayesian Inference
 # 8.Simulation based inference. 
 # 9.Frequentist asymptotic behavior of the posterior distribution. 
 # 10.Bayesian asymptotic behavior of the posterior distribution. 
-# 11.Decision the- ory and frequentist (Bayesian) assessment of the Bayesian (frequentist) inference. 
+# 11.Decision theory and frequentist (Bayesian) assessment of the Bayesian (frequentist) inference. 
 # 12.Summary.
