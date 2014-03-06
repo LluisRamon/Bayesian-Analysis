@@ -113,11 +113,115 @@ They might no be connected.(fact)
 
 ![alt text][Missing plot]
 
+--- Start Class on 6-3-2014 (session 8)
+
+  * You can not use the if you are not in the real line (weakness)
+  * You are not getting the smallest p-credible region possible (weakness)
   * Easy to compute (strength)
-  * If you are in the real line (weakness)
-  * You are not getting the smallest you can get (weakness)
+  * It is easy to estimate from a sample simulated from $\pi(\theta), formula$ (strength)
+
+$formula$ Sample simulated from $\pi(\theta | y)$ ordered from small to big
+
+$\hat q^{\frac{1-p}{2}} = formula$
+
+  * Invariant when you re-parametrize. (strength)
+  
+  ![alt text][Missing plot]
+  
+  * They have to be intervals (fact)
+
+
+An interval $| a(y), b(y)|$ is neither Bayesian nor frequentist. What is Bayesian or Frequentist is the way in which you asses (judge) it.
+
+A Bayesian will judge the interval through the posterior $\pi(\theta | y)$
+
+$P_{\theta | y}(\theta \in | a(y), b(y)| | y) = p$ credible $\theta$ unknown $y$ fixed
+
+A Frequentist will judge it through repeated sampling from $M = {P(y | \theta^*), \theta^* \in \Omega}$
+
+$\inf_{\theta^* \in \Omega}  = P_{y|\theta^*}(\theta^* \in | a(y), b(y)| | \theta^*) = p(\theta^*)$ confidence of the interval.
+
+$\theta$ fixed, $y$ random.
+
+It is extreamly rare that $p$ and $1 - \alpha$ for a given $| a(y), b(y)|$.
+
+There is a temptation of selling an 95% confidence interval as if it was 95% credible interval. This is cheating.
+
+Confidence it is not a probability.
 
 # 4.Two-hypothesis test. 
+
+$\Omega = \Omega_1 \cup \Omega_2$ 
+
+$M = {P(y | \theta), \theta \in \Omega} = formula$
+
+$\left\{\begin{matrix}H_{1}: \theta \in \Omega_{1}\\H_{2}: \theta \in \Omega_{2}\end{matrix}\right.$
+
+$M_1: \tilde y \sim M_1$
+$M_2: \tilde y \sim M_2$
+
+![alt text][Missing plot]
+
+$formula$
+
+You will choose the $H_1$ that has the largest posterior probability.
+
+$formula$ posterior odds.
+
+Note that we are treating the null and the alternative symetrically. Compute both probability and choose the one that has more probability.
+
+There is no difference between $H_0$ and $H_a$.
+
+$\underline{Example 1}$
+
+Simple against simple. 
+
+$M = {P(y | \theta), \theta \in {\theta_1, \theta_2}} = {p(y| \theta_1), p(y| \theta_2)}$ is a Dichothomy. 
+
+$complex formula$
+
+$P(H_1 | y) = \frac{formula}{formula}$
+$P(H_2 | y) = \frac{formula}{formula}$
+
+Posterior odds $\frac{P(H_1 | y)}{P(H_2 | y)} = \frac{P(H_1 | y)}{1 - P(H_1 | y)} = \frac{P(H_1)}{P(H_2)}\frac{P(y | \theta_1)}{P(y | \theta_2)} = \frac{P(H_1)}{P(H_2)}\frac{\ell_y(\theta_1)}{\ell_y(\theta_2)}$
+
+Posterior odds = prior odds x likelihood ratio (Bayes factor)
+
+Neyman-Pearson states that it is optimal to have a rejection region based  on 
+
+$\frac{\ell_y(\theta_1)}{\ell_y(\theta_2)} = \frac{P(y | \theta_1)}{P(y | \theta_2)}$
+
+C os a constant that depends on the size of your test.
+If it is > C then $H_1$
+If it is < C then $H_2$
+
+$p-value = formula$
+
+Only works for simple against simple.
+
+Often we do as if the $p-value = P(H_1|y) = P(H_0|y)$.
+
+Instances when a p-value is approximately equal to $P(H_1|y)$ are rare.
+
+
+$\underline{Example 2}$
+
+Chance between two submodels
+
+$M = M_1 \cup M_2 =formula \cup formula$
+
+${Poisson(\lambda), \lambda \in (0, \infty)} \cup {NegativeBinomial(r, \theta), \theta \in (0,1)}$
+
+$\left\{\begin{matrix}H_{1}: \theta \in \Omega_{1}\\H_{2}: \theta \in \Omega_{2}\end{matrix}\right.$
+
+$M_1: \tilde y \sim P_1(y | \theta)$ $P(H_1), \pi(\theta | H_1)$
+
+$M_2: \tilde y \sim P_2(y | \theta)$ $P(H_1), \pi(\theta | H_2)$
+
+$P(H_1 |y)$
+
+Complex problems will be dealed as the simple case.
+
 # 5.More than two-hypothesis test and model comparison. 
 # 6.Prediction. 
 # 7.Model averaging. 
