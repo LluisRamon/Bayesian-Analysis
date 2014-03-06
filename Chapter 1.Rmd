@@ -242,9 +242,9 @@ If $l / l = 2$
 
 $\theta_2$ is true more likely to have generated your data from $\theta$
 
-![alt text][likelihood_binomial2]
+![alt text][likelihood_binomial_intervals]
 
-[likelihood_binomial2]: figure/likelihood_binomial2.png "likelihood_binomial"
+[likelihood_binomial_intervals]: figure/likelihood_binomial_intervals.png "likelihood_binomial_intervals"
 
 How do you compare subset A with subset B in terms of likelihood?
 
@@ -262,6 +262,11 @@ Sometimes is infinite and you can't do that.
 
 If you reparametrize the model 
 Probability function have to integrate to 1.
+
+![alt text][likelihood_binomial_reparametrization]
+
+[likelihood_binomial_reparametrization]: figure/likelihood_binomial_reparametrization.png "likelihood_binomial_reparametrization"
+
 
 --- Class finishes
 

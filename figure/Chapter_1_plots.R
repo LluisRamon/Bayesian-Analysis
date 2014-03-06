@@ -57,9 +57,59 @@ qplot(x, y, data = likelihod_binomial, geom = "line") +
   annotate("text", x=0.27, y=0.01, parse=TRUE, size=6, label="zeta")
 dev.off()
 
-png(filename = "figure/likelihood_binomial2.png")
+# Comparing intervals doesn't make sense
+cond <- likelihod_binomial$x >= 0.22 & likelihod_binomial$x <= 0.33
+area_0.1_0.3 <- likelihod_binomial[cond,]
+
+cond <- likelihod_binomial$x >= 0.36 & likelihod_binomial$x <= 0.46
+area_0.4_0.5 <- likelihod_binomial[cond,]
+
+png(filename = "figure/likelihood_binomial_intervals.png")
 qplot(x, y, data = likelihod_binomial, geom = "line") + 
-  geom_segment(x = 0.6, xend = 0.6, y = 0, yend = lbinom(0.6), colour = I("darkgreen"))
+  geom_area(data = area_0.1_0.3, fill = I("darkgreen"), alpha = 0.3)  + 
+  geom_area(data = area_0.4_0.5, fill = I("green"), alpha = 0.3) +
+  geom_segment(x = 0.22, xend = 0.22, y = 0, yend = lbinom(0.22), colour = "darkgreen") +
+  geom_segment(x = 0.33, xend = 0.33, y = 0, yend = lbinom(0.33), colour = "darkgreen") +
+  geom_segment(x = 0.36, xend = 0.36, y = 0, yend = lbinom(0.36), colour = "green") +
+  geom_segment(x = 0.46, xend = 0.46, y = 0, yend = lbinom(0.46), colour = "green") 
+dev.off()
+
+# Comparing interval in a reparametrized likelihood
+
+x <- seq(0, 1, by = 0.01)
+likelihod_binomial <- data.frame(x = x, y = lbinom(x, 10, 6))
+
+cond <- likelihod_binomial$x >= 0.35 & likelihod_binomial$x <= 0.8
+area_0.3_0.7 <- likelihod_binomial[cond,]
+
+q1 <- qplot(x, y, data = likelihod_binomial, geom = "line") + 
+  geom_segment(x = 0.35, xend = 0.35, y = 0, yend = lbinom(0.35), colour = "blue") +
+  geom_segment(x = 0.8, xend = 0.8, y = 0, yend = lbinom(0.8), colour = "blue") + 
+  geom_area(data = area_0.3_0.7, fill = I("blue"), alpha = 0.3) 
+
+# Reparametrizing binomial likelihood
+
+lbinom_rep <- function(theta, size = 10, succes = 6){
+  
+  choose(size, succes)*((1/theta)^succes)*(1-(1/theta))^(size - succes)
+  
+}
+
+x <- seq(1, 6, by = 0.01)
+likelihod_binomial <- data.frame(x = x, y = lbinom_rep(x, 10, 6))
+
+cond <- likelihod_binomial$x >= 1/0.8 & likelihod_binomial$x <= 1/0.35
+area_0.1_0.3 <- likelihod_binomial[cond,]
+
+q2 <- qplot(x, y, data = likelihod_binomial, geom = "line") +
+  geom_segment(x = 1/0.35, xend = 1/0.35, y = 0, yend = lbinom_rep(1/0.35), colour = "blue") +
+  geom_segment(x = 1/0.8, xend = 1/0.8, y = 0, yend = lbinom_rep(1/0.8), colour = "blue") + 
+  geom_area(data = area_0.1_0.3, fill = I("blue"), alpha = 0.3)
+
+library(gridExtra)
+
+png(filename = "figure/likelihood_binomial_reparametrization.png")
+grid.arrange(q1, q2, ncol = 1)
 dev.off()
 
 # Session 4
