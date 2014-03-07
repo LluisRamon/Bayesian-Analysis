@@ -1,0 +1,64 @@
+---
+title: "LaTeX examples"
+author: Lluis Ramon
+date: Tuesday, March 04, 2014
+output: html_document
+---
+
+## Basic formulas with LaTeX
+
+
+$\epsilon \varepsilon \zeta \eta \theta \lambda \pi \pi \sigma \varsigma \phi \varphi \omega \chi \psi \upsilon \varsigma \iota \kappa$
+
+```\epsilon \varepsilon \zeta \eta \theta \lambda \pi \pi \sigma \varsigma \phi \varphi \omega \chi \psi \upsilon \varsigma \iota \kappa```
+
+$\Leftarrow \Rightarrow \Leftrightarrow \rightarrow$
+
+``\Leftarrow \Rightarrow \Leftrightarrow \rightarrow ``
+
+* $\hat \theta$ LaTeX code ``\hat \theta``
+* $\tilde \theta$ LaTeX code ``\tilde \theta``
+* $\theta_1$ LaTeX code ``\theta_1``
+* $\theta^p$ LaTeX code ``\theta^p`` 
+
+* $\frac{a}{b}$ LaTex code ``\frac{a}{b}``
+
+## Frequently used formulas
+
+```
+M = {P(y | \theta), \theta \in \Omega}
+```
+
+$M = {P(y | \theta), \theta \in \Omega}$
+
+```
+P(y| \theta^{*})
+```
+$P(y| \theta^{*})$
+
+## More complicated formulas
+
+```
+MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) =\left(E(\hat\theta(y)|\theta)-\theta\right)^{2} + V (\hat\theta(y)|\theta)=B(\hat\theta(y)|\theta)^2+V(\hat\theta(y)|\theta)
+```
+
+$MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) =\left(E(\hat\theta(y)|\theta)-\theta\right)^{2} + V (\hat\theta(y)|\theta)=B(\hat\theta(y)|\theta)^2+V(\hat\theta(y)|\theta)$
+
+```
+M=\left\{p(y|\theta) = \binom{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty)\right\}
+```
+
+$M=\left\{p(y|\theta) = \binom{10}{y}\left(\frac{1}{\beta}\right)^{y}\left(1-\frac{1}{\beta}\right)^{n-y},\beta\in[1,\infty)\right\}$
+
+```
+\Omega = \Omega_{0} \cup \Omega_{0}
+H_{0}: \theta \in \Omega_{0}
+H_{a}: \theta \in \Omega_{a}
+```
+
+$\Omega = \Omega_{0} \cup \Omega_{0}$
+
+$H_{0}: \theta \in \Omega_{0}$
+
+$H_{a}: \theta \in \Omega_{a}$
+
