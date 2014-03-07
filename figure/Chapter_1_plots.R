@@ -113,6 +113,19 @@ grid.arrange(q1, q2, ncol = 1)
 dev.off()
 
 # Session 4
+
+x <- seq(0, 1, by = 0.01)
+beta1 <- data.frame(x = x, y = dbeta(x, 50, 50), dist = "Beta(50, 50)", type = "Coin", stringsAsFactors= FALSE)
+beta2 <- data.frame(x = x, y = dbeta(x, 2, 2), dist = "Beta(2, 2)", type = "Pin", stringsAsFactors= FALSE)
+beta3 <- data.frame(x = x, y = dbeta(x, 2, 5), dist = "Beta(2, 5)", type = "Blue eyes BCN", stringsAsFactors= FALSE)
+
+beta_prior <- rbind(beta1, beta2, beta3)
+
+png(filename = "figure/beta_diferent_prior.png")
+beta_title <- "Diferent prior Beta"
+qplot(x, y, data = beta_prior, geom = "line", main = beta_title) + facet_grid(~ type + dist)
+dev.off()
+
 library(ggplot2)
 
 prior <- data.frame(x = x, y = dbeta(x, 50, 50), dist = "prior (50, 50)", stringsAsFactors= FALSE)
@@ -133,6 +146,8 @@ qplot(x, y, colour = dist, data = beta_prior_pos, geom = "line",
       main = "Prior and Posterior Beta distribution")
 dev.off()
 
+
+
 # Session 5
 
 beta1 <- data.frame(x = x, y = dbeta(x, 0.5, 0.5), dist = "(0.5, 0.5)", stringsAsFactors= FALSE)
@@ -141,8 +156,9 @@ beta3 <- data.frame(x = x, y = dbeta(x, 1, 3), dist = "(1, 3)", stringsAsFactors
 beta4 <- data.frame(x = x, y = dbeta(x, 2, 2), dist = "(2, 2)", stringsAsFactors= FALSE)
 beta5 <- data.frame(x = x, y = dbeta(x, 2, 5), dist = "(2, 5)", stringsAsFactors= FALSE)
 beta6 <- data.frame(x = x, y = dbeta(x, 5, 2), dist = "(5, 2)", stringsAsFactors= FALSE)
+beta7 <- data.frame(x = x, y = dbeta(x, 1, 1), dist = "(1, 1)", stringsAsFactors= FALSE)
 
-betas <- rbind(beta1, beta2, beta3, beta4, beta5, beta6)
+betas <- rbind(beta1, beta2, beta3, beta4, beta5, beta6, beta7)
 
 png(filename = "figure/Beta_distribution.png")
 qplot(x, y, colour = dist, data = betas, geom = "line", 

@@ -365,8 +365,6 @@ $\pi(\theta)$ is supposed to capture what you know about $\theta$ without data.
 
 A possible prior could be a uniform. This is not informative, it tells you that being near 0 has the same probability than being near 1.
 
-![alt text][Missing plot]
-
 Beta distributions are convenient. $\pi(\theta) = Beta(a, b)$. In the past it was useful because you could calculated by hand.
 
 pdf: $f(x;a,b)=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\theta^{a-1}(1-\theta)^{b-1}$
@@ -379,13 +377,17 @@ $Mode = \frac{a-1}{a + b -2}$
 
 The larger a+b the smaller $V(\theta)$ and so the more _informative_ $\pi(\theta) (\downarrow V[\theta])$
 
-![alt text][Missing plot]
+![alt text][Beta Distribution]
 
-* Toss coin, $\pi(\theta) = \beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about \theta.
+* Toss coin, $\pi(\theta) = \beta(50, 50)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.002$. A more informative prior, because we know with more reliability something about $\theta$.
 * Push pin, $\pi(\theta) = \beta(2, 2)$, $E[\theta] = \frac{1}{2}$ and $V[\theta]=0.5$
-* Blue eyes, $\pi(\theta) = \beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$.  As $a<b$ it'll be more density on the left of the pdf.
+* Blue eyes, $\pi(\theta) = \beta(1, 4)$, $E[\theta] =\frac{1}{5}$ and $V[\theta]$. As $a < b$ it will be more density on the left of the pdf.
 
-![alt text][Missing plot]
+![alt text][beta_diferent_prior]
+
+[beta_diferent_prior]: figure/beta_diferent_prior.png "beta_diferent_prior"
+
+
 
 Assuming that $\pi(\theta)\sim\textrm{Beta}(a,b)$ is like assuming that you have tossed your pin a+b times in your head and you have observed a times pin up and b times pin down.
 
