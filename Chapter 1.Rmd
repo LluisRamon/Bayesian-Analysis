@@ -1,7 +1,6 @@
 \usepackage{relsize}
 Chapter 1: Bayesian Model
 ========================================================
-
 --- Start Class on 11-2-2014 (session 1)
 
 # What is a statistical model
@@ -14,7 +13,9 @@ when we do inference we assume that data $Y = y$ is coming from a probability mo
 
 We will _claim_ that the model M is correct if the probability model that generated the data $P(y | \theta^{*}) \in M$.
 
-![alt text][Missing plot]
+![alt text][statistical_model]
+
+[statistical_model]: figure/statistical_model.jpg "statistical_model"
 
 [Missing plot]: figure/missing-plot.png "MissingPlot"
 
@@ -51,7 +52,9 @@ Implicitly in a statistical model is the assumption that all probability models 
 
 Make sense to do inference in the same way?
 
-![alt text][Missing plot]
+![alt text][exemple_binomial]
+
+[exemple_binomial]: figure/exemple_binomial.jpg "exemple_binomial"
 
 # The three problems in Statistics
 
@@ -83,7 +86,9 @@ Guessing what $\theta^{*}$ generated your data.
 
 Frequentist statistician is someone doing statistics using only statistical model. Doing that is extremely difficult. 
 
-![alt text][Missing plot]
+![alt text][stat_mod_binom]
+
+[stat_mod_binom]: figure/stat_mod_binom.jpg "stat_mod_binom"
 
 Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
 
@@ -211,15 +216,12 @@ Between Bayesian Model and Frequentist model.
 
 ### Likelihood function
 
-![alt text][Missing plot]
-
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
 $l_{Y = y} (\theta) = P(Y = y | \theta)$
 
 The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
 
-![alt text][Missing plot]
 
 The initial idea out of the blue is weird.
 
@@ -352,7 +354,9 @@ $M = {P(y | \theta), \theta \in \Omega}$
 
 but on top of this considers $\theta$ to be a random variable, and he/she is ready to choose a probability distribution on $\Omega$ for $\theta$ (the so called prior distribution), $\pi(\theta)$. This prior distribution $\pi(\theta)$ reflects what believe about $\theta$.
 
-![alt text][Missing plot]
+![alt text][bayesian_model]
+
+[bayesian_model]: figure/bayesian_model.jpg "bayesian_model"
 
 We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more believable to less believable based on the prior $\pi(\theta)$.
 
@@ -397,7 +401,9 @@ One problem is that if you don't agree with a prior in your research. Choosing a
 
 We start with $M = \left\{P(y | \theta), \theta \in \Omega\right\}$ and $\pi(\theta)$.
 
-![alt text][Missing plot]
+![alt text][bayesian_model_amp]
+
+[bayesian_model_amp]: figure/bayesian_model_amp.jpg "bayesian_model_amp"
 
 We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wrong kind of statement, because y is already known an $\theta$ unknown. What you would really like to have is a probability statement $P(\theta|y)$, knew in the pas as inverse probability. Likelihood function can not be read in this terms, to get $P(\theta|y)$ (posterior distribution), we'd need a prior.
 
