@@ -208,7 +208,7 @@ $\underline{Example 2}$
 
 Chance between two submodels
 
-$M = M_1 \cup M_2 =formula \cup formula$
+$M = M_1 \cup M_2 = formula \cup formula$
 
 ${Poisson(\lambda), \lambda \in (0, \infty)} \cup {NegativeBinomial(r, \theta), \theta \in (0,1)}$
 
@@ -222,9 +222,167 @@ $P(H_1 |y)$
 
 Complex problems will be dealed as the simple case.
 
+--- Start Class on 11-3-2014 (session 9)
+
+$formulas$
+
+Model selection = Hypothesis testing
+
+$P(M_1 | y) = \frac{formula}{formula} = \frac{formula}{formula}$
+
+$P(M_2 | y) = 1 - P(M_1 | y) = \frac{formula}{formula}$
+
+Compute the odds ratio
+
+$\frac{formula}{formula} = \frac{formula}{formula}$
+
+$formula$ Prior odds
+$formula$ Posterior odds
+$formula$ Bayes factor
+
+Both pices depends on the prior.
+
+The [Bayes Factor][] can be written as $formula$
+
+[Bayes Factor]: http://en.wikipedia.org/wiki/Bayes_factor
+
+$formula$ Integrated likelihood under $M_1$ or marginal likelihood.
+$formula$ Integrated likelihood under $M_2$ or marginal likelihood.
+
+Likelihood ratio test: Chooses hypothesis (submodel) through:
+
+Instead of judging $M_i$ based on the maximum of the likelihood we do it based on average of the likelihood.
+
+
+$\lambda (x) = \frac{max P_{1}(y | \theta_1) formula}{max P_{2}(y | \theta_2)}$
+
+The crucial thing to use when comparing models is the integrated likelihood, $P_{\pi_i}(y) = P(y | M_i)$.
+
+You will choose depending on the ratio $\frac{formula}{formula} = \frac{formula}{formula}$ is bigger or smaller than 1. (???).
+
+Bad news: Bayes factors make sense only under proper priors $\pi_1$ and $\pi_2$.
+
+$\pi(\theta | y) = \frac{\pi(\theta)P(y|\theta)}{formula} =$
+
+Here choosing an inproper prior is ok because the constant in $\pi(\theta)$, we cancel them.
+
+$BF = formula$
+
+Inproper priors are not welcome, because constant is not canceled.
+
+$H_{1}: \theta  = \theta_{0}$
+$H_{2}: \theta \neq \theta_{0}$
+
+$P(H_{1}) = 1/2$
+$P(H_{2}) = 1/2$
+
+(dibuix with very long tails)
+
+Bayesian estatitics is easy as you are confortable with your prior.
+
+Note: If $H_1$ is true then
+
+$P(H_1 | y) \rigtharrow 1 as n \rigtharrow \infty$
+$P(H_2 | y) \rigtharrow 0 as n \rigtharrow \infty$
+
+$M = M_1 \cup M_2$
+
+(dibuix)
+
+Choosing between submodel 1 or submodel 2
+
+$M_1 \tilde y \sim P_1(\tilde y | \theta_1)$
+$M_1 \tilde y \sim P_1(\tilde y | \theta_1)$
+
+is the same as choosing simple against simple.
+
+$H_1: \tilde y \sim P_{\pi_1}(\tilde y)$
+$H_2: \tilde y \sim P_{\pi_2}(\tilde y)$
+
 # 5.More than two-hypothesis test and model comparison. 
+
+If you choose to be Bayesian you can relax in 2 directions.
+
+* You can test more than two Hipothesis at no extra cost.
+* You can test betwen any two models withot having to worry about one of them being nested into the other one.
+
+$\underline{Example 1}$
+
+Linear model $X_1, X_2$
+
+$M_1 = y_1 | x_1, x_2 \sim N(\beta, \sigma^2) indep$
+$M_2 = y_2 | x_1, x_2 \sim N(\beta_0 + \beta_{1}x_1, \sigma^2) indep$
+$M_3 = y_3 | x_1, x_2 \sim N(\beta_0 + \beta_{2}x_2, \sigma^2) indep$
+$M_4 = y_4 | x_1, x_2 \sim N(\beta_0 + \beta_{1}x_1 + \beta_{2}x_2, \sigma^2) indep$
+
+A Bayesisan will start choosing:
+
+$P(H_1) = \frac{1}{4}, \pi(\beta_0)$
+$P(H_2) = \frac{1}{4}, \pi(\beta_0, \beta_1)$
+$P(H_3) = \frac{1}{4}, \pi(\beta_0, \beta_2)$
+$P(H_4) = \frac{1}{4}, \pi(\beta_0, \beta_1, \beta_2)$
+
+and then compute the posterior
+
+$P(H_1 | y) = \dots$
+$P(H_2 | y) = \dots$
+$P(H_3 | y) = \dots$
+$P(H_4 | y) = \dots$
+
+And then choose the one with greater posterior.
+
+The diferent models are all nested.
+
+$\underline{Example 2}$
+
+Linear model $X_1, X_2$
+
+$M_1 = y_1 | x_1, x_2 \sim N(\beta_0 + \beta_{1}x_1 + \beta_{2}x_2, \sigma^2) indep$
+$M_2 = y_2 | x_1, x_2 \sim N(formula, \sigma^2) indep$
+
+How do you choose?
+
+Start assigning a a probability:
+
+$P(H_1) = \frac{1}{2}, \pi(\beta_0, \beta_1, \beta_2)$
+$P(H_2) = \frac{1}{2}, \pi(\theta_, \theta_2, \theta_3, \theta_4)$
+
+And then compute the posterior:
+
+$P(H_1 | y) = \dots$
+$P(H_2 | y) = \dots$
+
+
+If you have to choose betwen 
+
+$M_1, M_2, \dots M_k$
+
+$P(M_i | y) =  \frac{formula}{formula}$
+
+(anotacins formula) Integrated likelihood.
+
+(dibuix)
+
+$formula per cada dibuix$
+
 # 6.Prediction. 
+
+
 # 7.Model averaging. 
+
+$M_1 \beta_0 + \epsilon \leftrightarrow P_{\pi_1}(\tilde y|y) P(H_1 | y) = 0.001$
+$M_2 \beta_0 + \beta_{1}x_1 + \epsilon \leftrightarrow P_{\pi_2}(\tilde y|y) P(H_2 | y) = 0.003$
+$M_3 \beta_0 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_3}(\tilde y|y) P(H_3 | y) = 0.37$
+$M_4 \beta_0 + \beta_{1}x_1 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_4}(\tilde y|y) P(H_4 | y) = 0.6296$
+
+10 exploratori variables implies 1024 models.
+
+What would you do? The winer takes all??
+
+The thinks that cames natural is model averaging with the weight from the probability.
+
+
+
 # 8.Simulation based inference. 
 # 9.Frequentist asymptotic behavior of the posterior distribution. 
 # 10.Bayesian asymptotic behavior of the posterior distribution. 
