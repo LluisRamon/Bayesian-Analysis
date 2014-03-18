@@ -365,23 +365,111 @@ $P(M_i | y) =  \frac{formula}{formula}$
 
 $formula per cada dibuix$
 
+--- Start Class on 18-3-2014 (session 10)
+
 # 6.Prediction. 
 
+To predict future values of $y, \tilde y$, the only thing required is to plot
+
+$formula$
+
+(dibuix)
+
+$formula$
+
+The best prediction estimator is $p_{\pi}(\tilde y | y)$.
+
+Model checking will be based on comparing your data with simulations from $p_{\pi}(\tilde y | y)$.
+
+If one is interested in summarizing the distribution $p_{\pi}(\tilde y | y)$ (because $\tilde y$ is multivariate and $p_{\pi}(\tilde y | y)$ is difficult to picture) one can resort to:
+
+* a) Point estimates: 
+  * $E(\tilde | y)$
+  * mode of $\pi(\tilde y | y)$
+  * median $\pi(\tilde y | y)$ (if $y \in R$)
+* b) Interval estimate (uncertainity) throug predictive credible intervals:
+  * HPD 
+  * Central
+  * etc
+
+(dibuix)
+
+* c) 
+
+$$
+H_{1}: \tilde y \in {11, 12, 13}
+H_{2}: \tilde y \not \in {11, 12, 13}
+S_y = {0, 1, 2, \dots, 15}
+$$
+
+
+Imagine you have a linear model
+
+(dibuix)
+
+$y(x_0) = \beta_0 + \beta_1 x + \epsilon$ Predicting future observation & Prediction interval wider.
+$E(y | x_0) = \beta_0 + \beta_1 x$ Predicting expected value of future observation & Prediction interval narrower.
+
+The point estimate ($\hat y (x_0) = \beta_0 + \beta_1 x$) is the same but the interval estimate is different.
+
+In both cases frequentist do as if the future will be coming from $p(y | \hat \beta) \in M$. Frequentist typically underestimate the uncertainty in $\beta$.
+
+$\underline{Example: Binomial}$
+
+$M = {binomial(n = 10, \theta), \theta \in [0,1]}$ and $y = 7$.
+
+(dibuix amb pin (a = b = 2) i coin (a = b = 50) que son betas)
+
+$\pi(\theta) = Beta(a, b)$
+
+$p_{\pi}(\tilde y) = Beta-Binomial(n, a, b)$
+
+$\pi(\theta| y) = Beta(a + y, b + n -y)$
+
+$p_{\pi}(\tilde y |y) = Beta-Binomial(n', a + y, b + n - y)$
+
+There are two kinds of predictions.
+
+a) $\tilde y \leftarrow p_{\pi}(\tilde y |y)$
+
+b) $E(\tilde y | \theta) = n'\theta \leftarrow \pi(\theta| y)$
+
+$E(\tilde y | y) = E(n'\theta| y) = n' \frac{a + y}{a + b + n}$
+
+$V(\tilde y | y) = \frac{n'(a + y)(b + n - y)}{(a + b + n)^2}\frac{a + b + n + n'}{a + b + n + 1} >> n'^2 V(\theta |y) = n^2 \frac{(a + y)(b + n - y)}{(a + b + n)^2 (a + b + n + 1)}$
+
+
+(taula)
+
+(dibuix)
 
 # 7.Model averaging. 
 
-$M_1 \beta_0 + \epsilon \leftrightarrow P_{\pi_1}(\tilde y|y) P(H_1 | y) = 0.001$
-$M_2 \beta_0 + \beta_{1}x_1 + \epsilon \leftrightarrow P_{\pi_2}(\tilde y|y) P(H_2 | y) = 0.003$
-$M_3 \beta_0 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_3}(\tilde y|y) P(H_3 | y) = 0.37$
-$M_4 \beta_0 + \beta_{1}x_1 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_4}(\tilde y|y) P(H_4 | y) = 0.6296$
+$big formula \rightarrow big formula \rightarrow big formula$
 
-10 exploratori variables implies 1024 models.
+Linear model with r exploratory variables
+
+$k = 2^r$ models
+$r = 20 \rightarrow k = 10^6$ models
+
+$\underline{Example}$
+
+$M_1: \beta_0 + \epsilon \leftrightarrow P_{\pi_1}(\tilde y|y) P(H_1 | y) = 0.001$
+$M_2: \beta_0 + \beta_{1}x_1 + \epsilon \leftrightarrow P_{\pi_2}(\tilde y|y) P(H_2 | y) = 0.003$
+$M_3: \beta_0 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_3}(\tilde y|y) P(H_3 | y) = 0.37$
+$M_4: \beta_0 + \beta_{1}x_1 + \beta_{2}x_2 + \epsilon \leftrightarrow P_{\pi_4}(\tilde y|y) P(H_4 | y) = 0.6296$
+
+10 exploratoriy variables implies 1024 models.
 
 What would you do? The winer takes all??
 
-The thinks that cames natural is model averaging with the weight from the probability.
+You have different options:
 
+* a) Pick the model $M_j$ with the largest $P(M_j | y)$ and do the prediction with $p_{\pi_j}(\tilde y | y)$
+* b) Use an average all models weighted with the posterior distributions $P(M_j | y)$
+$$p_{\pi}(\tilde y | y) = formula$$
 
+It's called model averaging.
 
 # 8.Simulation based inference. 
 # 9.Frequentist asymptotic behavior of the posterior distribution. 
