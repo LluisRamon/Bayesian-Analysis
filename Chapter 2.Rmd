@@ -471,8 +471,179 @@ $$p_{\pi}(\tilde y | y) = formula$$
 
 It's called model averaging.
 
+--- Start Class on 25-3-2014 (session 11)
+
 # 8.Simulation based inference. 
+
+$formula$
+
+How do we compute denominator?
+
+* Analitically
+* Laplace aproximations (INLA)
+* Simulation
+
+$M = {y | x = Normal(\beta_0 + \beta_1 x + \beta_2 x^2, \sigma^2), \beta \in R^3}$
+
+$\beta ~ Normal()$
+
+You care about $x_max = \frac{- \beta_1}{2 \beta_2}$.
+
+How are you going to explore this starting from $\pi(\beta_0, \beta_1, \beta_2 | y)$.
+
+By simulating a sample of $\beta$ as large as you want you will have $x_{1}^{max}, formula$
+
+* a) By smoothing yhe histogram of the sample of $x_{i}^{max}$ you will be able to approximate as well as you want 
+
+(dibuix)
+
+$\pi(x^{max}| y)$
+
+* b) $E(x^{max}|y) = formula$
+* c) You can estimate credible intervals for $\pi(x^{max}|y)$ through the sample percentiles of $formula$.
+* d) If you want to test whether
+
+$$big formula$$
+
+I you need to simulate from the $formula$ starting from a sample from $\pi(\theta | y), \theta_1, \dots, \theta_m$ your only need to simulate observations from 
+
+$formula$
+
 # 9.Frequentist asymptotic behavior of the posterior distribution. 
-# 10.Bayesian asymptotic behavior of the posterior distribution. 
+
+Case 1: When the statistical model M is true (correct).
+
+$Y = (y_1, y_2, \dots, y_n) \sim M = {formula, \theta \in \Omega}$
+
+truth in the same for all the observations.
+
+and I know that the thrut $\theta^* \in \Omega$ (model is correct).
+
+$\pi(\theta | Y = (y_1, y_2, \dots, y_n)) | \theta^* \rigtharrow Normal_{\theta}(\theta^*, I(\theta^*)^{-1})$ 
+
+$I(\theta^*) = n formula$ Fisher Information.
+
+Variance goes to zero as n grows.
+
+This holds as long as 
+
+$l_{Y = y}(\theta)$ is continuous
+$\theta^* \in interior of \Omega$
+$\pi(\theta^*) \neq 0$
+
+As a consequence 
+
+1. Formula
+2. Formula
+
+everything is a consistent and xxx when $N \rigtharrow \infty$
+
+You can not use use this as an approximation because you don't know $\theta^*$.
+
+Case 2: What happens when the model is not correct?
+
+$y \sim p(y | \theta*)$ but now $\theta^* \not \in \Omega$.
+
+$\pi(\theta | Y = (y_1, y_2, \dots, y_n)) | \theta^* \rigtharrow Normal_{\theta}(\theta^0, I(\theta^0)^{-1})$
+
+where $p(y | \theta^0) \in M = formula$ and is in fact the probability model in M that is closest to the truth $P(y | \theta^*)$.
+
+$P(y | \theta^0)$ is the one in M that has the smallest [Kullback–Leibler][] diverngence from $P(y | \theta^*)$
+
+[Kullback–Leibler]: http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
+
+$$big formula$$
+
+# 10.Bayesian asymptotic behavior of the posterior distribution.
+
+* a) When n grows
+
+$\pi(\theta | y)$ approx $Normal(E(\theta | y), V(\theta | y))$
+
+* b) When n grows
+
+$\pi(\theta | y)$ approx $Normal(\hat \theta, I(\hat \theta)^{-1})$
+
+$\hat \theta = mode(\pi(\theta | y))$
+$I(\hat \theta) = formula$
+
+* c) $\pi(\theta | y)$ is approx $Normal(\hat \theta_ML, I(\hat \theta_ML)^{-1})$
+
+$formula$
+
+a) is better than b) and b) better than c)
+
+$\underline{Example}$
+
+$M = {bin(n, \theta), \theta \in \Omega}$
+
+$\pi(\theta) = \beta(a, b)$
+
+a) $\pi(\theta | y) \sim big fromula$
+b) $\pi(\theta | y) \sim big fromula$
+c) $\pi(\theta | y) \sim big fromula$
+
+
 # 11.Decision theory and frequentist (Bayesian) assessment of the Bayesian (frequentist) inference. 
+
+Strictly speaking there are no Bayesian or Frequentist 
+
+* estimators of $\theta$ or $\tilde y$
+* intervals (reparam) of $\theta$ or $\tilde y$
+* test about  $\theta$ or $\tilde y$
+* decision rules
+
+What is Bayesian or Frequentist is the way in which estimates intervals (reparam), test or decision-rules are assessed (judged).
+
+Estimator
+
+$S_y \rightarrow \Omega$
+$y \rightarrow \hat \theta(y)$
+
+Interval
+
+$S_y \rightarrow Intervals of \Omega$
+$formula$
+
+Test
+
+$formula$
+
+Decission rule
+
+$formula$
+
+Loss function tells you the "bad" consequence of choosing $d \in \Omega$ when truth is $\theta^*$
+
+$L(\theta, d) = (\theta - d)^2$
+
+$\underline{Example}$
+
+$M = Normal(formula)$
+$formula$
+
+$formula$
+
+$formula$
+
+I will judge them through $L(\theta, d) = L(\theta, \hat \theta) = (\theta - \hat \theta (y))^2 = formula$
+
+If I want to behave non Bayesian I will judge them in term of how they behave under repetitive simulation from $y | \theta^* \sim Normal(\theta^*, 1)$
+
+$E_{y | \theta^*}(L(\theta | \hat \theta)| \theta^*)$ 
+
+$formula = E_{y | \theta^*}((\theta - y)^2| \theta^*) = V(y | \theta^*) = 1$ Risk function.
+
+$formula$
+
+Frequentist way of assesing 
+
+$\theta_{ML} = y$
+$\theta_{pe} = \frac{y}{1 + \alpha}$
+
+(dibuix)
+
+Does not tell me what estimator is best for me.
+
 # 12.Summary.
+
