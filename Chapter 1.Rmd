@@ -121,6 +121,7 @@ In order to make this comparison more feasible one often resorts to selecting $\
 $MSE_{\hat \theta}(\theta) = E((\hat\theta(y) - \theta)^{2}| \theta) =\left(E(\hat\theta(y)|\theta)-\theta\right)^{2} + V (\hat\theta(y)|\theta)=B(\hat\theta(y)|\theta)^2+V(\hat\theta(y)|\theta)$
 
 Problems?
+
 * Difficult to compute.
 * Is a function of $\theta$ and you don't know the truth.
 * This does not rank your estimator either.
@@ -135,16 +136,16 @@ What is the subset of $\Omega$ that best represents truth data.
 
 Answer: An interval with confidence p
 
-Difficulties: How do yo build such $C(p) = [] \subset \Omega$
+Difficulties: How do yo build such $C(p) = [d_{L}^p (y), d_{U}^p (y)] \subset \Omega$
 
-How do you get $formula$.
+How do you find/get $d_{L}^p (y)$ and $d_{U}^p (y)$?.
 
 Its difficult to do it for other thing different than a normal.
-The real problem when you have to explain what does it mean that $formula$ has confidence p?
+The real problem when you have to explain what does it mean that $d_{L}^p (y), d_{U}^p (y)]$ has confidence p?
 
 It means that 
 
-$P_{y|\Omega^{*}}()$ (dibuix)
+$f(\theta^*) = P_{y|\theta^{*}}(d_{L}^p (y) < \theta^* < d_{U}^p (y)) > p \forall \theta^* \in \Omega$
 
 If you repeat the experiment with the same $\theta^{*}$ many times and compute these kind of intervals each time, they would include $\theta^{*}$ with a probability larger than p.
 
@@ -156,9 +157,9 @@ Do we really care only about this?
 
 In practice many people do as if confidence p is the same as 
 
-$P_{\Omega^{*}|y}(d_{L}(y) < ) = P()$ in your actual experiment.
+$f(y) = P_{\theta | y}(d_{L}(y) < \theta^* < d_{U}(y)) = P(\theta^* \in [d_L, d_U])$ in your actual experiment.
 
-Fixed- random -Fixed This is not confidence intervals.
+$d_{L}(y)$ fixed, $\theta^*$ random, $d_{U}(y)$ fixed, but this is not confidence intervals.
 
 Confidence Intervals is that is very difficult to compute and understand and interpret. Very hard to justify, like assuming normality and need large sampling.
 
@@ -205,7 +206,6 @@ If people want $P(H_{0} is true | data)$ why give a p-value.
 
 Statistics is to difficult to handle starting only from the statistical model.
 
-
 # Likelihood based Infernce
 
 Between Bayesian Model and Frequentist model.
@@ -218,31 +218,32 @@ Between Bayesian Model and Frequentist model.
 
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
-$l_{Y = y} (\theta) = P(Y = y | \theta)$
+$\ell_{Y = y} (\theta) \alpha P(Y = y | \theta)$
 
-The heuristic behind this is that the largest the $l_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \Omega^{*} = \Omega_{i})$
+The heuristic behind this is that the largest the $\ell_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \theta^{*} = \theta_{i})$.
 
+With $\ell(\theta)$ ranks the $P(y | \theta) \in M$ from making data more likely to making data less likely.
 
-The initial idea out of the blue is weird.
+The initial idea come out of the blue and is kind of weird.
 
 $\underline{Example}$
 
 $\theta = P(\bot) = 1 - P(\vdash)$
 
-$M1 = {binomial(n = (10, \theta), \theta \in [0, \theta])}$ and $y = 6$ 
+$M_1 = {binomial(n = (10, \theta), \theta \in [0, \theta])}$ and $y = 6$ 
 
-$\theta_{ML} = 6/10$
+$\ell_{Y = 6}(\theta) = {10 \choose 6}\theta^{6}(1 - \theta)^4$
 
-$likelihood$
+The maximum likelihood estimator is $\hat \theta_{ML} = 6/10$
 
 ![alt text][likelihood_binomial]
 
 [likelihood_binomial]: figure/likelihood_binomial.png "likelihood_binomial"
 
 
-If $l / l = 2$
+If $$\frac{\ell(\theta_2)}{\ell(\theta_1)} = 2$$
 
-$\theta_2$ is true more likely to have generated your data from $\theta$
+Then $\theta_2$ is true more likely to have generated your data than $\theta_1$
 
 ![alt text][likelihood_binomial_intervals]
 
@@ -252,17 +253,15 @@ How do you compare subset A with subset B in terms of likelihood?
 
 Can we use areas? Can we read the likelihood function as if it was a probability density function?
 
-There are 2 problems for treating $l(\theta)$ as a pdf.
+There are 2 problems for treating $\ell(\theta)$ as a pdf.
 
-(integral diferent a 1)
+$$\int_{\Omega}\ell_{y}(\theta)d\theta \neq 1$$
 
-It can be fixed by to a standardized likelihood function.
+Is not always equal to 1. It can be fixed by to a standardized likelihood function.
 
-(integral standardized)
+$$\int_{\Omega}^{est}\ell_{y}(\theta)d\theta = \frac{\ell_{Y = y}(\theta)}{\int_{\Omega}\ell_{Y = y}(\theta)d\theta} = \frac{{10 \choose 6}\theta^{6}(1 - \theta)^4}{\int_{0}^{1} {10 \choose 6}\theta^{6}(1 - \theta)^4 d\theta}$$
 
-Sometimes is infinite and you can't do that.
-
-If you reparametrize the model 
+Sometimes is infinite and you can't do that. If you reparametrize the model 
 Probability function have to integrate to 1.
 
 ![alt text][likelihood_binomial_reparametrization]
