@@ -787,19 +787,19 @@ Everything falls down to computing probabilities.
 
 One only needs to do two steps:
 
-* a) Write the joint distribution of what will be observed and what will not be observed and what will not be observed.
+* a) Write the joint distribution of what will be observed and what will not be observed and what will not be observed. I have to choose a $\pi(\theta)$
 
 $p_{\pi}(\tilde y, \theta) = \pi(\theta)p(\tilde y| \theta)$
 
-You get data $Y = y$.
+You get data $Y = y$. 
 
 * b) Condition with respect to what we know $(Y = y)$ and we integrate over everything that we do not know and we do not care about.
 
 $f_{pi}(\tilde y, \theta | Y = y) = \pi(\theta | y) * p(\tilde y | \theta)$
 
-If you care about $\theta$ $formula$
+If you care about $\theta$ $\pi(\theta) = \int$
 
-If you care about $\tilde y$ $formula$
+If you care about $\tilde y$ $P_{\pi}(\tilde y | y) = \int P(\tilde y | \theta) \pi(\theta|y)d\theta$
 
 a) Choosing a $\pi(\theta)$
 b) Compute (simulate) $formula$ and decide how to present the results.

@@ -1729,12 +1729,12 @@ He assesses everything indirectly by checking what happens under repeated sampli
 <p>One only needs to do two steps:</p>
 
 <ul>
-<li>a) Write the joint distribution of what will be observed and what will not be observed and what will not be observed.</li>
+<li>a) Write the joint distribution of what will be observed and what will not be observed and what will not be observed. I have to choose a \(\pi(\theta)\)</li>
 </ul>
 
 <p>\(p_{\pi}(\tilde y, \theta) = \pi(\theta)p(\tilde y| \theta)\)</p>
 
-<p>You get data \(Y = y\).</p>
+<p>You get data \(Y = y\). </p>
 
 <ul>
 <li>b) Condition with respect to what we know \((Y = y)\) and we integrate over everything that we do not know and we do not care about.</li>
@@ -1742,9 +1742,9 @@ He assesses everything indirectly by checking what happens under repeated sampli
 
 <p>\(f_{pi}(\tilde y, \theta | Y = y) = \pi(\theta | y) * p(\tilde y | \theta)\)</p>
 
-<p>If you care about \(\theta\) \(formula\)</p>
+<p>If you care about \(\theta\) \(\pi(\theta) = \int\)</p>
 
-<p>If you care about \(\tilde y\) \(formula\)</p>
+<p>If you care about \(\tilde y\) \(P_{\pi}(\tilde y | y) = \int P(\tilde y | \theta) \pi(\theta|y)d\theta\)</p>
 
 <p>a) Choosing a \(\pi(\theta)\)
 b) Compute (simulate) \(formula\) and decide how to present the results.</p>
