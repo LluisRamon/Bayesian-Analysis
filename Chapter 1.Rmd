@@ -322,9 +322,10 @@ $P_{1}(Y=y|\theta)=\ell^{1}_{Y=y}(\theta)~\propto~P_{2}(Y=y|\theta)=\ell^{2}_{Y=
 then your inferences (decisions) about $\theta^{*}$ have to be identical.
 
 Paper Bimbaun (1964) JASA (Will be posted in atenea) stated that if the 
-sufficiency principle + [conditionality principle][] are satisfied, then Likelihood principle are reached.
+sufficiency principle + [conditionality principle][] are satisfied, then [Likelihood principle][] are reached.
 
 [conditionality principle]: http://en.wikipedia.org/wiki/Conditionality_principle
+[Likelihood principle]: http://en.wikipedia.org/wiki/Likelihood_principle
 
 $\underline{Example}$
 
@@ -355,7 +356,7 @@ but on top of this considers $\theta$ to be a random variable, and he/she is rea
 
 ![alt text][bayesian_model]
 
-[bayesian_model]: figure/bayesian_model.jpg "bayesian_model"
+[bayesian_model]: figure/bayesian_model.png "bayesian_model"
 
 We have a list of probability  distributions on a sample space $P(y| \theta)$ that are ordered form more believable to less believable based on the prior $\pi(\theta)$.
 
@@ -402,7 +403,7 @@ We start with $M = \left\{P(y | \theta), \theta \in \Omega\right\}$ and $\pi(\th
 
 ![alt text][bayesian_model_amp]
 
-[bayesian_model_amp]: figure/bayesian_model_amp.jpg "bayesian_model_amp"
+[bayesian_model_amp]: figure/bayesian_model_amp.png "bayesian_model_amp"
 
 We start with $P(y | \theta)$. Once you have the data $P(y | \theta)$ in the wrong kind of statement, because y is already known an $\theta$ unknown. What you would really like to have is a probability statement $P(\theta|y)$, knew in the pas as inverse probability. Likelihood function can not be read in this terms, to get $P(\theta|y)$ (posterior distribution), we'd need a prior.
 

@@ -57,3 +57,50 @@ dibuix <- ggplot(data = diagram, aes(x = x, y = y)) + ylim(- 0.25, 2) + xlim(0.7
 png(filename = "figure/exemple_binomial.png")
 diagram2 +  ggtitle("Binomial model") + nothing_theme
 dev.off()
+
+
+# Diagram 3 stat_binom model ------------------------------------------------
+
+figure/stat_mod_binom.jpg
+
+# Diagram 4 bayesian model ------------------------------------------------
+
+x <- c(1, 2, 2, 1, 1) + 0.15*c(1, -1, -1, 1, 1)
+y <- c(1, 1, 2, 2, 1) + 0.15*c(1, 1, -1, -1, 1)
+
+diagram <- data.frame(x, y)
+
+dibuix <- ggplot(data = diagram, aes(x = x, y = y)) + ylim(0.4, 2) + xlim(0.75, 2.25) +
+  geom_path() + 
+  geom_segment(aes(x = 1.5, y = 1.3, xend = 1.5, yend = 0.75), arrow = arrow(length = unit(0.2, "cm"))) 
+
+eq <- "'{P(y| ' * theta * '):' * theta %in% Omega * '}'"
+pi <- "pi * '(' * theta * ')'"
+def <- "'Bayesian trick'"
+
+
+(diagram4 <- dibuix + 
+   annotate("text", x = 1.5, y = 1.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.5, y = 1.4, parse = TRUE, size = 7, label = pi) + 
+   annotate("text", x = 1.5, y = 0.65, parse = TRUE, size = 6, label = def))
+
+png(filename = "figure/bayesian_model.png")
+diagram4 +  ggtitle("Bayesian model") + nothing_theme
+dev.off()
+
+
+
+# Diagram 5 bayesian model ------------------------------------------------
+
+data <- "'Data'"
+eq <- "y == 6"
+lik <- "italic(l)[y] * '(' * theta * ')'"
+
+(diagram5 <- diagram4 + 
+  annotate("text", x = 1.65, y = 1.05, parse = TRUE, size = 6, label = data) +
+  annotate("text", x = 1.65, y = 0.95, parse = TRUE, size = 6, label = eq) + 
+  annotate("text", x = 1.65, y = 0.85, parse = TRUE, size = 6, label = lik))
+
+png(filename = "figure/bayesian_model_amp.png")
+diagram5 +  ggtitle("Bayesian model") + nothing_theme
+dev.off()
