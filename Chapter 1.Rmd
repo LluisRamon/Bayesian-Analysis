@@ -15,7 +15,7 @@ We will _claim_ that the model M is correct if the probability model that genera
 
 ![alt text][statistical_model]
 
-[statistical_model]: figure/statistical_model.jpg "statistical_model"
+[statistical_model]: figure/Statistical_model.png "statistical_model"
 
 [Missing plot]: figure/missing-plot.png "MissingPlot"
 
@@ -54,7 +54,7 @@ Make sense to do inference in the same way?
 
 ![alt text][exemple_binomial]
 
-[exemple_binomial]: figure/exemple_binomial.jpg "exemple_binomial"
+[exemple_binomial]: figure/exemple_binomial.png "exemple_binomial"
 
 # The three problems in Statistics
 
@@ -218,7 +218,7 @@ Between Bayesian Model and Frequentist model.
 
 Likelihood function ins a function on $\Omega$ obtained by plugging in your observed data into $P(Y|\theta)$.
 
-$\ell_{Y = y} (\theta) \alpha P(Y = y | \theta)$
+$\ell_{Y = y} (\theta) \propto P(Y = y | \theta)$
 
 The heuristic behind this is that the largest the $\ell_{Y = y} (\theta_{i})$, the more likely it is that the data observed comes from $P(y| \theta^{*} = \theta_{i})$.
 
@@ -317,7 +317,7 @@ $M_{2} = \left\{P_{2}(y | \theta), \theta \in \Omega\right\}$
 
 And the likelihood function are proportional 
 
-$P_{1}(Y=y|\theta)=\ell^{1}_{Y=y}(\theta)~\alpha~P_{2}(Y=y|\theta)=\ell^{2}_{Y=y}(\theta)$
+$P_{1}(Y=y|\theta)=\ell^{1}_{Y=y}(\theta)~\propto~P_{2}(Y=y|\theta)=\ell^{2}_{Y=y}(\theta)$
 
 then your inferences (decisions) about $\theta^{*}$ have to be identical.
 
@@ -335,7 +335,7 @@ $M_{2}$ Toss that pin until you observe six times pin up and count the number of
 
 $M_{3}$ Toss that pin until the fire alarm sounds $y'' =$ 6 pin up and 4 pin down
 
-$\ell_{1}(\theta)~\alpha~\theta^{6}(1-\theta)^{4}~\alpha~\ell_{2}(\theta)~\alpha~\ell_{3}(\theta)$
+$\ell_{1}(\theta)~\propto~\theta^{6}(1-\theta)^{4}~\propto~\ell_{2}(\theta)~\propto~\ell_{3}(\theta)$
 
 Your conclusion about $\theta^{*}$ will be the same if you keep in mind the likelihood principle.
 
@@ -429,7 +429,7 @@ This is the only thing that you have to compute in order to have your posterior.
 
 Sometimes you don't need to integrate. If you compute $\pi(\theta)P(y|\theta)$ and you recognize the distribution, then $\frac{1}{P_{\pi}(\y)}$ will be the constant that gets $\pi(\theta | y)$ to integrate to one.
 
-$\pi(\theta|y)=\pi(\theta)\frac{1}{P_{\pi}(y)}P(y|\theta)~\alpha~\pi(\theta)\ell_{y}(\theta)$ where the second term is a version of the likelihood function and $P(y|\theta)$ your statistical model.
+$\pi(\theta|y)=\pi(\theta)\frac{1}{P_{\pi}(y)}P(y|\theta)~\propto~\pi(\theta)\ell_{y}(\theta)$ where the second term is a version of the likelihood function and $P(y|\theta)$ your statistical model.
 
 By incorporating the prior in the analysis, $\ell_{y}(\theta)$ becomes a proper probability model. This is all the math that there is in Bayesian Analysis.
 
@@ -440,7 +440,7 @@ A Bayesian will do:
 
 Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta)$ Bayesian inference will always satisfy the likelihood principle.
 
-A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\alpha~\ell_{u}$ like $\ell_{y}^{st}$
+A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\propto~\ell_{u}$ like $\ell_{y}^{st}$
 
 ![alt text][Missing plot]
 
