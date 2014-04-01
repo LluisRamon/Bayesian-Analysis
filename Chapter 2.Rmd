@@ -645,5 +645,112 @@ $\theta_{pe} = \frac{y}{1 + \alpha}$
 
 Does not tell me what estimator is best for me.
 
-# 12.Summary.
+--- Start Class on 1-4-2014 (session 12)
+
+$\underline{Example}$
+
+Continuation last week example.
+
+a) Point estimation
+
+$(y | \theta) \sim N(\theta, 1)$
+
+$formula$
+$formula$
+$Posterior expectation = formula$
+
+Frequentist:
+
+$E_{y | \theta}((\theta - \hat \theta)^2)$ 
+
+$formula$
+$formula$
+
+Bayesian:
+
+$E_{\theta | y}((\theta - \hat \theta)^2))$ 
+
+$formula$
+$formula$
+
+Winer the posterior expectation.
+
+Bayesians can choose estimator because $E_{\theta | y}((\theta - \hat \theta)^2))$ is a real value.
+
+Frequentist can rarely choose estimator because $E_{y | \theta}((\theta - \hat \theta)^2)) = f(\theta)$ unless $f(\theta) > f_2 (\theta) \forall \theta \in \Omega$. You can not know which one is the best.
+
+b) Intervals
+
+[y - 1.96, y + 1.96]
+
+$formula$
+
+Confidence of these intervals conf(A) = 95%.
+
+$$Crediblity(A) = P_{\theta | y}(\theta \in [y - 1.96, y + 1.96]) = P(z < \frac{formula}{\sqrt \frac{1}{1+ \alpha}}) - P(z < \frac{formula}{\sqrt \frac{1}{1+ \alpha}}) = f(\y, \alpha)$$
+
+$\alpha$ priori
+$\theta$ data value
+
+Credibility(B) = 0.95
+$Confidence(B) = inf_{\theta^* \in \Omega}P_{y | \theta^*}(formula)$
+
+You can simulate. This is going to be a function on alpha.
+
+c) Testing
+
+$H_{1}: \theta > 0$
+$H_{2}: \theta < 0$
+
+Choose $H_1$ if $P(\theta > 0 | y) > P(\theta > 0 | y )$ if y > 0.
+Choose $H_2$ if $P(\theta < 0 | y) > P(\theta < 0 | y )$ if y < 0.
+
+A frequentist
+
+$P(Chooseing H_2 | \theta^* \in H_1) = f_1 (\theta^*)$ Type I error.
+$P(Chooseing H_1 | \theta^* \in H_2) = f_2 (\theta^*)$ Type II error = 1 - Power.
+
+By simulation you can compute this.
+
+size $supr_{formula} formula$
+
+Decision theroy 
+
+$S_y \rightarrow D$
+$y \rightarrow d(y) \in D$
+
+$d(y)$ can be point estimator, confidence intervals, Hypothesis testing.
+
+$L(\theta^*, d)$ loss in choosing $d(y)$ when truth is $\theta^*$.
+
+If you choose a loss what are you going to do.
+
+If you are frequentist you want $d(y)$ that minimizes
+
+$E(formula) = Risk(\theta^*, d)$ real valued function of $\theta^*$
+
+You can not rank decission.
+
+If you are Bayesian you want d(y) that minimizes
+
+$E_{\theta | y}[L(\theta | d)] = risk(\pi, d)$ real valued minimize if you have a prior
+
+This can be minimized. You can rank decissions.
+
+$formula$
+$formula$
+$formula$
+
+# 12.Summary
+
+We always start with data and one statistical model M that yo assume is correct. (Statistical Inference)
+
+Bayesian Inference requires 3 steps:
+
+* Choose a prior ($\pi(\theta)$) _Bayesian act of faith_ Depend on what you know about your problem.
+* Simulate from, approximate or compute the posterior $\pi(\theta | y)$ or posterior predictive $P_{\pi}(\tilde y | y)$.
+* Decide how to summarize $\pi(\theta | y)$, $P_{\pi}(\tilde y | y)$. Depend on what you want to know about your problem.
+
+
+
 
