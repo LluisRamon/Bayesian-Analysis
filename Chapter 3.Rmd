@@ -1,0 +1,58 @@
+---
+title: "Chapter 3 Hierachical Models"
+author: "Lluis Ramon"
+date: "1 de abril de 2014"
+output: html_document
+---
+
+--- Start Class on 1-4-2014 (session 12)
+
+# 1. Hierachical models (random effectsm multilevel models)
+
+$\underline{Example}$
+
+$y_i$ number of goals scored by Barça in one game in Spanish league.
+
+$y = (y_1 \dots \y_n) \sim \prod_{i = 1}^{n} Poisson(\theta), \theta \in [0, \infty]$
+
+Poission and Binomial are very rigid because when you model $\theta$ you are dealing with mean and variance.
+
+It is belivable that the same value of $\theta^*$ applies to all observation in the sample?
+
+It is more belivable to think
+
+$y = (y_1 \dots \y_n) \sim \prod_{i = 1}^{n} Poisson(\theta_i), \theta = (\theta_1, \dots \theta_n) \in \Omega = [0, \infty]^n$
+
+Does it make sense to start with this model? Does it make sense to model n y's through n $\theta_i$'s?
+
+Modeling seems to make sense only if you summarize n observations $y_1 \dots \y_n$ through p parameters where p < n (Regression model).
+
+
+$\underline{Example}$
+
+$y_1$ number od votes for PP in the i-th area of Barcelona.
+
+$Y = (y_1 \dots \y_n) \sim \prod_{i = 1}^{n} binomial(n_i, \theta), \theta \in [0,1]$
+
+This assumes that the $\theta^*$ behind all $y_i$`s in the same, but that does not make sense.
+
+$Y = (y_1 \dots \y_n) \sim \prod_{i = 1}^{n} binomial(n_i, \theta_i), \theta \in = (\theta_1, \dots \theta_n) \in \Omega = [0, 1]^n$
+
+$\underline{Example}$
+
+Assigment example with the dice.
+
+You start with a huge box filled with dices. They are all with faces painted black or white in different proportions.
+
+You do not know how where the dice painted.
+
+Each time you roll a dice, it will be different but it will allways be comming from the box.
+
+$Y = (y_1 \dots \y_n) \sim \prod_{i = 1}^{n} binomial(n, \theta_i), \theta_i \in {0, \frac{1}{6},  \frac{2}{6}, \frac{3}{6}, \frac{4}{6}, \frac{5}{6}, 1}$
+
+$\underline{\theta} = (\theta_1, \dots, \theta_n) = \Omega_1 \times \Omega_2 \times \dots \times \Omega_n$
+
+The main goal of gathering data is not learning about $\theta_i$ but learning about the distribution od $\theta_i$.
+
+
+# 2.Empirical Bayes.
