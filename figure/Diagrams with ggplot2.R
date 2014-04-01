@@ -61,6 +61,8 @@ dev.off()
 
 # Diagram 3 stat_binom model ------------------------------------------------
 
+library("gridExtra")
+
 figure/stat_mod_binom.jpg
 
 # Diagram 4 bayesian model ------------------------------------------------
@@ -76,7 +78,7 @@ dibuix <- ggplot(data = diagram, aes(x = x, y = y)) + ylim(0.4, 2) + xlim(0.75, 
 
 eq <- "'{P(y| ' * theta * '):' * theta %in% Omega * '}'"
 pi <- "pi * '(' * theta * ')'"
-def <- "'Bayesian trick'"
+def <- "'???'"
 
 
 (diagram4 <- dibuix + 
