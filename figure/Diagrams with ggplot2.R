@@ -37,7 +37,7 @@ dev.off()
 
 # Diagram 2 binomial model ------------------------------------------------
 
-eq <- "'{Binomial | (10, theta)}'"
+eq <- "'{Binomial | (10,' * theta * ')}'"
 def1 <- "'a) Point estimation   '"
 def2 <- "'b) Interval estimation'"
 def3 <- "'c) Hipothesis testing '"
@@ -63,7 +63,45 @@ dev.off()
 
 library("gridExtra")
 
-figure/stat_mod_binom.jpg
+x <- c(1, 2, 2, 1, 1)
+y <- c(1, 1, 2, 2, 1)
+
+diagram <- data.frame(x, y)
+
+dibuix <- ggplot(data = diagram, aes(x = x, y = y)) + ylim(- 0.25, 2) + xlim(0.75, 2.25) +
+  geom_path() + 
+  geom_segment(aes(x = 1.5, y = 1.25, xend = 1.5, yend = 0.5), arrow = arrow(length = unit(0.2, "cm"))) 
+
+eq <- "'{P(y| ' * theta * '):' * theta %in% Omega * '}'"
+
+
+(diagram1 <- dibuix + 
+   annotate("text", x = 1.5, y = 1.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.7, y = 0.75, parse = TRUE, size = 6, label = "Y == y") +
+   annotate("text", x = 1.5, y = 0.35, parse = TRUE, size = 6, label = "'???'"))
+
+eq <- "'{Binomial | (10,' * theta * ')}'"
+
+expl1 <- "'And we want to guess which'"
+expl2 <- "theta^bold('*') %in% Omega * ' generated ' * Y == 4"
+
+dibuix <- ggplot(data = diagram, aes(x = x, y = y)) + ylim(- 0.25, 2) + xlim(0.75, 2.25) +
+  geom_path() + 
+  geom_segment(aes(x = 1.5, y = 1.25, xend = 1.5, yend = 0.5), arrow = arrow(length = unit(0.2, "cm"))) 
+
+(diagram2 <- dibuix + 
+   annotate("text", x = 1.5, y = 1.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.7, y = 0.75, parse = TRUE, size = 6, label = "Y == 4") + 
+   annotate("text", x = 1.5, y = 0.25, parse = TRUE, size = 6, label = expl1) +
+   annotate("text", x = 1.5, y = 0.125, parse = TRUE, size = 6, label = expl2))
+
+
+p1 <- diagram1 +  ggtitle("Statistical model") + nothing_theme
+p2 <- diagram2 +  ggtitle("Binomial model") + nothing_theme
+
+png(filename = "figure/stat_mod_binom.png", width = 680)
+grid.arrange(p1, p2, ncol = 2)
+dev.off()
 
 # Diagram 4 bayesian model ------------------------------------------------
 

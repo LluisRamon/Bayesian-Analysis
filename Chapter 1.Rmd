@@ -88,7 +88,7 @@ Frequentist statistician is someone doing statistics using only statistical mode
 
 ![alt text][stat_mod_binom]
 
-[stat_mod_binom]: figure/stat_mod_binom.jpg "stat_mod_binom"
+[stat_mod_binom]: figure/stat_mod_binom.png "stat_mod_binom"
 
 Goal is to guess (formula) $\theta^{*} \in \Omega$ that generated $Y = y$
 
