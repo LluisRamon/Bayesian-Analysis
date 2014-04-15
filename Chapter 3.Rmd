@@ -54,5 +54,59 @@ $\underline{\theta} = (\theta_1, \dots, \theta_n) = \Omega_1 \times \Omega_2 \ti
 
 The main goal of gathering data is not learning about $\theta_i$ but learning about the distribution od $\theta_i$.
 
+--- Start Class on 8-4-2014 (session 13)
+
+$formula$
+
+In log-linear Poisson models one assumes that
+
+$formula$
+
+This make sense because p << n
+We want to do this without covariates:
+
+$\underline{\theta} = (\theta_1, \dots, \theta_n) \in [0, \infty)^n$
+
+You do this when you do not have the covariates nectked to explain your heterogeerities but you do not want to assume the heterogenezity does not exist.
+
+We want to summarize n y's through n $\theta_i$'s.
+
+Does this make sense?
+
+Yes as long as you are willing to assume that all these $\theta_i$'s share the same unknown distribution.
+
+The goal now will be to learn about this distribution of the $\theta_i$'s.
+
+In general we will say that a $Y = (y_1 \dots \y_n)$ follows a Bayesian hierachical model if
+
+$$Y = (y_1 \dots \y_n) | \underline{\theta} = (\theta_1, \dots, \theta_n) \sim \prod_{i = 1}^{n} P(y_i, \theta_i) \underline{\theta} = (\theta_1, \dots, \theta_n) \in \Omega \times \dots \times \Omega$$
+
+$\underline{\theta} = (\theta_1, \dots, \theta_n) \sim \prod_{i = 1}^{n} \pi(\theta_i, \gamma)$
+
+$\gamma$ new parameter (unknown value) hyperparameter.
+
+$\gamma \sim \psi (\gamma)$ prior distribution on $\gamma$ (known).
+
+This is not anything new. This is a special case of a Bayesian model. 
+
+Formulation a)
+
+$\underline{y} | \underline{\theta} \sim formula$
+Statistical model
+
+$formula$
+prior
+
+Formulation b)
+
+$formula$
+Statistical model
+
+$formula$
+prior
+
+If you care about the $\underline{\theta}$ you would choose a).
+If you care about $\gamma$ 
 
 # 2.Empirical Bayes.
+
