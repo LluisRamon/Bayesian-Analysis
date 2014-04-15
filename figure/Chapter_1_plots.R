@@ -53,8 +53,8 @@ qplot(x, y, data = likelihod_binomial, geom = "line") +
   geom_segment(x = 0.3, xend = 0.3, y = 0, yend = lbinom(0.3)) + 
   geom_area(data = area_menor_0.3 , fill = I("blue"), alpha = 0.3) + 
   geom_area(data = area_menor_0.4, fill = I("green"), alpha = 0.3) +
-  annotate("text", x=0.35, y=0.01, parse=TRUE, size=6, label="2*zeta") +
-  annotate("text", x=0.27, y=0.01, parse=TRUE, size=6, label="zeta")
+  annotate("text", x=0.35, y=0.01, parse=TRUE, size=6, label="2 * italic(z)") +
+  annotate("text", x=0.27, y=0.01, parse=TRUE, size=6, label="italic(z)")
 dev.off()
 
 # Comparing intervals doesn't make sense
