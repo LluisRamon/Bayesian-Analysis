@@ -165,4 +165,16 @@ qplot(x, y, colour = dist, data = betas, geom = "line",
       main = "Beta distribution examples")
 dev.off()
 
+# Session 6
 
+x <- seq(0, 1, by = 0.01)
+beta1 <- data.frame(x = x, y = dbeta(x, 1, 1), beta = "(1, 1)", stringsAsFactors= FALSE)
+beta2 <- data.frame(x = x, y = dbeta(x, 0.5, 0.5), beta = "(0.5, 0.5)", stringsAsFactors= FALSE)
+beta3 <- data.frame(x = x, y = dbeta(x, 0.01, 0.01), beta = "infinite variance", stringsAsFactors= FALSE)
+
+betas <- rbind(beta1, beta2, beta3)
+
+png(filename = "figure/conjugate_infinite_variance.png")
+qplot(x, y, colour = beta, data = betas, geom = "line", 
+      main = "Conjugate Beta") + facet_wrap(~ beta)
+dev.off()

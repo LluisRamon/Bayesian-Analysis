@@ -463,11 +463,6 @@ $\pi(\theta | y) = \frac{\pi(\theta)P(y|\theta)}{\int_{\Omega}\pi(\theta)P(y|\th
 
 $\pi(\theta | y) = Beta(a + y, b + n - y) = Beta(a + 6, b + 10 - 6)$
 
-
-![alt text][Missing plot]
-
-The likelihood 
-
 ![alt text][beta_prior_pos_2_2]
 
 [beta_prior_pos_2_2]: figure/beta_prior_pos_2_2.png
@@ -593,8 +588,6 @@ $M_x = {Normal(\beta_0 + \beta_{1}x, \sigma^2)}, (\beta_0, \beta_1, \sigma) \in 
 
 Any distribution on $\mathbb{R}^2 \times (0, \infty)$ is allowed.
 
-![alt text][Missing plot]
-
 You might want to chose a prior by stating what you know about $\beta$, and about $E(y = 0 |x) = \frac{- \beta_0}{\beta_1}$. So one possible informative prior is, according to the client, 
 
 $\beta_1 \sim N(5,1)$
@@ -602,8 +595,6 @@ $\beta_1 \sim N(5,1)$
 $\frac{- \beta_0}{\beta_1} \sim N(-1, 3)$
 
 Sometimes you want to chose $\pi(\theta)$ by making probability statements about future values $\tilde y(x)$
-
-![alt text][Missing plot]
 
 It requires a lot of care but it is doable. Then everything is straightforward.
 
@@ -707,7 +698,11 @@ If (a + b) decreases to 0, the Variance increases.
 
 $\theta \sim Beta(0, 0) \Rightarrow V(\theta) = \infty$
 
-![alt text][Missing plot]
+![alt text][conjugate_infinite_variance]
+
+[conjugate_infinite_variance]: figure/conjugate_infinite_variance.png "conjugate_infinite_variance"
+
+
 
 a + b is equivalent to prior sample size. 
 
