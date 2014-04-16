@@ -1,5 +1,6 @@
 library("grid")
 library("ggplot2")
+library("gridExtra")
 
 nothing_theme <- theme(title = element_text(size = 20, face = "bold.italic"), 
                        panel.background = element_blank(), panel.grid.major = element_blank(), 
@@ -60,8 +61,6 @@ dev.off()
 
 
 # Diagram 3 stat_binom model ------------------------------------------------
-
-library("gridExtra")
 
 x <- c(1, 2, 2, 1, 1)
 y <- c(1, 1, 2, 2, 1)
@@ -144,3 +143,67 @@ lik <- "italic(l)[y] * '(' * theta * ')'"
 png(filename = "figure/bayesian_model_amp.png")
 diagram5 +  ggtitle("Bayesian model") + nothing_theme
 dev.off()
+
+
+# Diagram 6 All models compared -------------------------------------------
+
+eq <- "'{P(y| ' * theta * '):' * theta %in% Omega * '}'"
+def1 <- "'a) Point estimation   '"
+def2 <- "'b) Interval estimation'"
+def3 <- "'c) Hipothesis testing '"
+
+diagram1 <- diagram
+diagram1$y <- diagram1$y + 1
+
+dibuix <- ggplot(data = diagram1, aes(x = x, y = y)) + ylim(- 0.25, 3) + xlim(0.75, 2.25) +
+  geom_path() + 
+  geom_segment(aes(x = 1.5, y = 2.25, xend = 1.5, yend = 1.125), arrow = arrow(length = unit(0.2, "cm"))) 
+
+text1 <- "italic('You get data')"
+text2 <- "Y == y"
+
+(diagram2 <- dibuix + 
+   annotate("text", x = 1.5, y = 2.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.775, y = 1.6, parse = TRUE, size = 6, label = text1) +
+   annotate("text", x = 1.65, y = 1.4, parse = TRUE, size = 6, label = text2) +
+   annotate("text", x = 1.5, y = 0.75, parse = TRUE, size = 6, label = def1) + 
+   annotate("text", x = 1.5, y = 0.625, parse = TRUE, size = 6, label = def2) + 
+   annotate("text", x = 1.5, y = 0.5, parse = TRUE, size = 6, label = def3))
+
+fre_mod <- diagram2 +  ggtitle("Frequentist model") + nothing_theme
+
+diagram2 <- diagram
+diagram2$y <- diagram2$y -1
+
+dibuix2 <- dibuix + geom_path(data = diagram2)
+
+lik <- "italic(l)[y] * '(' * theta * ')'"
+
+(diagram2 <- dibuix2 + 
+   annotate("text", x = 1.5, y = 2.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.775, y = 1.6, parse = TRUE, size = 6, label = text1) +
+   annotate("text", x = 1.65, y = 1.4, parse = TRUE, size = 6, label = text2) +
+   annotate("text", x = 1.5, y = 0.7, parse = TRUE, size = 6, label = eq) + 
+   annotate("text", x = 1.5, y = 0.4, parse = TRUE, size = 6, label = lik))
+
+lik_mod <- diagram2 +  ggtitle("Likelihood based model") + nothing_theme
+
+prior <- "pi * '(' * theta * ')'"
+posterior <- "pi * '(' * theta * '| y)'"
+
+(diagram2 <- dibuix2 + 
+   annotate("text", x = 1.5, y = 2.6, parse = TRUE, size = 7, label = eq) +
+   annotate("text", x = 1.5, y = 2.4, parse = TRUE, size = 7, label = prior) +
+   annotate("text", x = 1.775, y = 1.6, parse = TRUE, size = 6, label = text1) +
+   annotate("text", x = 1.65, y = 1.4, parse = TRUE, size = 6, label = text2) +
+   annotate("text", x = 1.5, y = 0.7, parse = TRUE, size = 6, label = eq) + 
+   annotate("text", x = 1.5, y = 0.5, parse = TRUE, size = 6, label = posterior))
+
+bay_mod <- diagram2 +  ggtitle("Bayesian model") + nothing_theme
+
+png(filename = "figure/all_models.png", width = 980)
+grid.arrange(fre_mod, lik_mod, bay_mod, ncol = 3)
+dev.off()
+
+
+

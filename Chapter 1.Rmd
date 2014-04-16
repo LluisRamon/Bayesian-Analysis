@@ -443,7 +443,9 @@ Since data gets into the posterior only through the likelihood, $\ell_{y}(\theta
 
 A flat prior (a uniform) is a prior that is constant on $\Omega$. If you use them, then $\pi(\theta|y)~\propto~\ell_{u}$ like $\ell_{y}^{st}$
 
-![alt text][Missing plot]
+![alt text][all_models]
+
+[all_models]: figure/all_models.png "all_models"
 
 * In Frequentist statistics you fit a model, namely, from all your possible infinite models in M you just pick one.
 * In likelihood based statistics after data you get M and the likelihood function, that ranks your statistical models $P(y|\theta)$ from more to less likely.
